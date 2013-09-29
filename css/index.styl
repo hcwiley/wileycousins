@@ -1,3 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300italic,400italic,500,700);
+
+$mainColor = #2A3F42
+$greenColor = #B7C22C
+$lightBlueColor = #22A8B5
+$whiteColor = #fff
+
 *
   margin 0px
   padding 0px
@@ -8,10 +15,22 @@
 html, body
   width 100%
   height 100%
-  background-color #193441
+  //background-color $mainColor
 
 a
-  color #3E606F
+  color $greenColor
+
+
+a, p
+  font-family 'Roboto', sans-serif
+
+h3
+  color $mainColor
+  font-weight 700
+
+.title
+  width 100%
+  margin-bottom 30px
 
 #todo
   margin 0 auto
@@ -19,7 +38,7 @@ a
   height auto
   min-height 100%
   padding 40px 100px
-  background #FCFFF5
+  background $whiteColor
   //background-image url('../images/bg.png')
   ul
     margin-left 50px
@@ -34,65 +53,34 @@ a
     padding-bottom 10px
     height 20px
 
-.bio
+.nav
   position absolute
   left 0px
-  padding 30px 0px
+  padding 0px
   width 100%
-  height 330px
-  box-shadow 15px 0px 45px rgba(0,0,0,0.3)
-  background-color #91AA9D
-  text-align center
-  p
-    font-family: 'Economica' sans-serif
-    //margin 10px auto
-    color #261F1D
-    //width 350px
-    font-weight 700
-    //line-height 15pt
-    strong
-      font-size 20px
-.content
-  width 600px
   height auto
+  box-shadow 15px 0px 45px rgba(0,0,0,0.3)
+  //background-color $lightBlueColor
+  background-color $mainColor
+  text-align center
+  .link
+    display inline-block
+    color $greenColor
+    border-right 1px solid $greenColor
+    padding 5px 20px 11px 20px
+    a
+      font-size 20px
+      color $lightBlueColor
+      font-variant small-caps
+  .link:last-child
+    border-right none
+
+#gents
   position relative
-  top 50px
-  margin 350px auto 0px auto
+  margin-top 60px
+
 strong
   font-variant small-caps
   font-size 13pt
   color #D1DBBD
 
-#dev-links
-  width 120px
-  margin 10px auto
-  padding 10px 0px 0px 0px
-  position relative
-  height 120px
-.dev-link
-  height 120px
-  width 140px
-  background-size 90px 90px
-  background-repeat no-repeat
-  background-position 10% 10%
-  padding 0px 0px
-  //margin 0px 10px
-  float left
-  display inline-block
-.dev-link:hover
-  opacity .6
-#github
-  padding-left 0px
-  margin-left 20px
-  background-image url('../images/blacktocat.svg')
-#email
-  background-image url('../images/email.svg')
-#resume
-  background-image url('../images/resume.svg')
-  padding-right 0px
-  margin-right 0px
-
-h1
-  font-family 'Adamina', serif
-  color #261F1D
-  font-variant small-caps
