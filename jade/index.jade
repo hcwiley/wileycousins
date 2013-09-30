@@ -61,10 +61,42 @@ html
               img.hover(src='/images/email-hover.svg', title='email')
       .col-sm-3
         img.gents-img(src='/images/gents.png', title='the gents', width="100%")
-    #skills.col-md-12
-      .container.responsive
+    #skills
+      .container
         .row
           h2.text-center.white skills
-        .col-md-6
-          p Phasellus eget nisl ut elit porta ullamcorper.
+          br
+          br
+        .col-sm-12
+          .row
+            .col-sm-6.skill
+              .col-sm-3.col-sm-offset-3
+                img(src='/images/chip.svg')
+              .col-sm-2
+                h3.green hardware design &nbsp;
+                h3.white &amp;&nbsp;
+                h3.blue development
+            .col-sm-6.skill
+              .col-sm-3.col-sm-offset-3
+                img(src='/images/router.svg')
+              .col-sm-2
+                h3.blue embedded wireless&nbsp;
+                h3.white &amp;&nbsp;
+                h3.green wifi
+          .row
+            .col-sm-6.skill
+              .col-sm-3.col-sm-offset-3
+                img(src='/images/phone.svg')
+              .col-sm-2
+                h3.green Android&nbsp;
+                h3.white &amp;&nbsp;
+                h3.blue  iOS apps
+            .col-sm-6.skill
+              .col-sm-3.col-sm-offset-3
+                img(src='/images/wrench.svg')
+              .col-sm-3
+                h3.blue physical prototyping&nbsp;
+                h3.white &amp;&nbsp;
+                h3.green production
+
   script(type='text/javascript', src='/js/client.js')
