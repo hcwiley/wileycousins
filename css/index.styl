@@ -1,10 +1,15 @@
+@import 'node_modules/nib/lib/nib'
+
 @import url("http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,500italic|Roboto:400,300,500")
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css")
 
 $mainColor = #2A3F42
+$gradMid = #2c4144
 $greenColor = #B7C22C
 $lightBlueColor = #22A8B5
 $whiteColor = #fff
+
+reset-html5()
 
 *
   text-decoration none
@@ -26,22 +31,34 @@ h1,h2,h3,h4,h5
   font-family 'Ubuntu', sans-serif
   font-weight bold
   color $mainColor
-  font-weight 700
+  font-weight 200
   text-align left
 
 h2
-  color $lightBlueColor
+  color $mainColor
+  font-variant small-caps
+  font-size 55px
+  font-weight 200
+
+hr
+  color $mainColor
+  border-color $mainColor
+
+hr.dotted
+  border-style dotted
 
 a, p
   font-family 'Roboto', sans-serif
   text-align left
+  font-weight 400
+p
+  color #000
 
 .blue
   color $lightBlueColor
 .green
   color $greenColor
-.amp
-  margin 0px 10px
+.white
   color $whiteColor
 
 .title
@@ -51,16 +68,21 @@ a, p
 
 .navbar.nav
   height auto
-  background-color $mainColor
+  background linear-gradient(top, $mainColor, $gradMid, $mainColor)
+  //background linear-gradient(top, $gradMid, $mainColor, $gradMid)
   text-align center
   width 100%
   max-width 100%
   min-height 20px
+  border-radius 0px
+  margin 0px
+  box-shadow 0px -5px 10px rgba(0,0,0,.2)
   .link
     display inline-block
     color $greenColor
     border-right 1px solid $greenColor
-    padding 5px 40px 11px 40px
+    padding 5px 50px
+    padding-bottom 11px
     a
       font-size 20px
       font-weight 700
@@ -70,23 +92,49 @@ a, p
   .link:last-child
     border-right none
 
+.navbar.nav.navbar-fixed-top
+  box-shadow 0px 5px 10px rgba(0,0,0,.2)
+
 #about
-  position absolute
-  top 270px
-  left 0px
   width 100%
   background $mainColor
   margin 0px
-  padding 50px 0px
+  padding 90px 0px
+  box-shadow 0px 5px 10px rgba(0,0,0,.4)
   img
-    width 70%
+    width 75%
 
 #main
-  margin-top 300px
+  margin-top 0px
 
 #gents
   position relative
-  margin-top 0px
+  margin 40px auto
+  .body
+    line-height 25px
+  .link
+    text-align center
+    margin 0 10px
+    width 50px
+    display inline-block
+    float none
+    img
+      width 50px
+    img.hover
+      display none
+  .link:hover
+    img:not(.hover)
+      display none
+    img.hover
+      display inline-block
+  .gents-img
+    max-width 350px
+    margin-top 70px
+
+#skills
+  background $lightBlueColor
+  min-height 500px
+  padding 50px 0px
 
 strong
   font-variant small-caps

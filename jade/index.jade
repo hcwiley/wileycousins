@@ -5,11 +5,13 @@ html
     link(type='text/css', rel='stylesheet', href='/css/index.css')
     link(rel='icon', type='image/x-icon', href='/images/fav.png')
     meta(name="viewport",content="width=device-width, initial-scale=1.0")
+    script(type='text/javascript', src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+    script(type='text/javascript', src='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
   body
     a(href='/')
       img.title(src='/images/title.png', title='Wiley Cousins')
     br
-    .navbar.nav
+    .navbar.nav(role="navigation")
       .link
         a(href='#gents') gents
       .link
@@ -18,30 +20,51 @@ html
         a(href='#products') products
       .link
         a(href='#contact') contact us
-    br
     #about.row.col-md-12
       img(src='/images/about.png')
-    #main.container.responsive
-      #gents.row.col-md-12
+    #gents.container.responsive
+      .row
+        h2.text-center the gents
+        br
+        br
+      .col-sm-9
+        .row.mike
+          .col-sm-4
+            h3.blue Michael Cousins
+          .col-sm-7.body
+            p Michael is a Northwestern University educated mechanical engineer with a variety of interests outside the fun-filled world of engineering. He has experience in consumer product design (mostly plastic injection molded parts), as well as mechatronics/robotics design.
+            a.link(href='https://github.com/mcous', target='_blank')
+              img(src='/images/octocat.svg', title='github')
+              img.hover(src='/images/octocat-hover.svg', title='github')
+            a.link(href='http://mcous.in', target='_blank')
+              img(src='/images/page.svg', title='webpage')
+              img.hover(src='/images/page-hover.svg', title='webpage')
+            a.link(href='mailto:michael@wileycousins.com')
+              img(src='/images/email.svg', title='github')
+              img.hover(src='/images/email-hover.svg', title='email')
         .row
-          hr
-          h2.text-center the gents
-        .col-md-8
-          .row
-            .col-md-3
-              h3 Michael Cousins
-            .col-md-5
-              p Nulla dui purus, eleifend vel, consequat non, dictum porta, nulla. Duis ante mi, laoreet ut, commodo eleifend, cursus nec, lorem. Aenean eu est. Etiam imperdiet turpis.
-          .row
-            .col-md-3
-              h3 Cole Wiley
-            .col-md-5
-              p Cras sed ante. Phasellus in massa. Curabitur dolor eros, gravida et, hendrerit ac, cursus non, massa. Aliquam lorem. In hac habitasse platea dictumst. Cras eu mauris. Quisque lacus. Donec ipsum. Nullam vitae sem at nunc pharetra ultricies. Vivamus elit eros, ullamcorper a, adipiscing sit amet, porttitor ut, nibh. 
-        .col-md-2
-          img(src='/images/gents.png', title='the gents', width="200px")
-      .row.col-md-12
-        hr
-      #skills.col-md-12
+          .col-xs-9.col-sm-offset-1
+            hr.dotted
+        .row.cole
+          .col-sm-4
+            h3.green H. Cole Wiley
+          .col-sm-7.body
+            p Cole has a background in software development, web development, sculpture, digital art, system architecture, computer vision, 3d modeling, rapid prototyping, and a couple other things. His favorite language at the moment is Coffeescript. He enjoys a double espresso in the morning, and a rye whiskey neat in the evening.
+            a.link(href='https://github.com/hcwiley', target='_blank')
+              img(src='/images/octocat.svg', title='github')
+              img.hover(src='/images/octocat-hover.svg', title='github')
+            a.link(href='http://hcwiley.com', target='_blank')
+              img(src='/images/page.svg', title='webpage')
+              img.hover(src='/images/page-hover.svg', title='webpage')
+            a.link(href='mailto:cole@wileycousins.com')
+              img(src='/images/email.svg', title='github')
+              img.hover(src='/images/email-hover.svg', title='email')
+      .col-sm-3
+        img.gents-img(src='/images/gents.png', title='the gents', width="100%")
+    #skills.col-md-12
+      .container.responsive
         .row
-          .col-md-6
-            p Phasellus eget nisl ut elit porta ullamcorper.
+          h2.text-center.white skills
+        .col-md-6
+          p Phasellus eget nisl ut elit porta ullamcorper.
+  script(type='text/javascript', src='/js/client.js')
