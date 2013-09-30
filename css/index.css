@@ -99,11 +99,7 @@ p {
 }
 .navbar.nav {
   height: auto;
-  background: -webkit-linear-gradient(top, #2a3f42, #2d4245, #2a3f42);
-  background: -moz-linear-gradient(top, #2a3f42, #2d4245, #2a3f42);
-  background: -o-linear-gradient(top, #2a3f42, #2d4245, #2a3f42);
-  background: -ms-linear-gradient(top, #2a3f42, #2d4245, #2a3f42);
-  background: linear-gradient(to bottom, #2a3f42, #2d4245, #2a3f42);
+  background: #2a3f42;
   text-align: center;
   width: 100%;
   max-width: 100%;
@@ -111,8 +107,8 @@ p {
   -webkit-border-radius: 0px;
   border-radius: 0px;
   margin: 0px;
-  -webkit-box-shadow: 0px -5px 10px rgba(0,0,0,0.4);
-  box-shadow: 0px -5px 10px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
+  box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
 }
 .navbar.nav .link {
   display: inline-block;
@@ -131,13 +127,13 @@ p {
   border-right: none;
 }
 .navbar.nav.navbar-fixed-top {
-  -webkit-transition: box-shadow 1s;
-  -moz-transition: box-shadow 1s;
-  -o-transition: box-shadow 1s;
-  -ms-transition: box-shadow 1s;
-  transition: box-shadow 1s;
-  -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+  -webkit-transition: normalize('transition', box-shadow 1s, webkit);
+  -moz-transition: normalize('transition', box-shadow 1s, moz);
+  -o-transition: normalize('transition', box-shadow 1s, o);
+  -ms-transition: normalize('transition', box-shadow 1s, ms);
+  transition: normalize('transition', box-shadow 1s);
+  -webkit-box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
 @media only screen and (max-width: 685px) and (min-width: 606px) {
   .navbar.nav .link {
@@ -168,8 +164,8 @@ p {
   background: #2a3f42;
   margin: 0px;
   padding: 90px 0px;
-  -webkit-box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
 #about img {
   width: 75%;
@@ -208,8 +204,8 @@ p {
   margin-top: 70px;
 }
 #skills {
-  -webkit-box-shadow: 0px -5px 10px rgba(0,0,0,0.4);
-  box-shadow: 0px -5px 10px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
+  box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
   background: #22a8b5;
   min-height: 500px;
   padding: 50px 0px;
