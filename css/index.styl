@@ -63,13 +63,14 @@ p
   color $whiteColor
 
 .title
-  width 100%
+  width 90%
   margin 30px auto
   max-width 700px
 
 .navbar.nav
   height auto
-  background linear-gradient(top, $mainColor, $gradMid, $mainColor)
+  //background linear-gradient(top, $mainColor, $gradMid, $mainColor)
+  background $mainColor
   //background linear-gradient(top, $gradMid, $mainColor, $gradMid)
   text-align center
   width 100%
@@ -77,7 +78,7 @@ p
   min-height 20px
   border-radius 0px
   margin 0px
-  box-shadow 0px -5px 10px rgba(0,0,0,.2)
+  box-shadow 0px -5px 10px rgba(0,0,0,.4)
   .link
     display inline-block
     color $greenColor
@@ -95,7 +96,7 @@ p
 
 .navbar.nav.navbar-fixed-top
   transition box-shadow 1s
-  box-shadow 0px 5px 10px rgba(0,0,0,.2)
+  box-shadow 0px 5px 10px rgba(0,0,0,.4)
 
 @media only screen and (max-width: 685px) and (min-width: 606px)
   .navbar.nav
