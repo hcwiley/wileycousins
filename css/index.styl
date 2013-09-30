@@ -4,7 +4,7 @@
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css")
 
 $mainColor = #2A3F42
-$gradMid = #2c4144
+$gradMid = #2d4245
 $greenColor = #B7C22C
 $lightBlueColor = #22A8B5
 $whiteColor = #fff
@@ -46,7 +46,8 @@ hr
   border-color $mainColor
 
 hr.dotted
-  border-style dotted
+  border-style dashed
+  border-spacing 10px 50px
 
 a, p
   font-family 'Roboto', sans-serif
@@ -69,8 +70,8 @@ p
 
 .navbar.nav
   height auto
-  //background linear-gradient(top, $mainColor, $gradMid, $mainColor)
-  background $mainColor
+  background linear-gradient(top, $mainColor, $gradMid, $mainColor)
+  //background $mainColor
   //background linear-gradient(top, $gradMid, $mainColor, $gradMid)
   text-align center
   width 100%
@@ -156,7 +157,7 @@ p
     img.hover
       display inline-block
   .gents-img
-    max-width 350px
+    max-width 330px
     margin-top 70px
 
 #skills
@@ -175,8 +176,8 @@ p
     .white
       font-weight 600
     img
-      width 100%
-      max-height 200px
+      height 100%
+      max-width 200px
       margin-bottom 10px
     
 @media only screen and (max-width: 768px)
