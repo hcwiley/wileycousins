@@ -1,36 +1,5 @@
 @import url("http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,500italic|Roboto:400,300,500");
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
-article,
-aside,
-canvas,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary,
-main {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  display: block;
-}
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-audio:not([controls]),
-[hidden] {
-  display: none;
-}
 * {
   text-decoration: none;
   font-family: "Helvetica", sans-serif;
@@ -81,7 +50,7 @@ p {
   font-weight: 400;
 }
 p {
-  color: #000;
+  color: #2a3f42;
 }
 .blue {
   color: #22a8b5;
@@ -104,11 +73,9 @@ p {
   width: 100%;
   max-width: 100%;
   min-height: 20px;
-  -webkit-border-radius: 0px;
   border-radius: 0px;
   margin: 0px;
-  -webkit-box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
-  box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
+  box-shadow: 0px -10px 15px rgba(0,0,0,0.1);
 }
 .navbar.nav .link {
   display: inline-block;
@@ -127,12 +94,7 @@ p {
   border-right: none;
 }
 .navbar.nav.navbar-fixed-top {
-  -webkit-transition: normalize('transition', box-shadow 1s, webkit);
-  -moz-transition: normalize('transition', box-shadow 1s, moz);
-  -o-transition: normalize('transition', box-shadow 1s, o);
-  -ms-transition: normalize('transition', box-shadow 1s, ms);
-  transition: normalize('transition', box-shadow 1s);
-  -webkit-box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
+  transition: box-shadow 1s;
   box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
 @media only screen and (max-width: 685px) and (min-width: 606px) {
@@ -164,7 +126,6 @@ p {
   background: #2a3f42;
   margin: 0px;
   padding: 90px 0px;
-  -webkit-box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
   box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
 #about img {
@@ -184,27 +145,27 @@ p {
   text-align: center;
   margin: 15px 10px;
   width: 50px;
+  height: 50px;
   display: inline-block;
   float: none;
 }
 #gents .link img {
+  position: absolute;
+  transition: opacity 0.5s;
+  opacity: 1;
   width: 50px;
 }
 #gents .link img.hover {
-  display: none;
-}
-#gents .link:hover img:not(.hover) {
-  display: none;
+  opacity: 0;
 }
 #gents .link:hover img.hover {
-  display: inline-block;
+  opacity: 1;
 }
 #gents .gents-img {
   max-width: 330px;
   margin-top: 70px;
 }
 #skills {
-  -webkit-box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
   box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
   background: #22a8b5;
   min-height: 500px;
@@ -226,6 +187,7 @@ p {
 }
 #skills .skill img {
   height: 100%;
+  width: auto;
   max-width: 200px;
   margin-bottom: 10px;
 }

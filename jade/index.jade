@@ -70,33 +70,49 @@ html
         .col-sm-12
           .row
             .col-sm-6.skill
-              .col-sm-3.col-sm-offset-3
-                img(src='/images/chip.svg')
-              .col-sm-2
-                h3.green hardware design &nbsp;
-                h3.white &amp;&nbsp;
-                h3.blue development
+              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#hardware-collapse")
+                .col-sm-4.col-sm-offset-3
+                  img(src='/images/chip.svg')
+                .col-sm-2
+                  h3.green hardware design &nbsp;
+                  h3.white &amp;&nbsp;
+                  h3.green development
+              #hardware-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-3
+                .panel-body
+                  p We have experience with designing PCBs (printed circuit boards) to meet a variety of size and cost requirements
             .col-sm-6.skill
-              .col-sm-3.col-sm-offset-3
-                img(src='/images/router.svg')
-              .col-sm-2
-                h3.blue embedded wireless&nbsp;
-                h3.white &amp;&nbsp;
-                h3.green wifi
+              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#wireless-collapse")
+                .col-sm-4.col-sm-offset-3
+                  img(src='/images/router.svg')
+                .col-sm-2
+                  h3.green embedded wireless&nbsp;
+                  h3.white &amp;&nbsp;
+                  h3.green wifi
+              #wireless-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-3
+                .panel-body
+                  p Making things talk over wireless is our favorite. No really. Its magic, and so are we when it comes to it.
           .row
             .col-sm-6.skill
-              .col-sm-3.col-sm-offset-3
-                img(src='/images/phone.svg')
-              .col-sm-2
-                h3.green Android&nbsp;
-                h3.white &amp;&nbsp;
-                h3.blue  iOS apps
+              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#mobile-collapse")
+                .col-sm-4.col-sm-offset-3
+                  img(src='/images/phone.svg')
+                .col-sm-2
+                  h3.green android&nbsp;
+                  h3.white &amp;&nbsp;
+                  h3.green  iOS apps
+              #mobile-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-3
+                .panel-body
+                  p "I've got a great idea for an app!" Of course you do, everyone does. That's why we make them.
             .col-sm-6.skill
-              .col-sm-3.col-sm-offset-3
-                img(src='/images/wrench.svg')
-              .col-sm-3
-                h3.blue physical prototyping&nbsp;
-                h3.white &amp;&nbsp;
-                h3.green production
+              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#physical-collapse")
+                .col-sm-4.col-sm-offset-3
+                  img(src='/images/wrench.svg')
+                .col-sm-3
+                  h3.green physical prototyping&nbsp;
+                  h3.white &amp;&nbsp;
+                  h3.green production
+              #physical-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-3
+                .panel-body
+                  p What do you get when put an egineer and a sculptor together? A whole lot of things... We love making things, especially physical things.
 
   script(type='text/javascript', src='/js/client.js')

@@ -1,4 +1,4 @@
-@import 'node_modules/nib/lib/nib'
+@import 'node_modules/nib/lib/nib/gradients'
 
 @import url("http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,500italic|Roboto:400,300,500")
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css")
@@ -54,7 +54,7 @@ a, p
   text-align left
   font-weight 400
 p
-  color #000
+  color $mainColor
 
 .blue
   color $lightBlueColor
@@ -79,7 +79,7 @@ p
   min-height 20px
   border-radius 0px
   margin 0px
-  box-shadow 0px -5px 20px rgba(0,0,0,.2)
+  box-shadow 0px -10px 15px rgba(0,0,0,0.1)
   .link
     display inline-block
     color $greenColor
@@ -145,17 +145,19 @@ p
     text-align center
     margin 15px 10px
     width 50px
+    height 50px
     display inline-block
     float none
     img
+      position absolute
+      transition opacity .5s
+      opacity 1
       width 50px
     img.hover
-      display none
+      opacity 0
   .link:hover
-    img:not(.hover)
-      display none
     img.hover
-      display inline-block
+      opacity 1
   .gents-img
     max-width 330px
     margin-top 70px
@@ -177,6 +179,7 @@ p
       font-weight 600
     img
       height 100%
+      width auto
       max-width 200px
       margin-bottom 10px
     
