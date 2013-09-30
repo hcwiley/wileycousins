@@ -3,7 +3,7 @@ function bindScroll(){
   $(window).unbind("scroll");
   $(window).on("scroll",function(e){
     var curPos = $(window).scrollTop();
-    var top = $(".navbar").offset().top;
+    var top = $("#about").offset().top - $(".navbar").height();
     //console.log(curPos+", "+top);
     if(curPos >= top ){
       if(!$(".navbar").hasClass("navbar-fixed-top") ){
