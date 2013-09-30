@@ -1,10 +1,9 @@
-@import url("http://fonts.googleapis.com/css?family=Roboto:400,300italic,400italic,500,700");
+@import url("http://fonts.googleapis.com/css?family=Ubuntu:400,500,700,500italic|Roboto:400,300,500");
+@import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
 * {
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
   text-decoration: none;
   font-family: "Helvetica", sans-serif;
+  text-align: center;
 }
 html,
 body {
@@ -14,67 +13,85 @@ body {
 a {
   color: #b7c22c;
 }
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  color: #2a3f42;
+  font-weight: 700;
+  text-align: left;
+}
+h2 {
+  color: #22a8b5;
+}
 a,
 p {
   font-family: 'Roboto', sans-serif;
+  text-align: left;
 }
-h3 {
-  color: #2a3f42;
-  font-weight: 700;
+.blue {
+  color: #22a8b5;
+}
+.green {
+  color: #b7c22c;
+}
+.amp {
+  margin: 0px 10px;
+  color: #fff;
 }
 .title {
   width: 100%;
-  margin-bottom: 30px;
+  margin: 30px auto;
+  max-width: 700px;
 }
-#todo {
-  margin: 0 auto;
-  width: 600px;
+.navbar.nav {
   height: auto;
-  min-height: 100%;
-  padding: 40px 100px;
-  background: #fff;
-}
-#todo ul {
-  margin-left: 50px;
-}
-#todo li {
-  list-style: none;
-  background-image: url("../images/bullet.svg");
-  background-position: -150px 0px;
-  background-repeat: no-repeat;
-  background-size: 60% 60%;
-  margin-bottom: 5px;
-  padding-left: 60px;
-  padding-bottom: 10px;
-  height: 20px;
-}
-.nav {
-  position: absolute;
-  left: 0px;
-  padding: 0px;
-  width: 100%;
-  height: auto;
-  box-shadow: 15px 0px 45px rgba(0,0,0,0.3);
   background-color: #2a3f42;
   text-align: center;
+  width: 100%;
+  max-width: 100%;
+  min-height: 20px;
 }
-.nav .link {
+.navbar.nav .link {
   display: inline-block;
   color: #b7c22c;
   border-right: 1px solid #b7c22c;
-  padding: 5px 20px 11px 20px;
+  padding: 5px 40px 11px 40px;
 }
-.nav .link a {
+.navbar.nav .link a {
   font-size: 20px;
-  color: #22a8b5;
+  font-weight: 700;
+  color: #fff;
   font-variant: small-caps;
 }
-.nav .link:last-child {
+.navbar.nav .link:last-child {
   border-right: none;
+}
+#about {
+  position: absolute;
+  top: 270px;
+  left: 0px;
+  width: 100%;
+  background: #2a3f42;
+  margin: 0px;
+  padding: 50px 0px;
+}
+#about img {
+  width: 70%;
+}
+#main {
+  margin-top: 300px;
 }
 #gents {
   position: relative;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 strong {
   font-variant: small-caps;
