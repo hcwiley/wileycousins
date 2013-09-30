@@ -150,9 +150,15 @@ p {
     padding-bottom: 11px;
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 450px) and (min-width: 400px) {
   .navbar.nav .link {
     padding: 5px 16px;
+    padding-bottom: 11px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .navbar.nav .link {
+    padding: 5px 7px;
     padding-bottom: 11px;
   }
 }
