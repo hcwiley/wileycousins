@@ -32,8 +32,11 @@ h5 {
 }
 h2 {
   font-variant: small-caps;
-  font-size: 55px;
-  font-weight: 200;
+  font-size: 60px;
+  font-weight: 400;
+}
+.strong {
+  font-weight: 500;
 }
 hr {
   color: #2a3f42;
@@ -51,6 +54,7 @@ p {
 }
 p {
   color: #2a3f42;
+  font-weight: 100;
 }
 .blue {
   color: #22a8b5;
@@ -60,6 +64,9 @@ p {
 }
 .white {
   color: #fff;
+}
+.bg-blue {
+  background: #22a8b5;
 }
 .title {
   width: 90%;
@@ -77,14 +84,14 @@ p {
   margin: 0px;
   box-shadow: 0px -10px 15px rgba(0,0,0,0.1);
 }
-.navbar.nav .link {
+.navbar.nav .nav-link {
   display: inline-block;
   color: #b7c22c;
   border-right: 1px solid #b7c22c;
   padding: 5px 50px;
   padding-bottom: 11px;
 }
-.navbar.nav .link a {
+.navbar.nav .nav-link a {
   font-size: 23px;
   font-weight: 200;
   font-family: 'Ubuntu';
@@ -98,28 +105,37 @@ p {
   transition: box-shadow 1s;
   box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
-@media only screen and (max-width: 685px) and (min-width: 606px) {
+@media only screen and (max-width: 793px) and (min-width: 693px) {
   .navbar.nav .link {
     padding: 5px 40px;
     padding-bottom: 11px;
   }
 }
-@media only screen and (max-width: 605px) and (min-width: 450px) {
+@media only screen and (max-width: 692px) and (min-width: 494px) {
   .navbar.nav .link {
     padding: 5px 20px;
     padding-bottom: 11px;
   }
 }
-@media only screen and (max-width: 450px) and (min-width: 400px) {
+@media only screen and (max-width: 493px) and (min-width: 455px) {
   .navbar.nav .link {
     padding: 5px 16px;
     padding-bottom: 11px;
   }
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 454px) and (min-width: 394px) {
   .navbar.nav .link {
     padding: 5px 7px;
     padding-bottom: 11px;
+  }
+}
+@media only screen and (max-width: 393px) {
+  .navbar.nav .link {
+    padding: 5px 7px;
+    padding-bottom: 11px;
+  }
+  .navbar.nav .link a {
+    font-size: 18px;
   }
 }
 #about {
@@ -169,12 +185,9 @@ p {
 }
 #products {
   background: #22a8b5;
-  box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 40px rgba(0,0,0,0.4);
   min-height: 500px;
   padding: 50px 0px;
-}
-#products h3 {
-  font-weight: 500;
 }
 #gents {
   position: relative;
@@ -187,9 +200,9 @@ p {
 #gents .body {
   line-height: 25px;
 }
-#gents .link {
+.link {
   text-align: center;
-  margin: 15px 10px;
+  margin: 0px 10px;
   width: 50px;
   height: 50px;
   display: inline-block;
@@ -197,7 +210,7 @@ p {
   position: relative;
   padding: 0;
 }
-#gents .link img {
+.link img {
   padding: 0;
   margin: 0;
   top: 0px;
@@ -207,18 +220,31 @@ p {
   opacity: 1;
   width: 50px;
 }
-#gents .link img.hover {
+.link img.hover {
   opacity: 0;
 }
-#gents .link:hover img.hover {
+.link:hover img.hover {
   opacity: 1;
 }
-#gents .link:hover img:not(.hover) {
+.link:hover img:not(.hover) {
   opacity: 0;
 }
-#gents .gents-img {
+.link:hover .gents-img {
   max-width: 330px;
   margin-top: 70px;
+}
+#contact {
+  background: #b7c22c;
+  padding: 50px 0px 140px 0px;
+  box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
+}
+#contact .map {
+  padding: 10px;
+  background: #fff;
+}
+#contact .map img {
+  width: 100%;
+  max-width: 300px;
 }
 strong {
   font-variant: small-caps;

@@ -37,8 +37,11 @@ h1,h2,h3,h4,h5
 
 h2
   font-variant small-caps
-  font-size 55px
-  font-weight 200
+  font-size 60px
+  font-weight 400
+
+.strong
+  font-weight 500
 
 hr
   color $mainColor
@@ -54,6 +57,7 @@ a, p
   font-weight 400
 p
   color $mainColor
+  font-weight 100
 
 .blue
   color $lightBlueColor
@@ -61,6 +65,9 @@ p
   color $greenColor
 .white
   color $whiteColor
+
+.bg-blue
+  background $lightBlueColor
 
 .title
   width 90%
@@ -79,7 +86,7 @@ p
   border-radius 0px
   margin 0px
   box-shadow 0px -10px 15px rgba(0,0,0,0.1)
-  .link
+  .nav-link
     display inline-block
     color $greenColor
     border-right 1px solid $greenColor
@@ -99,29 +106,37 @@ p
   transition box-shadow 1s
   box-shadow 0px 5px 20px rgba(0,0,0,.2)
 
-@media only screen and (max-width: 685px) and (min-width: 606px)
+@media only screen and (max-width: 793px) and (min-width: 693px)
   .navbar.nav
     .link
       padding 5px 40px
       padding-bottom 11px
 
-@media only screen and (max-width: 605px) and (min-width: 450px)
+@media only screen and (max-width: 692px) and (min-width: 494px)
   .navbar.nav
     .link
       padding 5px 20px
       padding-bottom 11px
 
-@media only screen and (max-width: 450px) and (min-width: 400px)
+@media only screen and (max-width: 493px) and (min-width: 455px)
   .navbar.nav
     .link
       padding 5px 16px
       padding-bottom 11px
 
-@media only screen and (max-width: 400px)
+@media only screen and (max-width: 454px) and (min-width: 394px)
   .navbar.nav
     .link
       padding 5px 7px
       padding-bottom 11px
+
+@media only screen and (max-width: 393px)
+  .navbar.nav
+    .link
+      padding 5px 7px
+      padding-bottom 11px
+      a
+        font-size 18px
 
 
 #about
@@ -167,11 +182,10 @@ p
 
 #products
   background $lightBlueColor
-  box-shadow 0px 0px 20px rgba(0,0,0,.2)
+  //background $mainColor
+  box-shadow 0px 0px 40px rgba(0,0,0,.4)
   min-height 500px
   padding 50px 0px
-  h3
-    font-weight 500
 
 
 #gents
@@ -182,34 +196,46 @@ p
     font-weight 500
   .body
     line-height 25px
-  .link
-    text-align center
-    margin 15px 10px
-    width 50px
-    height 50px
-    display inline-block
-    float none
-    position relative
+
+.link
+  text-align center
+  margin 0px 10px
+  width 50px
+  height 50px
+  display inline-block
+  float none
+  position relative
+  padding 0
+  img
     padding 0
-    img
-      padding 0
-      margin 0
-      top 0px
-      left 0px
-      position absolute
-      transition opacity .5s
-      opacity 1
-      width 50px
-    img.hover
-      opacity 0
-  .link:hover
-    img.hover
-      opacity 1
-    img:not(.hover)
-      opacity 0
+    margin 0
+    top 0px
+    left 0px
+    position absolute
+    transition opacity .5s
+    opacity 1
+    width 50px
+  img.hover
+    opacity 0
+.link:hover
+  img.hover
+    opacity 1
+  img:not(.hover)
+    opacity 0
   .gents-img
     max-width 330px
     margin-top 70px
+
+#contact
+  background $greenColor
+  padding 50px 0px 140px 0px
+  box-shadow 0px -5px 20px rgba(0,0,0,.2)
+  .map
+    padding 10px
+    background $whiteColor
+    img
+      width 100%
+      max-width 300px
 
 strong
   font-variant small-caps

@@ -16,20 +16,22 @@ html
       h1(style='display:none;') Wiley Cousins
     br
     .navbar.nav(role="navigation")
-      .link
+      .nav-link
         a(href='#skills') skills
-      .link
+      .nav-link
         a(href='#products') products
-      .link
+      .nav-link
         a(href='#gents') gents
-      .link
+      .nav-link
         a(href='#contact') contact
+      .nav-link
+        a(href='http://blog.wileycousins.com/', target='_blank') blog
     #about.row.col-md-12
       img(src='/images/about.png')
     #skills
       .container
         .row
-          h2.text-center.green skills
+          h2.text-center skills
           br
           br
         .col-sm-12
@@ -84,60 +86,99 @@ html
     #products
       .container
         .row
-          h2.text-center.white products
+          h2.text-center.green products
           br
           br
         .row
-          .col-sm-12
-            .col-sm-6.col-sm-offset-1
+          .col-sm-8.col-sm-offset-1
+            .col-sm-12
+              h3.white clock block
               .col-sm-9
-                h3.green clock block
-                p clock block is minimalistic clock for people who appreciate modern design and contemporary technology.
-              .row
+                p clock block is minimalistic clock for people who appreciate modern design and contemporary technology. This product is still under development. It will be available locally and online soon. In the mean time checkout it out on github ->
+              .col-sm-1
+                a.link(href='https://github.com/mcous/clockblock', target='_blank')
+                  img(src='/images/octocat.svg', title='github')
+                  img.hover(src='/images/octocat-hover.svg', title='github')
+            .row
+            .col-sm-12
+              h3.white lamp
               .col-sm-9
-                h3.green lamp
                 p lamp is a lamp. Made from bottles, RGB LEDs, and hand finished wood.
-            .col-sm-3
+          .col-sm-3
+              br
               img(src='/images/oshw-logo.svg', title='open source hardware')
-    #gents.container.responsive
-      .row
-        h2.text-center the gents
-        br
-        br
-      .col-sm-9
-        .row.cole
-          .col-sm-4
-            h3.green H. Cole Wiley
-          .col-sm-7.body
-            p Cole has a background in software development, web development, sculpture, digital art, system architecture, computer vision, 3d modeling, rapid prototyping, and a couple other things. His favorite language at the moment is Coffeescript. He enjoys a double espresso in the morning, and a rye whiskey neat in the evening.
-            a.link(href='https://github.com/hcwiley', target='_blank')
-              img(src='/images/octocat.svg', title='github')
-              img.hover(src='/images/octocat-hover.svg', title='github')
-            a.link(href='http://hcwiley.com', target='_blank')
-              img(src='/images/page.svg', title='webpage')
-              img.hover(src='/images/page-hover.svg', title='webpage')
-            a.link(href='mailto:cole@wileycousins.com')
-              img(src='/images/email.svg', title='github')
-              img.hover(src='/images/email-hover.svg', title='email')
+    #gents
+      .container.responsive
         .row
-          .col-sm-9.col-sm-offset-2
-            hr.dotted
-            br
-        .row.mike
-          .col-sm-4
-            h3.blue Michael Cousins
-          .col-sm-7.body
-            p Michael is a mechatronics engineer and coffee enthusiast. He got himself a 3D printer in college and never really looked back. He's worked designing and building plastic injection molded parts, circuit boards, and robots. The robots only occasionally try to hurt him; that's why we make him wear safety goggles.
-            a.link(href='https://github.com/mcous', target='_blank')
-              img(src='/images/octocat.svg', title='github')
-              img.hover(src='/images/octocat-hover.svg', title='github')
-            a.link(href='http://mcous.in', target='_blank')
-              img(src='/images/page.svg', title='webpage')
-              img.hover(src='/images/page-hover.svg', title='webpage')
-            a.link(href='mailto:michael@wileycousins.com')
-              img(src='/images/email.svg', title='github')
-              img.hover(src='/images/email-hover.svg', title='email')
-      .col-sm-3
-        img.gents-img(src='/images/gents.png', title='the gents', width="100%")
+          h2.text-center the gents
+          br
+          br
+        .col-sm-9
+          .row.cole
+            .col-sm-4
+              h3.green H. Cole Wiley
+            .col-sm-7.body
+              p Cole has a background in software development, web development, sculpture, digital art, system architecture, computer vision, 3d modeling, rapid prototyping, and a couple other things. His favorite language at the moment is Coffeescript. He enjoys a double espresso in the morning, and a rye whiskey neat in the evening.
+              br
+              a.link(href='https://github.com/hcwiley', target='_blank')
+                img(src='/images/octocat.svg', title='github')
+                img.hover(src='/images/octocat-hover.svg', title='github')
+              a.link(href='http://hcwiley.com', target='_blank')
+                img(src='/images/page.svg', title='webpage')
+                img.hover(src='/images/page-hover.svg', title='webpage')
+              a.link(href='mailto:cole@wileycousins.com')
+                img(src='/images/email.svg', title='github')
+                img.hover(src='/images/email-hover.svg', title='email')
+          .row
+            .col-sm-7.col-sm-offset-4
+              br
+              hr.dotted
+            .col-sm-10
+              br
+          .row.mike
+            .col-sm-4
+              h3.blue Michael Cousins
+            .col-sm-7.body
+              p Michael is a mechatronics engineer and coffee enthusiast. He got himself a 3D printer in college and never really looked back. He's worked designing and building plastic injection molded parts, circuit boards, and robots. The robots only occasionally try to hurt him; that's why we make him wear safety goggles.
+              br
+              a.link(href='https://github.com/mcous', target='_blank')
+                img(src='/images/octocat.svg', title='github')
+                img.hover(src='/images/octocat-hover.svg', title='github')
+              a.link(href='http://mcous.in', target='_blank')
+                img(src='/images/page.svg', title='webpage')
+                img.hover(src='/images/page-hover.svg', title='webpage')
+              a.link(href='mailto:michael@wileycousins.com')
+                img(src='/images/email.svg', title='github')
+                img.hover(src='/images/email-hover.svg', title='email')
+        .col-sm-3
+          img.gents-img(src='/images/gents.png', title='the gents', width="100%")
+    #contact
+      .container.responsive
+        h2.text-center contact
+        br
+        br
+        .col-sm-2.col-sm-offset-2
+          br
+          br
+          br
+          a(href='mailto:dev@wileycousins.com')
+            h4 dev@wileycousins.com
+          br
+          br
+          a.link(href='mailto:dev@wileycousins.com')
+            img(src='/images/email.svg', title='github')
+            img.hover(src='/images/email-white.svg', title='email')
+        .col-sm-2.col-sm-offset-1
+          br
+          br
+          br
+          h4.strong.blue located @
+          br
+          h4.white 1201 Mazant
+          h4.white New Orleans, LA
+          h4.white 70117
+        .col-sm-3.col-sm-offset-1.map
+          img(src='/images/map.png')
+        
 
   script(type='text/javascript', src='/js/client.js')
