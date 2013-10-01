@@ -173,6 +173,9 @@ p {
   min-height: 500px;
   padding: 50px 0px;
 }
+#products h3 {
+  font-weight: 500;
+}
 #gents {
   position: relative;
   margin: 0px auto;
@@ -209,6 +212,9 @@ p {
 }
 #gents .link:hover img.hover {
   opacity: 1;
+}
+#gents .link:hover img:not(.hover) {
+  opacity: 0;
 }
 #gents .gents-img {
   max-width: 330px;
