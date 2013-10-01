@@ -9,6 +9,8 @@ html,
 body {
   width: 100%;
   height: 100%;
+}
+body {
   background: url("../images/bg.png");
 }
 a {
@@ -24,13 +26,11 @@ h3,
 h4,
 h5 {
   font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
   color: #2a3f42;
   font-weight: 200;
   text-align: left;
 }
 h2 {
-  color: #2a3f42;
   font-variant: small-caps;
   font-size: 55px;
   font-weight: 200;
@@ -85,8 +85,9 @@ p {
   padding-bottom: 11px;
 }
 .navbar.nav .link a {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 23px;
+  font-weight: 200;
+  font-family: 'Ubuntu';
   color: #fff;
   font-variant: small-caps;
 }
@@ -125,7 +126,7 @@ p {
   width: 100%;
   background: #2a3f42;
   margin: 0px;
-  padding: 90px 0px;
+  padding: 100px 0px;
   box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
 #about img {
@@ -134,9 +135,51 @@ p {
 #main {
   margin-top: 0px;
 }
+#skills {
+  min-height: 500px;
+  padding: 50px 0px;
+}
+#skills .skill {
+  margin-bottom: 80px;
+}
+#skills .skill h3 {
+  display: inline-block;
+  margin: 0;
+  float: left;
+}
+#skills .skill .blue {
+  color: #22a8b5;
+}
+#skills .skill .white {
+  font-weight: 600;
+}
+#skills .skill img {
+  width: 100%;
+  max-height: 100px;
+  margin-bottom: 10px;
+}
+#skills .skill-row:last-child .skill {
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 768px) {
+  #skills .skill h3 {
+    text-align: center;
+    float: none;
+  }
+}
+#products {
+  background: #22a8b5;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+  min-height: 500px;
+  padding: 50px 0px;
+}
 #gents {
   position: relative;
-  margin: 40px auto;
+  margin: 0px auto;
+  padding: 50px 0px;
+}
+#gents h3 {
+  font-weight: 500;
 }
 #gents .body {
   line-height: 25px;
@@ -148,8 +191,14 @@ p {
   height: 50px;
   display: inline-block;
   float: none;
+  position: relative;
+  padding: 0;
 }
 #gents .link img {
+  padding: 0;
+  margin: 0;
+  top: 0px;
+  left: 0px;
   position: absolute;
   transition: opacity 0.5s;
   opacity: 1;
@@ -164,38 +213,6 @@ p {
 #gents .gents-img {
   max-width: 330px;
   margin-top: 70px;
-}
-#skills {
-  box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
-  background: #22a8b5;
-  min-height: 500px;
-  padding: 50px 0px;
-}
-#skills .skill {
-  margin-bottom: 80px;
-}
-#skills .skill h3 {
-  display: inline-block;
-  margin: 0;
-  float: left;
-}
-#skills .skill .blue {
-  color: #2a3f42;
-}
-#skills .skill .white {
-  font-weight: 600;
-}
-#skills .skill img {
-  height: 100%;
-  width: auto;
-  max-width: 200px;
-  margin-bottom: 10px;
-}
-@media only screen and (max-width: 768px) {
-  #skills .skill h3 {
-    text-align: center;
-    float: none;
-  }
 }
 strong {
   font-variant: small-caps;

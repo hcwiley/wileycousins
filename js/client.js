@@ -8,12 +8,12 @@ function bindScroll(){
     if(curPos >= top ){
       if(!$(".navbar").hasClass("navbar-fixed-top") ){
         $(".navbar").addClass("navbar-fixed-top");
-        $("#about").css("top", $(".navbar").height()+"px");
+        $("#about").css("margin-top", $(".navbar").height()+"px");
       }
     }
     else {
       $(".navbar").removeClass("navbar-fixed-top");
-      $("#about").css("top", 0);
+      $("#about").css("margin-top", 0);
     }
   });
 }

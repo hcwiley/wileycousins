@@ -5,23 +5,90 @@ html
     link(type='text/css', rel='stylesheet', href='/css/index.css')
     link(rel='icon', type='image/x-icon', href='/images/fav.png')
     meta(name="viewport",content="width=device-width, initial-scale=1.0")
+    meta(name='keywords', content='hardware, software, development, design, new orleans, nola, louisiana, arduino, ARM, raspberry pi, wifi, wireless, sub ghz, embedded, systems, C, c++, cpp, CoffeeScript, 3d printing, cnc, milling, prototyping, production, rapid prototyping, debug,')
+    meta(name='description', content='Hardware and software design and development')
+    meta(name='author', content='Wiley Cousins')
     script(type='text/javascript', src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
     script(type='text/javascript', src='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
   body
     a(href='/')
       img.title(src='/images/title.png', title='Wiley Cousins')
+      h1(style='display:none;') Wiley Cousins
     br
     .navbar.nav(role="navigation")
-      .link
-        a(href='#gents') gents
       .link
         a(href='#skills') skills
       .link
         a(href='#products') products
       .link
+        a(href='#gents') gents
+      .link
         a(href='#contact') contact
     #about.row.col-md-12
       img(src='/images/about.png')
+    #skills
+      .container
+        .row
+          h2.text-center.green skills
+          br
+          br
+        .col-sm-12
+          .row.skill-row
+            .col-sm-6.skill
+              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#hardware-collapse")
+                .col-sm-4.col-sm-offset-2
+                  img(src='/images/chip.svg')
+                .col-sm-2
+                  h3.blue hardware design &nbsp;
+                  h3.green &amp;&nbsp;
+                  h3.blue development
+              #hardware-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
+                .panel-body
+                  p We have experience with designing PCBs (printed circuit boards) to meet a variety of size and cost requirements.
+            .col-sm-6.skill
+              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#wireless-collapse")
+                .col-sm-4.col-sm-offset-2
+                  img(src='/images/router.svg')
+                .col-sm-2
+                  h3.blue embedded wireless&nbsp;
+                  h3.green &amp;&nbsp;
+                  h3.blue wifi
+              #wireless-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
+                .panel-body
+                  p Making things talk over wireless is our favorite. It's magic, and so are we when it comes to wireless.
+          .row.skill-row
+            .col-sm-6.skill
+              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#mobile-collapse")
+                .col-sm-4.col-sm-offset-2
+                  img(src='/images/phone.svg')
+                .col-sm-2
+                  h3.blue android&nbsp;
+                  h3.green &amp;&nbsp;
+                  h3.blue  iOS apps
+              #mobile-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
+                .panel-body
+                  p "I've got a great idea for an app!"
+                  p We know, that's why we make them.
+            .col-sm-6.skill
+              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#physical-collapse")
+                .col-sm-4.col-sm-offset-2
+                  img(src='/images/wrench.svg')
+                .col-sm-3
+                  h3.blue physical prototyping&nbsp;
+                  h3.green &amp;&nbsp;
+                  h3.blue production
+              #physical-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
+                .panel-body
+                  p What do you get when put an engineer and a sculptor together?
+                  p A whole lot of things... We love making physical things.
+    #products
+      .container
+        .row
+          h2.text-center.white products
+          br
+          br
+        .col-sm-12
+          h3 clock block
     #gents.container.responsive
       .row
         h2.text-center the gents
@@ -45,6 +112,7 @@ html
         .row
           .col-sm-9.col-sm-offset-2
             hr.dotted
+            br
         .row.mike
           .col-sm-4
             h3.blue Michael Cousins
@@ -61,58 +129,5 @@ html
               img.hover(src='/images/email-hover.svg', title='email')
       .col-sm-3
         img.gents-img(src='/images/gents.png', title='the gents', width="100%")
-    #skills
-      .container
-        .row
-          h2.text-center.white skills
-          br
-          br
-        .col-sm-12
-          .row
-            .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#hardware-collapse")
-                .col-sm-4.col-sm-offset-3
-                  img(src='/images/chip.svg')
-                .col-sm-2
-                  h3.green hardware design &nbsp;
-                  h3.white &amp;&nbsp;
-                  h3.green development
-              #hardware-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-3
-                .panel-body
-                  p We have experience with designing PCBs (printed circuit boards) to meet a variety of size and cost requirements
-            .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#wireless-collapse")
-                .col-sm-4.col-sm-offset-3
-                  img(src='/images/router.svg')
-                .col-sm-2
-                  h3.green embedded wireless&nbsp;
-                  h3.white &amp;&nbsp;
-                  h3.green wifi
-              #wireless-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-3
-                .panel-body
-                  p Making things talk over wireless is our favorite. No really. Its magic, and so are we when it comes to making things talk wireless.
-          .row
-            .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#mobile-collapse")
-                .col-sm-4.col-sm-offset-3
-                  img(src='/images/phone.svg')
-                .col-sm-2
-                  h3.green android&nbsp;
-                  h3.white &amp;&nbsp;
-                  h3.green  iOS apps
-              #mobile-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-3
-                .panel-body
-                  p "I've got a great idea for an app!" Of course you do, everyone does. That's why we make them.
-            .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#physical-collapse")
-                .col-sm-4.col-sm-offset-3
-                  img(src='/images/wrench.svg')
-                .col-sm-3
-                  h3.green physical prototyping&nbsp;
-                  h3.white &amp;&nbsp;
-                  h3.green production
-              #physical-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-3
-                .panel-body
-                  p What do you get when put an egineer and a sculptor together? A whole lot of things... We love making things, especially physical things.
 
   script(type='text/javascript', src='/js/client.js')
