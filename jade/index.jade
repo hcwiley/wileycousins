@@ -11,11 +11,14 @@ html
     script(type='text/javascript', src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
     script(type='text/javascript', src='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
   body
-    a(href='/')
+    a#home(href='/')
       img.title(src='/images/title.png', title='Wiley Cousins')
       h1(style='display:none;') Wiley Cousins
     br
     .navbar.nav(role="navigation")
+      .nav-link.hidden.home-link
+        a(href='#home')
+          img(src='/images/logo.png')
       .nav-link
         a(href='#skills') skills
       .nav-link
@@ -118,7 +121,7 @@ html
             .col-sm-4
               h3.green H. Cole Wiley
             .col-sm-7.body
-              p Cole has a background in software development, web development, sculpture, digital art, system architecture, computer vision, 3d modeling, rapid prototyping, and a couple other things. His favorite language at the moment is Coffeescript. He enjoys a double espresso in the morning, and a rye whiskey neat in the evening.
+              p Cole is sculptor and computer scientist with experience in software development, web development, sculpture, digital art, system architecture, computer vision, 3d modeling, rapid prototyping, and a couple other things. His favorite language at the moment is Coffeescript. He enjoys a double espresso in the morning, and a rye whiskey neat in the evening.
               br
               a.link(href='https://github.com/hcwiley', target='_blank')
                 img(src='/images/octocat.svg', title='github')

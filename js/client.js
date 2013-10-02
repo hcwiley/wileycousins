@@ -7,6 +7,7 @@ function bindScroll(){
     //console.log(curPos+", "+top);
     if(curPos >= top ){
       if(!$(".navbar").hasClass("navbar-fixed-top") ){
+        $(".home-link").removeClass("hidden");
         $(".navbar").addClass("navbar-fixed-top");
         $("#about").css("margin-top", $(".navbar").height()+"px");
       }
@@ -14,6 +15,7 @@ function bindScroll(){
     else {
       $(".navbar").removeClass("navbar-fixed-top");
       $("#about").css("margin-top", 0);
+      $(".home-link").addClass("hidden");
     }
   });
 }
