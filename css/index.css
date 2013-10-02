@@ -246,6 +246,10 @@ p {
 #gents .body {
   line-height: 25px;
 }
+#gents .gents-img {
+  max-width: 330px;
+  margin-top: 70px;
+}
 .link {
   text-align: center;
   margin: 0px 10px;
@@ -274,10 +278,6 @@ p {
 }
 .link:hover img:not(.hover) {
   opacity: 0;
-}
-.link:hover .gents-img {
-  max-width: 330px;
-  margin-top: 70px;
 }
 #contact {
   background: #b7c22c;
