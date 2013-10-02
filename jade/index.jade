@@ -5,8 +5,8 @@ html
     link(type='text/css', rel='stylesheet', href='/css/index.css')
     link(rel='icon', type='image/x-icon', href='/images/fav.png')
     meta(name="viewport",content="width=device-width, initial-scale=1.0")
-    meta(name='keywords', content='hardware, firmware, software, development, design, new orleans, nola, louisiana, arduino, ARM, raspberry pi, wifi, wireless, sub ghz, embedded, systems, C, c++, cpp, CoffeeScript, 3d printing, cnc, milling, prototyping, production, rapid prototyping, debug,')
-    meta(name='description', content='Hardware and software design and development')
+    meta(name='keywords', content='hardware, firmware, software, development, design, new orleans, nola, louisiana, arduino, ARM, raspberry pi, wifi, wireless, sub ghz, embedded, systems, C, c++, cpp, CoffeeScript, 3d printing, cnc, milling, prototyping, production, rapid prototyping, debug, arduino, objective-c, html, css, javascript, coffeescript, node.js, node js, node, cad, computer aided design, mpu, microprocessor, rhino cad, wiley cousins, wiley, cousins')
+    meta(name='description', content='Hardware and software - design and development')
     meta(name='author', content='Wiley Cousins')
     script(type='text/javascript', src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
     script(type='text/javascript', src='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
@@ -49,54 +49,88 @@ html
         .col-sm-12
           .row.skill-row
             .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#hardware-collapse")
-                .col-sm-4.col-sm-offset-2
-                  img(src='/images/chip.svg')
-                .col-sm-2
-                  h3.blue hardware design &nbsp;
-                  h3.green &amp;&nbsp;
-                  h3.blue development
+              //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#hardware-collapse")
+              .col-sm-4.col-sm-offset-2
+                img(src='/images/chip.svg')
+              .col-sm-2
+                h3.blue hardware design &nbsp;
+                h3.green &amp;&nbsp;
+                h3.blue development
               #hardware-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
                 .panel-body
                   p We have experience with designing PCBs to meet a variety of size and cost requirements.
                   p We have designed circuit boards and developed firmware that controls locks for doors, sets mood lighting, and flys quadcopters.
             .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#wireless-collapse")
-                .col-sm-4.col-sm-offset-2
-                  img(src='/images/router.svg')
-                .col-sm-2
-                  h3.blue embedded wireless&nbsp;
-                  h3.green &amp;&nbsp;
-                  h3.blue wifi
+              //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#wireless-collapse")
+              .col-sm-4.col-sm-offset-2
+                img(src='/images/router.svg')
+              .col-sm-2
+                h3.blue embedded wireless&nbsp;
+                h3.green &amp;&nbsp;
+                h3.blue wifi
               #wireless-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
                 .panel-body
-                  p Communicating over wireless is our favorite. It's magic, and so are we when it comes to talking wireless.
+                  p Communicating over wireless is our favorite. It's magic, and so are we when it comes to wireless.
                   p We have experience with WiFi, sub gHz wireless, and Bluetooth &amp; Bluetooth Low Energy.
           .row.skill-row
             .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#mobile-collapse")
-                .col-sm-4.col-sm-offset-2
-                  img(src='/images/phone.svg')
-                .col-sm-2
-                  h3.blue android&nbsp;
-                  h3.green &amp;&nbsp;
-                  h3.blue  iOS apps
+              //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#mobile-collapse")
+              .col-sm-4.col-sm-offset-2
+                img(src='/images/phone.svg')
+              .col-sm-2
+                h3.blue android&nbsp;
+                h3.green &amp;&nbsp;
+                h3.blue  iOS apps
               #mobile-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
                 .panel-body
                   p "I've got a great idea for an app!" We know, that's why we make them.
-                  p We make apps that talk to our devices so that you can talk to our devices. If your app needs to talk over wireless we're your guys.
+                  p We make apps that talk to our hardware, so that you can talk to our hardware. We specialize in apps that talk to nearby devices over WiFi and Bluetooth; as well as to the cloud over cellular data.
             .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#physical-collapse")
-                .col-sm-4.col-sm-offset-2
-                  img(src='/images/wrench.svg')
-                .col-sm-3
-                  h3.blue physical prototyping&nbsp;
-                  h3.green &amp;&nbsp;
-                  h3.blue production
+              //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#physical-collapse")
+              .col-sm-4.col-sm-offset-2
+                img(src='/images/wrench.svg')
+              .col-sm-3
+                h3.blue physical prototyping&nbsp;
+                h3.green &amp;&nbsp;
+                h3.blue production
               #physical-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
                 .panel-body
                   p What do you get when put an engineer and a sculptor together?
                   p A whole lot of things. We love making physical things. Whether you need a phone case, mechanical gearing, or a birdhouse we're your guys.
+          .row
+            .col-sm-10.col-sm-offset-1
+              hr.dotted
+          .row.skill-row
+            h3.text-center.blue big list of skills
+            .skills-list.col-sm-offset-1
+              .col-sm-3
+                h4.green hardware
+                li Bread Boarding
+                li PCB design
+                li MPU Analysis
+                li Analog Circuits
+                li Digital Circuits
+              .col-sm-3
+                h4.green firmware
+                li C / C++
+                li Arduino
+                li Unix
+                li PIC
+                li Wireless
+              .col-sm-3
+                h4.green software
+                li Objective-C
+                li Python
+                li Java
+                li Web
+                li Node.js
+              .col-sm-3
+                h4.green 3d design
+                li 3D Modeling (CAD)
+                li Product Rendering
+                li 3D Printing
+                li Rapid Prototyping
+                li CNC / Laser Cutting
     #products
       .container
         .row
@@ -104,23 +138,38 @@ html
           br
           br
         .row
-          .col-sm-8.col-sm-offset-1
-            .col-sm-12
-              h3.white clock block
-              .col-sm-9
-                p clock block is minimalistic clock for people who appreciate modern design and contemporary technology. This product is still under development. It will be available locally and online soon. In the mean time checkout it out on github ->
-              .col-sm-1
-                a.link(href='https://github.com/mcous/clockblock', target='_blank')
-                  img(src='/images/octocat.svg', title='github')
-                  img.hover(src='/images/octocat-hover.svg', title='github')
-            .row
-            .col-sm-12
-              h3.white lamp
-              .col-sm-9
-                p lamp is a lamp. Made from bottles, RGB LEDs, and hand finished wood.
-          .col-sm-3
+          .col-sm-9.col-sm-offset-2
+            h3.white clock block
+            .col-sm-2
               br
-              img(src='/images/oshw-logo.svg', title='open source hardware')
+              img(src='/images/clock.svg', title='clock block')
+            .col-sm-8
+              br
+              p <i>clock block</i> is minimalistic clock for people who appreciate modern design and contemporary technology. This product is still under development.
+              p It will be available locally and online soon. In the mean time checkout it out on github ->
+            .col-sm-1
+              br
+              a.link(href='https://github.com/mcous/clockblock', target='_blank')
+                img(src='/images/oshw-logo.svg', title='open source hardware')
+                img.hover(src='/images/oshw-logo-green.svg', title='open source hardware')
+          .row
+            .col-sm-8.col-sm-offset-2
+              br
+              hr.white.dotted
+          .col-sm-9.col-sm-offset-2
+            h3.white lamp
+            br
+            .col-sm-2
+              img(src='/images/lamp.svg', title='lamp')
+            .col-sm-8
+              br
+              p <i>lamp</i> is a lamp. Made from bottles, RGB LEDs, and hand finished wood.
+              p It will be available locally and online soon. In the mean time checkout it out on github ->
+            .col-sm-1
+              br
+              a.link(href='https://github.com/hcwiley/led_bottle_lamp', target='_blank')
+                img(src='/images/oshw-logo.svg', title='open source hardware')
+                img.hover(src='/images/oshw-logo-green.svg', title='open source hardware')
     #gents
       .container.responsive
         .row
@@ -185,6 +234,8 @@ html
           h4.white 1201 Mazant
           h4.white New Orleans, LA
           h4.white 70117
+          br
+          br
         .col-sm-3.col-sm-offset-2.map
           a(href='https://maps.google.com/maps?q=1201+Mazant+St,+New+Orleans,+LA&sll=29.966471,-90.033884&hl=en&ie=UTF8&hq=&hnear=1201+Mazant+St,+New+Orleans,+Louisiana+70117&ll=29.966554,-90.034094&spn=0.001764,0.002631&t=m&z=19&vpsrc=0&iwloc=A', target='_blank')
             img(src='/images/map.png', title='map to address')
