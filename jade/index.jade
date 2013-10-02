@@ -11,9 +11,10 @@ html
     script(type='text/javascript', src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
     script(type='text/javascript', src='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
   body
-    a#home(href='/')
-      img.title(src='/images/title.png', title='Wiley Cousins')
-      h1(style='display:none;') Wiley Cousins
+    #home
+      a(href='/')
+        img.title(src='/images/title.png', title='Wiley Cousins')
+        h1(style='display:none;') Wiley Cousins
     br
     .navbar.nav(role="navigation")
       .nav-link.hidden.home-link
