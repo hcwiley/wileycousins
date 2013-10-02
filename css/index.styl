@@ -13,8 +13,9 @@ reset-html5()
 
 *
   text-decoration none
-  font-family "Helvetica", sans-serif
+  font-family "Roboto", "Helvetica", sans-serif
   text-align center
+  color $mainColor
 
 html, body
   width 100%
@@ -141,46 +142,66 @@ p
 @media only screen and (max-width: 500px) and (min-width: 399px)
   .navbar.nav.navbar-fixed-top
     .nav-link
-      padding 5px 5px
+      padding 5px 10px
       padding-bottom 11px
+      a
+        font-size 20px
+    .home-link
+      overflow hidden
+      height 43px
+      padding-left 0px
 
-@media only screen and (max-width: 398px)
+@media only screen and (max-width: 398px) and (min-width: 325px)
   .navbar.nav.navbar-fixed-top
     .nav-link
-      padding 5px 5px
+      padding 5px 10px
       padding-bottom 11px
       a
         font-size 16px
     .home-link
       overflow hidden
       height 40px
+      padding-left 0px
+
+@media only screen and (max-width: 324px)
+  .navbar.nav.navbar-fixed-top
+    .nav-link
+      padding 5px 9px
+      padding-bottom 11px
+      a
+        font-size 16px
+    .home-link
+      overflow hidden
+      height 40px
+      padding-left 0px
+      padding-right 0px
 
 @media only screen and (max-width: 793px) and (min-width: 693px)
-  .navbar.nav
+  .navbar.nav:not(.navbar-fixed-top)
     .nav-link
       padding 5px 40px
       padding-bottom 11px
 
 @media only screen and (max-width: 692px) and (min-width: 494px)
-  .navbar.nav
+  .navbar.nav:not(.navbar-fixed-top)
     .nav-link
       padding 5px 20px
       padding-bottom 11px
 
 @media only screen and (max-width: 493px) and (min-width: 504px)
-  .navbar.nav
+  .navbar.nav:not(.navbar-fixed-top)
     .nav-link
       padding 5px 16px
       padding-bottom 11px
 
 @media only screen and (max-width: 503px) and (min-width: 394px)
-  .navbar.nav
+  .navbar.nav:not(.navbar-fixed-top)
     .nav-link
       padding 5px 7px
       padding-bottom 11px
 
 @media only screen and (max-width: 393px)
-  .navbar.nav
+  .navbar.nav:not(.navbar-fixed-top)
     .nav-link
       padding 5px 7px
       padding-bottom 11px
@@ -202,7 +223,7 @@ p
 
 #skills
   min-height 500px
-  padding 50px 0px
+  padding 50px 0px 100px 0px
   .skill
     min-height 300px
     h3
@@ -217,6 +238,11 @@ p
       width 100%
       max-height 100px
       margin-bottom 10px
+  .skills-list
+    li
+      text-align left
+      list-style url('/images/li.svg')
+      font-weight 100
 
     
 @media only screen and (max-width: 768px)
