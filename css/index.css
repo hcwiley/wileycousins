@@ -153,7 +153,7 @@ p {
 }
 #skills {
   min-height: 500px;
-  padding: 50px 0px;
+  padding: 50px 0px 100px 0px;
 }
 #skills .skill {
   margin-bottom: 80px;
@@ -187,12 +187,12 @@ p {
   background: #22a8b5;
   box-shadow: 0px 0px 40px rgba(0,0,0,0.4);
   min-height: 500px;
-  padding: 50px 0px;
+  padding: 50px 0px 100px 0px;
 }
 #gents {
   position: relative;
   margin: 0px auto;
-  padding: 50px 0px;
+  padding: 50px 0px 100px 0px;
 }
 #gents h3 {
   font-weight: 500;
