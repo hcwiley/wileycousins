@@ -41,50 +41,50 @@ html
         .col-sm-12
           .row.skill-row
             .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#hardware-collapse")
-                .col-sm-4.col-sm-offset-2
-                  img(src='/images/chip.svg')
-                .col-sm-2
-                  h3.blue hardware design &nbsp;
-                  h3.green &amp;&nbsp;
-                  h3.blue development
+              //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#hardware-collapse")
+              .col-sm-4.col-sm-offset-2
+                img(src='/images/chip.svg')
+              .col-sm-2
+                h3.blue hardware design &nbsp;
+                h3.green &amp;&nbsp;
+                h3.blue development
               #hardware-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
                 .panel-body
                   p We have experience with designing PCBs to meet a variety of size and cost requirements.
                   p We have designed circuit boards and developed firmware that controls locks for doors, sets mood lighting, and flys quadcopters.
             .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#wireless-collapse")
-                .col-sm-4.col-sm-offset-2
-                  img(src='/images/router.svg')
-                .col-sm-2
-                  h3.blue embedded wireless&nbsp;
-                  h3.green &amp;&nbsp;
-                  h3.blue wifi
+              //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#wireless-collapse")
+              .col-sm-4.col-sm-offset-2
+                img(src='/images/router.svg')
+              .col-sm-2
+                h3.blue embedded wireless&nbsp;
+                h3.green &amp;&nbsp;
+                h3.blue wifi
               #wireless-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
                 .panel-body
                   p Communicating over wireless is our favorite. It's magic, and so are we when it comes to talking wireless.
                   p We have experience with WiFi, sub gHz wireless, and Bluetooth &amp; Bluetooth Low Energy.
           .row.skill-row
             .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#mobile-collapse")
-                .col-sm-4.col-sm-offset-2
-                  img(src='/images/phone.svg')
-                .col-sm-2
-                  h3.blue android&nbsp;
-                  h3.green &amp;&nbsp;
-                  h3.blue  iOS apps
+              //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#mobile-collapse")
+              .col-sm-4.col-sm-offset-2
+                img(src='/images/phone.svg')
+              .col-sm-2
+                h3.blue android&nbsp;
+                h3.green &amp;&nbsp;
+                h3.blue  iOS apps
               #mobile-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
                 .panel-body
                   p "I've got a great idea for an app!" We know, that's why we make them.
                   p We make apps that talk to our devices so that you can talk to our devices. If your app needs to talk over wireless we're your guys.
             .col-sm-6.skill
-              a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#physical-collapse")
-                .col-sm-4.col-sm-offset-2
-                  img(src='/images/wrench.svg')
-                .col-sm-3
-                  h3.blue physical prototyping&nbsp;
-                  h3.green &amp;&nbsp;
-                  h3.blue production
+              //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#physical-collapse")
+              .col-sm-4.col-sm-offset-2
+                img(src='/images/wrench.svg')
+              .col-sm-3
+                h3.blue physical prototyping&nbsp;
+                h3.green &amp;&nbsp;
+                h3.blue production
               #physical-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
                 .panel-body
                   p What do you get when put an engineer and a sculptor together?
@@ -96,23 +96,38 @@ html
           br
           br
         .row
-          .col-sm-8.col-sm-offset-1
-            .col-sm-12
-              h3.white clock block
-              .col-sm-9
-                p clock block is minimalistic clock for people who appreciate modern design and contemporary technology. This product is still under development. It will be available locally and online soon. In the mean time checkout it out on github ->
-              .col-sm-1
-                a.link(href='https://github.com/mcous/clockblock', target='_blank')
-                  img(src='/images/octocat.svg', title='github')
-                  img.hover(src='/images/octocat-hover.svg', title='github')
-            .row
-            .col-sm-12
-              h3.white lamp
-              .col-sm-9
-                p lamp is a lamp. Made from bottles, RGB LEDs, and hand finished wood.
-          .col-sm-3
+          .col-sm-9.col-sm-offset-2
+            h3.white clock block
+            .col-sm-2
               br
-              img(src='/images/oshw-logo.svg', title='open source hardware')
+              img(src='/images/clock.svg', title='clock block')
+            .col-sm-8
+              br
+              p <i>clock block</i> is minimalistic clock for people who appreciate modern design and contemporary technology. This product is still under development.
+              p It will be available locally and online soon. In the mean time checkout it out on github ->
+            .col-sm-1
+              br
+              a.link(href='https://github.com/mcous/clockblock', target='_blank')
+                img(src='/images/oshw-logo.svg', title='open source hardware')
+                img.hover(src='/images/oshw-logo-green.svg', title='open source hardware')
+          .row
+            .col-sm-8.col-sm-offset-2
+              br
+              hr.white.dotted
+          .col-sm-9.col-sm-offset-2
+            h3.white lamp
+            br
+            .col-sm-2
+              img(src='/images/lamp.svg', title='lamp')
+            .col-sm-8
+              br
+              p <i>lamp</i> is a lamp. Made from bottles, RGB LEDs, and hand finished wood.
+              p It will be available locally and online soon. In the mean time checkout it out on github ->
+            .col-sm-1
+              br
+              a.link(href='https://github.com/hcwiley/led_bottle_lamp', target='_blank')
+                img(src='/images/oshw-logo.svg', title='open source hardware')
+                img.hover(src='/images/oshw-logo-green.svg', title='open source hardware')
     #gents
       .container.responsive
         .row
