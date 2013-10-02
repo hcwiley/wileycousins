@@ -205,7 +205,7 @@ p {
   padding: 50px 0px 100px 0px;
 }
 #skills .skill {
-  margin-bottom: 80px;
+  height: 300px;
 }
 #skills .skill h3 {
   display: inline-block;
@@ -221,9 +221,6 @@ p {
 #skills .skill img {
   width: 100%;
   max-height: 100px;
-  margin-bottom: 10px;
-}
-#skills .skill-row:last-child .skill {
   margin-bottom: 10px;
 }
 @media only screen and (max-width: 768px) {
