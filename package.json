@@ -4,7 +4,7 @@
   "devDependencies": {
       "jade":"*",
       "serve":"*",
-      "stylus":"*",
+      "stylus":"0.30.*",
       "nib": "*"
   }
 }
