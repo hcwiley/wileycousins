@@ -1,0 +1,118 @@
+extends layout
+
+block content
+  style
+    .modal-dialog {width:70%;}
+    .modal-dialog .modal-body img {max-height: 500px;}
+    .thumbnail {margin-bottom:6px;}
+  :coffeescript
+    $(window).ready ->
+      $(".img-thumbnail").click ->
+        $(".modal-body").empty()
+        title = $(@).attr("title")
+        $(".modal-title").html title
+        $($(@).parents("div").html()).appendTo ".modal-body"
+        $("#myModal").modal show: true
+  #myModal.modal.fade(tabindex='-1', role='dialog')
+      .modal-dialog
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h3.modal-title Heading
+            .modal-body
+            .modal-footer
+              button.btn.btn-default(data-dismiss='modal') Close
+  .row
+    .col-sm-10.col-sm-offset-1
+      hr.dotted
+    h2.text-center some sample work
+    br
+  #pcb-design
+    .container
+      .row
+        h2.text-center.blue pcb design
+        .col-sm-12
+          h3.green flamejets
+          p.white A mechatronics project that <a href='/#michael' target='_blank' class='blue'>Michael Cousins</a> built with Chris Yarka. This box shoots four propane powered flames into the air. A PIC32 microcontroller varies the heights.
+          .col-sm-3
+            br
+            a
+              img.img-thumbnail(src='/images/flame-pcb1.jpg', title='flame jet pcb')
+          .col-sm-3
+            br
+            a
+              img.img-thumbnail(src='/images/flame-pcb2.jpg', title='flame jet pcb')
+          .col-sm-3
+            br
+            a
+              img.img-thumbnail(src='/images/flame-pcb3.jpg', title='flame jet pcb')
+          .col-sm-3
+            a
+              img.img-thumbnail(src='/images/flame-layout.png', title='flame jet pcb layout')
+        .row
+          .col-sm-6.col-sm-offset-3
+            br
+            hr.dotted
+            br
+        .col-sm-12
+          h3.green rgb lighting module
+          p.white A daisy-chainable lighting module to brighten up your existence (and/or living space). These modules receive power and communicate over an ehternet cable, but don't plug it into your router as it's likely to blow it up, hence the NOT ETHERNET. Check it out on <a href='https://github.com/mcous/rgb' target='_blank' class='blue'>Github</a>
+          .col-sm-3
+            br
+            a
+              img.img-thumbnail(src='/images/rgb-1.jpg', title='rgb module pcb front')
+          .col-sm-3
+            br
+            a
+              img.img-thumbnail(src='/images/rgb-2.jpg', title='rgb module pcb back')
+          .col-sm-3
+            br
+            a
+              img.img-thumbnail(src='/images/rgb-3.jpg', title='rgb module pcb back')
+          .col-sm-3
+            br
+            a
+              img.img-thumbnail(src='/images/rgb-4.jpg', title='rgb module pcb front')
+    .row
+      .col-sm-12
+        br
+        br
+        br
+  .row
+    .container
+      h2.blue.text-center rendering
+      .row
+        .col-sm-12
+          h3.green game controller
+          p A fictional videogame controller designed using SolidWorks; renderings were done in PhotoView 360.
+          .col-sm-3
+            a
+              img.img-thumbnail(src='/images/controller-1.jpg', title='game controller front')
+          .col-sm-3
+            a
+              img.img-thumbnail(src='/images/controller-2.jpg', title='game controller front')
+          .col-sm-3
+            a
+              img.img-thumbnail(src='/images/controller-3.jpg', title='game controller exploded')
+          .col-sm-3
+            a
+              img.img-thumbnail(src='/images/controller-4.jpg', title='game controller exploded')
+      .row
+        .col-sm-6.col-sm-offset-3
+          br
+          hr.dotted
+          br
+      .row
+        .col-sm-5
+          h3.green long weekend in spain
+          p This piece explores the border between designing a building and sculpting an object. I wanted to create building/object that is influenced by Antoni Gaudi in form. This piece designed and rendered in Maya.
+          .col-sm-8.col-sm-offset-2
+            a
+              img.img-thumbnail(src='/images/spain-1.jpg', title='long weekend in spain')
+        .col-sm-5.col-sm-offset-1
+          h3.green building bridges out of buildings
+          p These 3D prints are made from photographs that were extruded into 3D space through a custom algorithm, and then stitched together in Rhino CAD
+          .col-sm-12
+            a
+              img.img-thumbnail(src='/images/buildings.jpg', title='building bridges out of buildings')
+    

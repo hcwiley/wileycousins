@@ -226,6 +226,11 @@ p {
 #about img {
   width: 75%;
 }
+#pcb-design {
+  width: 100%;
+  background: #2a3f42;
+  padding: 50px 0px 100px 0px;
+}
 #main {
   margin-top: 0px;
 }

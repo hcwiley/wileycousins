@@ -5,6 +5,7 @@
       "jade":"*",
       "serve":"*",
       "stylus":"0.30.*",
+      "coffee-script": "*",
       "nib": "*"
   }
 }
