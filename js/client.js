@@ -3,8 +3,14 @@ function bindScroll(){
   $(window).unbind("scroll");
   $(window).on("scroll",function(e){
     var curPos = $(window).scrollTop();
-    var top = $("#about").offset().top - $(".navbar").height();
-    //console.log(curPos+", "+top);
+    var top = 0;
+    if($('#about').length > 0)
+      top = $("#about").offset().top - $(".navbar").height();
+    else if($('#pcb-design').length > 0)
+      top = $("#pcb-design").offset().top - $(".navbar").height();
+    else
+      top = $(".navbar").height();
+    console.log(curPos+", "+top);
     if(curPos >= top ){
       if(!$(".navbar").hasClass("navbar-fixed-top") ){
         $(".home-link").removeClass("hidden");

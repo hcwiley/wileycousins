@@ -21,6 +21,12 @@ a:hover {
   text-decoration: none;
   cursor: pointer;
 }
+a:hover h4 {
+  color: #fff;
+}
+a:hover p {
+  color: #fff;
+}
 h1,
 h2,
 h3,
@@ -96,6 +102,8 @@ p {
   height: 30px;
 }
 .navbar.nav .nav-link {
+  position: relative;
+  left: 0px;
   display: inline-block;
   color: #b7c22c;
   border-right: 1px solid #b7c22c;
@@ -130,18 +138,21 @@ p {
 }
 @media only screen and (max-width: 692px) and (min-width: 574px) {
   .navbar.nav.navbar-fixed-top .nav-link {
+    left: 15px;
     padding: 5px 20px;
     padding-bottom: 11px;
   }
 }
 @media only screen and (max-width: 573px) and (min-width: 500px) {
   .navbar.nav.navbar-fixed-top .nav-link {
+    left: 15px;
     padding: 5px 10px;
     padding-bottom: 11px;
   }
 }
 @media only screen and (max-width: 500px) and (min-width: 399px) {
   .navbar.nav.navbar-fixed-top .nav-link {
+    left: 15px;
     padding: 5px 10px;
     padding-bottom: 11px;
   }
@@ -149,13 +160,16 @@ p {
     font-size: 20px;
   }
   .navbar.nav.navbar-fixed-top .home-link {
+    position: absolute;
+    left: 5px;
     overflow: hidden;
     height: 43px;
     padding-left: 0px;
   }
 }
-@media only screen and (max-width: 398px) and (min-width: 325px) {
+@media only screen and (max-width: 398px) and (min-width: 365px) {
   .navbar.nav.navbar-fixed-top .nav-link {
+    left: 15px;
     padding: 5px 10px;
     padding-bottom: 11px;
   }
@@ -163,20 +177,25 @@ p {
     font-size: 16px;
   }
   .navbar.nav.navbar-fixed-top .home-link {
+    position: absolute;
+    left: 5px;
     overflow: hidden;
     height: 40px;
     padding-left: 0px;
   }
 }
-@media only screen and (max-width: 324px) {
+@media only screen and (max-width: 364px) {
   .navbar.nav.navbar-fixed-top .nav-link {
-    padding: 5px 9px;
+    left: 15px;
+    padding: 5px 7px;
     padding-bottom: 11px;
   }
   .navbar.nav.navbar-fixed-top .nav-link a {
     font-size: 16px;
   }
   .navbar.nav.navbar-fixed-top .home-link {
+    position: absolute;
+    left: 5px;
     overflow: hidden;
     height: 40px;
     padding-left: 0px;
@@ -225,11 +244,6 @@ p {
 }
 #about img {
   width: 75%;
-}
-#pcb-design {
-  width: 100%;
-  background: #2a3f42;
-  padding: 50px 0px 100px 0px;
 }
 #main {
   margin-top: 0px;
@@ -338,4 +352,14 @@ strong {
 }
 i {
   font-style: italic;
+}
+#pcb-design {
+  width: 100%;
+  background: #2a3f42;
+  padding: 50px 0px 100px 0px;
+}
+#software {
+  width: 100%;
+  background: #22a8b5;
+  padding: 50px 0px 100px 0px;
 }

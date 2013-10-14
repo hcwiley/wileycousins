@@ -29,6 +29,10 @@ a
 a:hover
   text-decoration none
   cursor pointer
+  h4
+    color $whiteColor
+  p
+    color $whiteColor
 
 h1,h2,h3,h4,h5
   font-family 'Ubuntu', sans-serif
@@ -96,6 +100,8 @@ p
     img
       height 30px
   .nav-link
+    position relative
+    left 0px
     display inline-block
     color $greenColor
     border-right 1px solid $greenColor
@@ -130,47 +136,58 @@ p
 @media only screen and (max-width: 692px) and (min-width: 574px)
   .navbar.nav.navbar-fixed-top
     .nav-link
+      left 15px
       padding 5px 20px
       padding-bottom 11px
 
 @media only screen and (max-width: 573px) and (min-width: 500px)
   .navbar.nav.navbar-fixed-top
     .nav-link
+      left 15px
       padding 5px 10px
       padding-bottom 11px
 
 @media only screen and (max-width: 500px) and (min-width: 399px)
   .navbar.nav.navbar-fixed-top
     .nav-link
+      left 15px
       padding 5px 10px
       padding-bottom 11px
       a
         font-size 20px
     .home-link
+      position absolute
+      left 5px
       overflow hidden
       height 43px
       padding-left 0px
 
-@media only screen and (max-width: 398px) and (min-width: 325px)
+@media only screen and (max-width: 398px) and (min-width: 365px)
   .navbar.nav.navbar-fixed-top
     .nav-link
+      left 15px
       padding 5px 10px
       padding-bottom 11px
       a
         font-size 16px
     .home-link
+      position absolute
+      left 5px
       overflow hidden
       height 40px
       padding-left 0px
 
-@media only screen and (max-width: 324px)
+@media only screen and (max-width: 364px)
   .navbar.nav.navbar-fixed-top
     .nav-link
-      padding 5px 9px
+      left 15px
+      padding 5px 7px
       padding-bottom 11px
       a
         font-size 16px
     .home-link
+      position absolute
+      left 5px
       overflow hidden
       height 40px
       padding-left 0px
@@ -217,11 +234,6 @@ p
   box-shadow 0px 5px 20px rgba(0,0,0,.2)
   img
     width 75%
-
-#pcb-design
-  width 100%
-  background $mainColor
-  padding 50px 0px 100px 0px
 
 #main
   margin-top 0px
@@ -320,3 +332,14 @@ strong
 
 i
   font-style italic
+
+#pcb-design
+  width 100%
+  background $mainColor
+  padding 50px 0px 100px 0px
+
+#software
+  width 100%
+  background $lightBlueColor
+  padding 50px 0px 100px 0px
+
