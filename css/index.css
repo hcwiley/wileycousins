@@ -237,13 +237,35 @@ p {
 }
 #about {
   width: 100%;
-  background: #2a3f42;
+  background: url("../images/banner.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: 0px;
   margin: 0px;
-  padding: 100px 0px;
+  padding: 150px 0px;
   box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
-#about img {
-  width: 75%;
+#about img.main {
+  width: 100%;
+  margin: 0px auto;
+}
+#about img.stacked {
+  display: none;
+  height: 100%;
+}
+@media (max-width: 640px) {
+  #about {
+    background-size: auto 100%;
+    background-position: 30% 0px;
+    height: 400px;
+  }
+  #about img.main {
+    display: none;
+  }
+  #about img.stacked {
+    margin: -100px auto 0px auto;
+    display: block;
+  }
 }
 #main {
   margin-top: 0px;
@@ -333,17 +355,18 @@ p {
   opacity: 0;
 }
 #contact {
-  background: #b7c22c;
-  padding: 50px 0px 140px 0px;
+  padding: 70px 0px 140px 0px;
   box-shadow: 0px -5px 20px rgba(0,0,0,0.2);
+  background: url("../images/skillz.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: 0px;
 }
-#contact .map {
-  padding: 10px;
-  background: #fff;
-}
-#contact .map img {
-  width: 100%;
-  max-width: 300px;
+@media (max-width: 991px) {
+  #contact {
+    background-size: auto 100%;
+    background-position: 50% 0px;
+  }
 }
 strong {
   font-variant: small-caps;

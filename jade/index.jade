@@ -1,226 +1,240 @@
 extends layout
 
 block content
- .navbar.nav(role="navigation")
-   .nav-link.hidden.home-link
-     a(href='#home')
-       img(src='/images/logo.png')
-   .nav-link
-     a(href='#skills') skills
-   .nav-link
-     a(href='#products') products
-   .nav-link
-     a(href='#gents') gents
-   .nav-link
-     a(href='#contact') contact
-   .nav-link
-     a(href='http://blog.wileycousins.com/', target='_blank') blog
- #about.row.col-md-12
-   img(src='/images/about.png')
- #skills
-   .container
-     .row
-       h2.text-center skills
-       br
-       br
-     .col-sm-12
-       .row.skill-row
-         .col-sm-6.skill
-           //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#hardware-collapse")
-           .col-sm-4.col-sm-offset-2
-             img(src='/images/chip.svg')
-           .col-sm-2
-             h3.blue hardware design &nbsp;
-             h3.green &amp;&nbsp;
-             h3.blue development
-           #hardware-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
-             .panel-body
-               p We have experience with designing PCBs to meet a variety of size and cost requirements.
-               p We have designed circuit boards and developed firmware that controls locks for doors, sets mood lighting, and flys quadcopters.
-         .col-sm-6.skill
-           //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#wireless-collapse")
-           .col-sm-4.col-sm-offset-2
-             img(src='/images/router.svg')
-           .col-sm-2
-             h3.blue embedded wireless&nbsp;
-             h3.green &amp;&nbsp;
-             h3.blue wifi
-           #wireless-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
-             .panel-body
-               p Communicating over wireless is our favorite. It's magic, and so are we when it comes to wireless.
-               p We have experience with WiFi, sub-GHz wireless, and Bluetooth &amp; Bluetooth Low Energy.
-       .row.skill-row
-         .col-sm-6.skill
-           //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#mobile-collapse")
-           .col-sm-4.col-sm-offset-2
-             img(src='/images/phone.svg')
-           .col-sm-2
-             h3.blue android&nbsp;
-             h3.green &amp;&nbsp;
-             h3.blue  iOS apps
-           #mobile-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
-             .panel-body
-               p "I've got a great idea for an app!" We know, that's why we make them.
-               p We make apps that talk to our hardware, so that you can talk to our hardware. We specialize in apps that talk to nearby devices over WiFi and Bluetooth; as well as to the cloud over cellular data.
-         .col-sm-6.skill
-           //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#physical-collapse")
-           .col-sm-4.col-sm-offset-2
-             img(src='/images/wrench.svg')
-           .col-sm-3
-             h3.blue physical prototyping&nbsp;
-             h3.green &amp;&nbsp;
-             h3.blue production
-           #physical-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
-             .panel-body
-               p What do you get when put an engineer and a sculptor together?
-               p A whole lot of things. We love making physical things. Whether you need a phone case, mechanical gearing, or a birdhouse we're your guys.
-       .row
-         .col-sm-10.col-sm-offset-1
-           hr.dotted
-       .row.skill-row
-         h3.text-center.blue big list of skills
-         .skills-list.col-sm-offset-1
-           .col-sm-3
-             h4.green hardware
-             li Bread Boarding
-             li PCB design
-             li MPU Analysis
-             li Analog Circuits
-             li Digital Circuits
-           .col-sm-3
-             h4.green firmware
-             li C / C++
-             li Arduino
-             li Unix
-             li PIC
-             li Wireless
-           .col-sm-3
-             h4.green software
-             li Objective-C
-             li Python
-             li Java
-             li Web
-             li Node.js
-           .col-sm-3
-             h4.green 3d design
-             li 3D Modeling (CAD)
-             li Product Rendering
-             li 3D Printing
-             li Rapid Prototyping
-             li CNC / Laser Cutting
-       .row
-         br
-         br
-       .row.skill-row
-         h3.text-center.blue oh ya, prove it
-         a(href='/work')
-           h5.text-center.green some sample work
- #products
-   .container
-     .row
-       h2.text-center.green products
-       br
-       br
-     .row
-       .col-sm-9.col-sm-offset-2
-         h3.white clock block
-         .col-sm-2
-           br
-           img(src='/images/clock.svg', title='clock block')
-         .col-sm-8
-           br
-           p <i>clock block</i> is minimalistic clock for people who appreciate modern design and contemporary technology. <i>clock block</i> is made out of LEDs and fine hand finished wood. Everything is made by hand here in New Orleans.
-           p It will be available locally and online soon. In the mean time check it out on github ->
-         .col-sm-1
-           br
-           a.link(href='https://github.com/mcous/clockblock', target='_blank')
-             img(src='/images/oshw-logo.svg', title='open source hardware')
-             img.hover(src='/images/oshw-logo-green.svg', title='open source hardware')
-       .row
-         .col-sm-8.col-sm-offset-2
-           br
-           hr.white.dotted
-       .col-sm-9.col-sm-offset-2
-         h3.white lamp
-         br
-         .col-sm-2
-           img(src='/images/lamp.svg', title='lamp')
-         .col-sm-8
-           br
-           p <i>lamp</i> is a lamp. <i>lamp</i> is made from fine liquor, beer, and wine bottles, RGB LEDs, and hand finished wood. Everything is made by hand here in New Orleans. We love lamp...
-           p It will be available locally and online soon. In the mean time check it out on github ->
-         .col-sm-1
-           br
-           a.link(href='https://github.com/hcwiley/led_bottle_lamp', target='_blank')
-             img(src='/images/oshw-logo.svg', title='open source hardware')
-             img.hover(src='/images/oshw-logo-green.svg', title='open source hardware')
- #gents
-   #cole.container.responsive
-     .row
-       h2.text-center the gents
-       br
-       br
-     .col-sm-9
-       .row.cole
-         .col-sm-4
-           h3.green H. Cole Wiley
-         .col-sm-7.body
-           p Cole is sculptor and computer scientist with experience in software development, web development, sculpture, digital art, <a href='http://hcwiley.com/installation/riverless-walk' class='blue' target='_blank'>interactive installations</a>, computer vision, 3d modeling, rapid prototyping, and a couple other things. His favorite language at the moment is CoffeeScript. He enjoys a double espresso in the morning, and a rye whiskey neat in the evening.
-           br
-           a.link(href='https://github.com/hcwiley', target='_blank')
-             img(src='/images/octocat.svg', title='github')
-             img.hover(src='/images/octocat-hover.svg', title='github')
-           a.link(href='http://hcwiley.com', target='_blank')
-             img(src='/images/page.svg', title='webpage')
-             img.hover(src='/images/page-hover.svg', title='webpage')
-           a.link(href='mailto:cole@wileycousins.com')
-             img(src='/images/email.svg', title='github')
-             img.hover(src='/images/email-hover.svg', title='email')
-       #michael.row
-         .col-sm-7.col-sm-offset-4
-           br
-           hr.dotted
-         .col-sm-10
-           br
-       .row.mike
-         .col-sm-4
-           h3.blue Michael Cousins
-         .col-sm-7.body
-           p Michael is a mechatronics engineer and coffee enthusiast. He got himself a <a href='http://en.wikipedia.org/wiki/MakerBot_Industries#Thing-O-Matic' target="_blank">3D printer</a> in college and never really looked back. He's worked designing and building plastic injection molded parts, circuit boards, and robots. The robots only occasionally try to hurt him; that's why we make him wear safety goggles.
-           br
-           a.link(href='https://github.com/mcous', target='_blank')
-             img(src='/images/octocat.svg', title='github')
-             img.hover(src='/images/octocat-hover.svg', title='github')
-           a.link(href='http://mcous.in', target='_blank')
-             img(src='/images/page.svg', title='webpage')
-             img.hover(src='/images/page-hover.svg', title='webpage')
-           a.link(href='mailto:michael@wileycousins.com')
-             img(src='/images/email.svg', title='github')
-             img.hover(src='/images/email-hover.svg', title='email')
-     .col-sm-3
-       img.gents-img(src='/images/gents.png', title='the gents', width="100%")
- #contact
-   .container.responsive
-     h2.text-center contact
-     br
-     br
-     .col-sm-3.col-sm-offset-1
-       br
-       br
-       br
-       br
-       a(href='mailto:dev@wileycousins.com')
-         h4 dev@wileycousins.com
-     .col-sm-2.col-sm-offset-1
-       br
-       br
-       h4.strong.blue located @
-       h4.white 1201 Mazant
-       h4.white New Orleans, LA
-       h4.white 70117
-       br
-       br
-     .col-sm-3.col-sm-offset-2.map
-       a(href='https://maps.google.com/maps?q=1201+Mazant+St,+New+Orleans,+LA&sll=29.966471,-90.033884&hl=en&ie=UTF8&hq=&hnear=1201+Mazant+St,+New+Orleans,+Louisiana+70117&ll=29.966554,-90.034094&spn=0.001764,0.002631&t=m&z=19&vpsrc=0&iwloc=A', target='_blank')
-         img(src='/images/map.png', title='map to address')
-  script(type='text/javascript', src='/js/client.js')
+  .navbar.nav(role="navigation")
+    .nav-link.hidden.home-link
+      a(href='#home')
+        img(src='/images/logo.png')
+    .nav-link
+      a(href='#skills') skills
+    .nav-link
+      a(href='#products') products
+    .nav-link
+      a(href='#gents') gents
+    .nav-link
+      a(href='#contact') contact
+    .nav-link
+      a(href='http://blog.wileycousins.com/', target='_blank') blog
+  #about.row.col-md-12
+    img.main(src='/images/about.png')
+    img.stacked(src='/images/about-stacked.png')
+  #skills
+    .container
+      .row
+        h2.text-center skills
+        br
+        br
+      .col-sm-12
+        .row.skill-row
+          .col-sm-6.skill
+            //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#hardware-collapse")
+            .col-sm-4.col-sm-offset-2
+              img(src='/images/chip.svg')
+            .col-sm-2
+              h3.blue hardware design &nbsp;
+              h3.green &amp;&nbsp;
+              h3.blue development
+            #hardware-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
+              .panel-body
+                p We have experience with designing PCBs to meet a variety of size and cost requirements.
+                p We have designed circuit boards and developed firmware that controls locks for doors, sets mood lighting, and flys quadcopters.
+          .col-sm-6.skill
+            //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#wireless-collapse")
+            .col-sm-4.col-sm-offset-2
+              img(src='/images/router.svg')
+            .col-sm-2
+              h3.blue embedded wireless&nbsp;
+              h3.green &amp;&nbsp;
+              h3.blue wifi
+            #wireless-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
+              .panel-body
+                p Communicating over wireless is our favorite. It's magic, and so are we when it comes to wireless.
+                p We have experience with WiFi, sub-GHz wireless, and Bluetooth &amp; Bluetooth Low Energy.
+        .row.skill-row
+          .col-sm-6.skill
+            //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#mobile-collapse")
+            .col-sm-4.col-sm-offset-2
+              img(src='/images/phone.svg')
+            .col-sm-2
+              h3.blue android&nbsp;
+              h3.green &amp;&nbsp;
+              h3.blue  iOS apps
+            #mobile-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
+              .panel-body
+                p "I've got a great idea for an app!" We know, that's why we make them.
+                p We make apps that talk to our hardware, so that you can talk to our hardware. We specialize in apps that talk to nearby devices over WiFi and Bluetooth; as well as to the cloud over cellular data.
+          .col-sm-6.skill
+            //-a.accordion-toggle(data-toggle="collapse", data-parent="#accordion", href="#physical-collapse")
+            .col-sm-4.col-sm-offset-2
+              img(src='/images/wrench.svg')
+            .col-sm-3
+              h3.blue physical prototyping&nbsp;
+              h3.green &amp;&nbsp;
+              h3.blue production
+            #physical-collapse.panel-collapse.collapse.col-sm-8.col-sm-offset-2.in
+              .panel-body
+                p What do you get when put an engineer and a sculptor together?
+                p A whole lot of things. We love making physical things. Whether you need a phone case, mechanical gearing, or a birdhouse we're your guys.
+        .row
+          .col-sm-10.col-sm-offset-1
+            hr.dotted
+        .row.skill-row
+          a(href='/work')
+            h3.text-center.green oh ya, prove it
+            br
+          a(href='/work#pcb-design')
+            .col-sm-3
+              img.img-thumbnail(src='/images/controller-4.jpg', title='game controller exploded')
+          a(href='/work#cad')
+            .col-sm-3
+              img.img-thumbnail(src='/images/spain-small.jpg', title='long weekend in spain')
+          a(href='/work#cad')
+            .col-sm-3
+              img.img-thumbnail(src='/images/rgb-4.jpg', title='game controller exploded')
+          a(href='/work#software')
+            .col-sm-3
+              img.img-thumbnail(src='/images/riverless-walk-small.jpg', title='long weekend in spain')
+        .row
+          .col-sm-10.col-sm-offset-1
+            br
+            hr.dotted
+        #big-list.row.skill-row
+          h3.text-center.blue big list of skills
+          .skills-list.col-sm-offset-1
+            .col-sm-3
+              h4.green hardware
+              li Bread Boarding
+              li PCB design
+              li MPU Analysis
+              li Analog Circuits
+              li Digital Circuits
+            .col-sm-3
+              h4.green firmware
+              li C / C++
+              li Arduino
+              li Unix
+              li PIC
+              li Wireless
+            .col-sm-3
+              h4.green software
+              li Objective-C
+              li Python
+              li Java
+              li Web
+              li Node.js
+            .col-sm-3
+              h4.green 3d design
+              li 3D Modeling (CAD)
+              li Product Rendering
+              li 3D Printing
+              li Rapid Prototyping
+              li CNC / Laser Cutting
+  #products
+    .container
+      .row
+        h2.text-center.green products
+        br
+        br
+      .row
+        .col-sm-9.col-sm-offset-2
+          h3.white clockblock
+          .col-sm-2
+            br
+            img(src='/images/clock.svg', title='clock block')
+          .col-sm-8
+            br
+            p <i>clockblock</i> is minimalistic clock for people who appreciate modern design and contemporary technology. <i>clockblock</i> is made out of LEDs and fine hand finished wood. Everything is made by hand here in New Orleans.
+            p It will be available locally and online soon. In the mean time check it out on github ->
+          .col-sm-1
+            br
+            a.link(href='https://github.com/mcous/clockblock', target='_blank')
+              img(src='/images/oshw-logo.svg', title='open source hardware')
+              img.hover(src='/images/oshw-logo-green.svg', title='open source hardware')
+        .row
+          .col-sm-8.col-sm-offset-2
+            br
+            hr.white.dotted
+        .col-sm-9.col-sm-offset-2
+          h3.white lamp
+          br
+          .col-sm-2
+            img(src='/images/lamp.svg', title='lamp')
+          .col-sm-8
+            br
+            p <i>lamp</i> is a lamp. <i>lamp</i> is made from fine liquor, beer, and wine bottles, RGB LEDs, and hand finished wood. Everything is made by hand here in New Orleans. We love lamp...
+            p It will be available locally and online soon. In the mean time check it out on github ->
+          .col-sm-1
+            br
+            a.link(href='https://github.com/hcwiley/led_bottle_lamp', target='_blank')
+              img(src='/images/oshw-logo.svg', title='open source hardware')
+              img.hover(src='/images/oshw-logo-green.svg', title='open source hardware')
+  #gents
+    #cole.container.responsive
+      .row
+        h2.text-center the gents
+        br
+        br
+      .col-sm-9
+        .row.cole
+          .col-sm-4
+            h3.green H. Cole Wiley
+          .col-sm-7.body
+            p Cole is sculptor and computer scientist with experience in software development, web development, sculpture, digital art, <a href='http://hcwiley.com/installation/riverless-walk' class='blue' target='_blank'>interactive installations</a>, computer vision, 3d modeling, rapid prototyping, and a couple other things. His favorite language at the moment is CoffeeScript. He enjoys a double espresso in the morning, and a rye whiskey neat in the evening.
+            br
+            a.link(href='https://github.com/hcwiley', target='_blank')
+              img(src='/images/octocat.svg', title='github')
+              img.hover(src='/images/octocat-hover.svg', title='github')
+            a.link(href='http://hcwiley.com', target='_blank')
+              img(src='/images/page.svg', title='webpage')
+              img.hover(src='/images/page-hover.svg', title='webpage')
+            a.link(href='mailto:cole@wileycousins.com')
+              img(src='/images/email.svg', title='github')
+              img.hover(src='/images/email-hover.svg', title='email')
+        #michael.row
+          .col-sm-7.col-sm-offset-4
+            br
+            hr.dotted
+          .col-sm-10
+            br
+        .row.mike
+          .col-sm-4
+            h3.blue Michael Cousins
+          .col-sm-7.body
+            p Michael is a mechatronics engineer and coffee enthusiast. He got himself a <a href='http://en.wikipedia.org/wiki/MakerBot_Industries#Thing-O-Matic' target="_blank">3D printer</a> in college and never really looked back. He's worked designing and building plastic injection molded parts, circuit boards, and robots. The robots only occasionally try to hurt him; that's why we make him wear safety goggles.
+            br
+            a.link(href='https://github.com/mcous', target='_blank')
+              img(src='/images/octocat.svg', title='github')
+              img.hover(src='/images/octocat-hover.svg', title='github')
+            a.link(href='http://mcous.in', target='_blank')
+              img(src='/images/page.svg', title='webpage')
+              img.hover(src='/images/page-hover.svg', title='webpage')
+            a.link(href='mailto:michael@wileycousins.com')
+              img(src='/images/email.svg', title='github')
+              img.hover(src='/images/email-hover.svg', title='email')
+      .col-sm-3
+        img.gents-img(src='/images/gents.png', title='the gents', width="100%")
+  #contact
+    .container.responsive
+      h2.text-center contact
+      br
+      br
+      .col-md-3.col-md-offset-1
+        br
+        br
+        br
+        br
+        a(href='mailto:dev@wileycousins.com')
+          h3.strong.blue.text-center dev@wileycousins.com
+      .col-md-2.col-md-offset-1
+        br
+        br
+        h4.text-center.strong.green located @
+        h4.text-center.blue 1201 Mazant
+        h4.text-center.blue New Orleans, LA
+        h4.text-center.blue 70117
+        br
+        br
+      .col-md-3.col-md-offset-1.map
+        a(href='https://maps.google.com/maps?q=1201+Mazant+St,+New+Orleans,+LA&sll=29.966471,-90.033884&hl=en&ie=UTF8&hq=&hnear=1201+Mazant+St,+New+Orleans,+Louisiana+70117&ll=29.966554,-90.034094&spn=0.001764,0.002631&t=m&z=19&vpsrc=0&iwloc=A', target='_blank')
+          img.img-thumbnail(src='/images/map.png', title='map to address')
+    script(type='text/javascript', src='/js/client.js')

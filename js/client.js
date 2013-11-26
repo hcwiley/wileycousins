@@ -10,7 +10,7 @@ function bindScroll(){
       top = $("#pcb-design").offset().top - $(".navbar").height();
     else
       top = $(".navbar").height();
-    console.log(curPos+", "+top);
+    //console.log(curPos+", "+top);
     if(curPos >= top ){
       if(!$(".navbar").hasClass("navbar-fixed-top") ){
         $(".home-link").removeClass("hidden");
