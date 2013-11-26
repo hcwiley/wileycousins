@@ -24,3 +24,29 @@ html
         img.title(src='/images/title.png', title='Wiley Cousins')
         h1(style='display:none;') Wiley Cousins
     block content
+    #contact
+      .container.responsive
+        h2.text-center contact
+        br
+        br
+        .col-md-3.col-md-offset-3
+          br
+          br
+          br
+          br
+          a(href='mailto:dev@wileycousins.com')
+            h3.strong.blue.text-center dev@wileycousins.com
+        //-.col-md-3.col-md-offset-1.map
+          //-a(href='https://maps.google.com/maps?q=1201+Mazant+St,+New+Orleans,+LA&sll=29.966471,-90.033884&hl=en&ie=UTF8&hq=&hnear=1201+Mazant+St,+New+Orleans,+Louisiana+70117&ll=29.966554,-90.034094&spn=0.001764,0.002631&t=m&z=19&vpsrc=0&iwloc=A', target='_blank')
+            //-img.img-thumbnail(src='/images/map.png', title='map to address')
+        a(href='https://maps.google.com/maps?q=1201+Mazant+St,+New+Orleans,+LA&sll=29.966471,-90.033884&hl=en&ie=UTF8&hq=&hnear=1201+Mazant+St,+New+Orleans,+Louisiana+70117&ll=29.966554,-90.034094&spn=0.001764,0.002631&t=m&z=19&vpsrc=0&iwloc=A', target='_blank')
+          .col-md-2.col-md-offset-1
+            br
+            br
+            h4.text-center.strong.green located @
+            h4.text-center.blue 1201 Mazant
+            h4.text-center.blue New Orleans, LA
+            h4.text-center.blue 70117
+            br
+            br
+    script(type='text/javascript', src='/js/client.js')
