@@ -1,0 +1,183 @@
+extends layout
+
+block extra-head
+  script(type="text/javascript", src="//js.stripe.com/v2/")
+  script(type='text/javascript')
+    Stripe.setPublishableKey('#{stripe_js}')
+block content
+  .navbar.nav(role="navigation")
+    .nav-link.hidden.home-link
+      a(href='#home')
+        img(src='/images/logo.png')
+    .nav-link
+      a(href='#skills') skills
+    .nav-link
+      a(href='#products') products
+    .nav-link
+      a(href='#gents') gents
+    .nav-link
+      a(href='#contact') contact
+    .nav-link
+      a(href='http://blog.wileycousins.com/', target='_blank') blog
+  #classes.row.col-md-12
+    img(src='/images/classes.png')
+  #skills
+    .container
+      .row
+        h2.text-center classes
+        br
+        br
+      .col-sm-12
+        .row
+          .col-sm-12
+            .row
+              .col-sm-2.col-sm-offset-2
+                h3.blue.text-center Processing
+            .row
+              .col-sm-2.col-sm-offset-2
+                img.img-thumbnail.no-border(src='/images/p5.png')
+              .col-sm-4.col-sm-offset-1
+                .panel-body
+                  p Want to learn how to code? Want to make interactive installations? Already slinging for loops around, but need refinement or help with a new project? Take our <a href="http://processing.org" target="_blank">Processing</a> class.
+                  p The class meets every Thursday from 6 - 7pm at the studio, <a href='https://maps.google.com/maps?q=1201+Mazant+St,+New+Orleans,+LA&sll=29.966471,-90.033884&hl=en&ie=UTF8&hq=&hnear=1201+Mazant+St,+New+Orleans,+Louisiana+70117&ll=29.966554,-90.034094&spn=0.001764,0.002631&t=m&z=19&vpsrc=0&iwloc=A' target='_blank')>1201 Mazant</a>.
+  #products
+    .container
+      .row
+        .col-sm-3.col-sm-offset-3
+          h3.white cost
+          .col-sm-12.white
+            p $7 per class
+            p $20 for 4 classes
+            p $50 for 12 classes
+        .col-sm-5.col-sm-offset-1
+          h3.white requirements
+          .col-sm-5.white
+            p laptop
+              img(src='/images/laptop.svg')
+            a.white(href='http://www.processing.org/download/', target='_blank')
+              p Processing
+        .row
+          .col-sm-8.col-sm-offset-2
+            br
+            hr.white.dotted
+        .col-sm-9.col-sm-offset-2
+          h3.white enroll
+          form#enrollment-form(name='enrollment', action='', method='post', role="form").form-horizontal
+            .form-group.white
+              label.col-sm-2 name
+              .col-sm-8
+                input.form-control(name='name', type='text', placeholder='Jamie Doe')
+            .form-group.white
+              label.col-sm-2 email
+              .col-sm-8
+                input.form-control(name='email', type='email', placeholder='jamiedoe@example.com')
+            .form-group.white
+              label.col-sm-2 phone
+              .col-sm-8
+                input.form-control(name='phone', type='phone', placeholder='jamiedoe@example.com')
+            .col-sm-3.col-sm-offset-3.first-buttons
+              button.btn.white pay at the door
+            .col-sm-3.first-buttons
+              button#pay-online.btn.white pay online
+          #cc-info.hidden
+            .form-group.white
+              label.col-sm-2 address
+              .col-sm-8
+                input.form-control(type='text', data-stripe='address_line1', required='true', name='address')
+            .form-group.white
+              label.col-sm-2 city
+              .col-sm-8
+                input.form-control(type='city', data-stripe='address_city', required='true', name='city')
+            .form-group.white
+              label.col-sm-2 state
+              .col-sm-8
+                input.mini.form-control(type='state', required='true', data-stripe='address_state', name='state')
+            .form-group.white
+              label.col-sm-2.mini zip
+              .col-sm-8
+                input.mini.form-control(type='zip', data-stripe='address_zip', required='true', name='zip')
+            .form-group.white
+              label.col-sm-2 card #
+              .col-sm-8
+                input.cc.form-control(type='text', required='true',size='20', name='cc-number', x-autocompletetype='cc-number', data-stripe='number', placeholder='####-####-####-####')
+            .form-group.white
+              label.col-sm-2 cvc
+              .col-sm-8
+                input.mini.form-control(type='text', required='true',size='4',name='cc-cvc', x-autocompletetype='cc-csc', data-stripe='cvc', placeholder='###')
+            .form-group.white
+              label.col-sm-2 expiration
+              .col-sm-3
+                input.inline.form-control(type='text', required='true',size='2', name='cc-exp-month', data-stripe='exp-month', placeholder='mm')
+              .col-sm-2.text-center
+                label.white.text-center(style='width:10px;margin-left:-15px;').inline  / 
+              .col-sm-3
+                input.mini.inline.form-control(type='text', required='true',size='4', name='cc-exp-year', data-stripe='exp-year', placeholder='yyyy')
+            .form-group.white
+              label.col-sm-2 classes
+              .col-sm-8
+                select#num-classes.form-control(name='amount')
+                  option(value='1') 1 class
+                  option(value='4') 4 classes
+                  option(value='12') 12 classes
+            .row
+              .col-sm-10.text-right
+                hr.dotted.white
+                h4.white.text-right.pull-right total: $<span id='total'>5.46</span>
+            .row
+              .col-sm-10.text-right
+                button.btn.white.pull-right#charge charge my card
+            .row
+              br
+              .col-sm-10
+                .col-sm-4.text-left
+                  a(href='https://stripe.com/us/help/faq#security', target='_blank')
+                    img(src='/images/stripe.png', width=150, title='stripe')
+                .col-sm-8.text-right(style='margin-top: 5px;')
+                  i.white.skinny we don't store credit card information on our servers
+                  br
+                  br
+  #gents
+    #cole.container.responsive
+      .row
+        h2.text-center the gents
+        br
+        br
+      .col-sm-9
+        .row.cole
+          .col-sm-4
+            h3.green H. Cole Wiley
+          .col-sm-7.body
+            p Cole is sculptor and computer scientist with experience in software development, web development, sculpture, digital art, <a href='http://hcwiley.com/installation/riverless-walk' class='blue' target='_blank'>interactive installations</a>, computer vision, 3d modeling, rapid prototyping, and a couple other things. His favorite language at the moment is CoffeeScript. He enjoys a double espresso in the morning, and a rye whiskey neat in the evening.
+            br
+            a.link(href='https://github.com/hcwiley', target='_blank')
+              img(src='/images/octocat.svg', title='github')
+              img.hover(src='/images/octocat-hover.svg', title='github')
+            a.link(href='http://hcwiley.com', target='_blank')
+              img(src='/images/page.svg', title='webpage')
+              img.hover(src='/images/page-hover.svg', title='webpage')
+            a.link(href='mailto:cole@wileycousins.com')
+              img(src='/images/email.svg', title='github')
+              img.hover(src='/images/email-hover.svg', title='email')
+        #michael.row
+          .col-sm-7.col-sm-offset-4
+            br
+            hr.dotted
+          .col-sm-10
+            br
+        .row.mike
+          .col-sm-4
+            h3.blue Michael Cousins
+          .col-sm-7.body
+            p Michael is a mechatronics engineer and coffee enthusiast. He got himself a <a href='http://en.wikipedia.org/wiki/MakerBot_Industries#Thing-O-Matic' target="_blank">3D printer</a> in college and never really looked back. He's worked designing and building plastic injection molded parts, circuit boards, and robots. The robots only occasionally try to hurt him; that's why we make him wear safety goggles.
+            br
+            a.link(href='https://github.com/mcous', target='_blank')
+              img(src='/images/octocat.svg', title='github')
+              img.hover(src='/images/octocat-hover.svg', title='github')
+            a.link(href='http://mcous.in', target='_blank')
+              img(src='/images/page.svg', title='webpage')
+              img.hover(src='/images/page-hover.svg', title='webpage')
+            a.link(href='mailto:michael@wileycousins.com')
+              img(src='/images/email.svg', title='github')
+              img.hover(src='/images/email-hover.svg', title='email')
+      .col-sm-3
+        img.gents-img(src='/images/gents.png', title='the gents', width="100%")

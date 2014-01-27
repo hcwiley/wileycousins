@@ -76,6 +76,9 @@ p {
 .white {
   color: #fff;
 }
+.white > * {
+  color: #fff;
+}
 .bg-blue {
   background: #22a8b5;
 }
@@ -235,9 +238,10 @@ p {
     font-size: 18px;
   }
 }
-#about {
+#about,
+#classes {
+  background-image: url("../images/banner.jpg");
   width: 100%;
-  background: url("../images/banner.jpg");
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: 0px;
@@ -245,24 +249,41 @@ p {
   padding: 150px 0px;
   box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
 }
-#about img.main {
+#about img.main,
+#classes img.main {
   width: 100%;
   margin: 0px auto;
 }
-#about img.stacked {
+#about img.stacked,
+#classes img.stacked {
   display: none;
   height: 100%;
 }
+#classes {
+  background-image: url("../images/classes-bg.jpg");
+}
+#classes img {
+  width: 75%;
+  margin: 0px auto;
+}
+@media (max-width: 880px) {
+  #classes img {
+    margin-top: -10%;
+  }
+}
 @media (max-width: 640px) {
-  #about {
+  #about,
+  #classes {
     background-size: auto 100%;
     background-position: 30% 0px;
     height: 400px;
   }
-  #about img.main {
+  #about img.main,
+  #classes img.main {
     display: none;
   }
-  #about img.stacked {
+  #about img.stacked,
+  #classes img.stacked {
     margin: -100px auto 0px auto;
     display: block;
   }
@@ -390,4 +411,10 @@ i {
   width: 100%;
   background: #22a8b5;
   padding: 50px 0px 100px 0px;
+}
+.no-border {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  background: none;
 }

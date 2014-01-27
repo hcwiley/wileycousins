@@ -72,6 +72,8 @@ p
   color $greenColor
 .white
   color $whiteColor
+  > *
+    color $whiteColor
 
 .bg-blue
   background $lightBlueColor
@@ -224,10 +226,9 @@ p
         font-size 18px
 
 
-#about
+#about, #classes
+  background-image url('../images/banner.jpg')
   width 100%
-  //background $mainColor
-  background url('../images/banner.jpg')
   background-repeat no-repeat
   background-size 100% auto
   background-position 0px
@@ -240,8 +241,18 @@ p
   img.stacked
     display none
     height 100%
+#classes
+  background-image url('../images/classes-bg.jpg')
+  img
+    width 75%
+    margin 0px auto
+@media (max-width: 880px)
+  #classes
+    img
+      margin-top -10%
+      //width 80%
 @media (max-width: 640px)
-  #about
+  #about, #classes
     background-size auto 100%
     background-position 30% 0px
     height 400px
@@ -365,3 +376,8 @@ i
   background $lightBlueColor
   padding 50px 0px 100px 0px
 
+.no-border
+  padding 0px
+  margin 0px
+  border none
+  background none
