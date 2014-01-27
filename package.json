@@ -1,11 +1,25 @@
 {
-  "name"      : "code.hcwiley.com",
+  "name"      : "wileycousins",
   "version"   : "0.0.1",
-  "devDependencies": {
-      "jade":"*",
-      "serve":"*",
-      "stylus":"0.30.*",
-      "coffee-script": "*",
-      "nib": "*"
+  "private": true,
+  "engines": {
+    "node": "0.10.*"
+  },
+  "scripts": {
+    "start": "coffee app.coffee"
+  },
+  "dependencies": {
+    "async"                 : "*",
+    "coffee-script"         : "*",
+    "connect-assets"        : "*",
+    "cookie"                : "*",
+    "express"               : "*",
+    "jade"                  : "*",
+    "mongoose"              : "*",
+    "nib"                   : "*",
+    "nodemailer"            :" *",
+    "stylus"                : "*",
+    "stripe"                : "*",
+    "supervisor"            : "*"
   }
 }

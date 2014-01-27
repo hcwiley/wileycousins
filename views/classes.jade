@@ -5,20 +5,6 @@ block extra-head
   script(type='text/javascript')
     Stripe.setPublishableKey('#{stripe_js}')
 block content
-  .navbar.nav(role="navigation")
-    .nav-link.hidden.home-link
-      a(href='#home')
-        img(src='/images/logo.png')
-    .nav-link
-      a(href='#skills') skills
-    .nav-link
-      a(href='#products') products
-    .nav-link
-      a(href='#gents') gents
-    .nav-link
-      a(href='#contact') contact
-    .nav-link
-      a(href='http://blog.wileycousins.com/', target='_blank') blog
   #classes.row.col-md-12
     img(src='/images/classes.png')
   #skills
@@ -139,7 +125,7 @@ block content
   #gents
     #cole.container.responsive
       .row
-        h2.text-center the gents
+        h2.text-center your teachers
         br
         br
       .col-sm-9

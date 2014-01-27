@@ -1,4 +1,0 @@
-#!/bin/sh
-# Compile and start a development server.
-
-exec script/watch & jekyll serve --watch

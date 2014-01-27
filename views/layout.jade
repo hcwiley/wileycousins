@@ -2,14 +2,13 @@
 html
   head
     title Wiley Cousins
-    link(type='text/css', rel='stylesheet', href='/css/index.css')
     link(rel='icon', type='image/x-icon', href='/images/fav.png')
     meta(name="viewport",content="width=device-width, initial-scale=1.0")
     meta(name='keywords', content='hardware, firmware, software, development, design, new orleans, nola, louisiana, arduino, ARM, raspberry pi, wifi, wireless, sub ghz, embedded, systems, C, c++, cpp, CoffeeScript, 3d printing, cnc, milling, prototyping, production, rapid prototyping, debug, arduino, objective-c, html, css, javascript, coffeescript, node.js, node js, node, cad, computer aided design, mpu, microprocessor, rhino cad, wiley cousins, wiley, cousins, hand made, maker, makers, hackers, hacker, fine wood, fine, products')
     meta(name='description', content='Hardware and software - design and development')
     meta(name='author', content='Wiley Cousins')
-    script(type='text/javascript', src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
-    script(type='text/javascript', src='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
+    !=css('index')
+    !=js('client')
     script(type='text/javascript')
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -24,6 +23,20 @@ html
       a(href='/')
         img.title(src='/images/title.png', title='Wiley Cousins')
         h1(style='display:none;') Wiley Cousins
+    .navbar.nav(role="navigation")
+      .nav-link.hidden.home-link
+        a(href='#home')
+          img(src='/images/logo.png')
+      .nav-link
+        a(href='/#products') products
+      .nav-link
+        a(href='/work') work
+      .nav-link
+        a(href='/classes') classes
+      .nav-link
+        a(href='#contact') contact
+      .nav-link
+        a(href='http://blog.wileycousins.com/', target='_blank') blog
     block content
     #contact
       .container.responsive
