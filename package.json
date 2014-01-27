@@ -14,12 +14,13 @@
     "connect-assets"        : "*",
     "cookie"                : "*",
     "express"               : "*",
-    "jade"                  : "*",
+    "jade"                  : "0.35.0",
     "mongoose"              : "*",
     "nib"                   : "*",
     "nodemailer"            :" *",
     "stylus"                : "*",
     "stripe"                : "*",
+    "forever"               : "*",
     "supervisor"            : "*"
   }
 }
