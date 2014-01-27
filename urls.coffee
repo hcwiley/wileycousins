@@ -92,7 +92,7 @@ module.exports = (app) ->
                   console.log "error saving user post add wcclass: #{err}"
                   mailer.sendEmailError user, err, res
                 mailer.newPurchase user, wcclasses[0], wcclasses
-                return res.render 'purchase', wcclass: wcclass
+                return res.render 'purchase', user:user, wcclasses: wcclasses, wcclass: wcclass
 
   addClass = (user, has_paid, class_name, next) ->
     wcclass = new WCClass buyer: user, name: class_name, has_paid: has_paid

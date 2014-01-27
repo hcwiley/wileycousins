@@ -33,6 +33,7 @@ stripeResHandler = (status, res) ->
     #form.get(0).submit()
     $.post form.attr('action'), form.serialize(), (res) ->
       console.log res
+      form.html(res)
 bindEnrollmentForm = ->
   $("#num-classes").change ->
     val = $(@).val()
@@ -50,7 +51,7 @@ bindEnrollmentForm = ->
     form.append $("#cc-info").removeClass("hidden")
     $("#enrollment-form").submit (e) ->
       e.preventDefault()
-      #form.find("button").prop "disabled", true
+      form.find("button").prop "disabled", true
       Stripe.card.createToken form, stripeResHandler
       false
 
