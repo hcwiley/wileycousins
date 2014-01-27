@@ -2,8 +2,10 @@ models    = require './models'
 config    = require './config'
 stripe    = require('stripe')(config.stripe)
 Users     = models.User
-Products  = models.Product
+WCClass     = models.WCClass
 mailer    = require './mailer'
+
+enrollUser = (req) ->
 
 module.exports = (app) ->
   # UI routes 
@@ -11,12 +13,15 @@ module.exports = (app) ->
     res.render "index.jade"
 
   app.get "/work", (req, res) ->
-    res.render "work.jade"
+    res.render "work.jade",
+      title: "Our Work | Wiley Cousins"
 
   app.get "/classes", (req, res) ->
-    res.render "classes.jade", stripe_js: config.stripe_js
+    res.render "classes.jade",
+      stripe_js: config.stripe_js
+      title: "Get Clever | Wiley Cousins"
 
-  app.post "/purchase", (req, res) ->
+  app.post "/classes", (req, res) ->
     name = req.body.name
     email = req.body.email
     phone = req.body.phone
@@ -24,57 +29,72 @@ module.exports = (app) ->
     city = req.body.city
     state = req.body.state
     zip = req.body.zip
+    classes = req.body.amount
 
-    stripeToken = req.body.stripeToken
-    charge =
-      description: "#{name} <#{email}> (#{phone}) @ #{address}, #{city}, #{state}, #{zip}"
-      amount: 200*100
-      currency: 'USD'
-      card: stripeToken
+    if !address
+      enrollUser(req)
+    else
+      amount = 0
+      if classes == '1'
+        amount = 7.52
+      else if classes == '4'
+        amount = 20.91
+      else if classes == '12'
+        amount = 51.80
+      else
+        return res.send "not a good amount"
+      stripeToken = req.body.stripeToken
+      charge =
+        description: "#{name} <#{email}> (#{phone}) @ #{address}, #{city}, #{state}, #{zip}"
+        amount: amount*100
+        currency: 'USD'
+        card: stripeToken
 
-    Users.findOne(
-      name: name
-      email: email
-      phone: phone
-      address: address
-      city: city
-      state: state
-      zip: zip
-    ).exec (err, user) ->
-      if err
-        console.log err
-        return res.send "error finding user in db, sorry"
-      if !user
-        console.log "new user"
-        user = new Users
-          name: name
-          email: email
-          phone: phone
-          address: address
-          city: city
-          state: state
-          zip: zip
-        user.save()
-      stripe.charges.create charge, (err, charge) ->
+      console.log charge
+
+      Users.findOne(
+        name: name
+        email: email
+        phone: phone
+        address: address
+        city: city
+        state: state
+        zip: zip
+      ).exec (err, user) ->
         if err
           console.log err
-          return res.render 'error'
-        else
-          product = new Products buyer: user
-          product.save (err, product) ->
-            if err
-              console.log err
-              return res.send "error creating purchase record in db, sorry"
-            user.purchased_products.addToSet product
-            user.save (err, user) ->
+          return res.send "error finding user in db, sorry"
+        if !user
+          console.log "new user"
+          user = new Users
+            name: name
+            email: email
+            phone: phone
+            address: address
+            city: city
+            state: state
+            zip: zip
+          user.save()
+        stripe.charges.create charge, (err, charge) ->
+          if err
+            console.log err
+            return res.render 'error'
+          else
+            wcclass = new WCClass buyer: user, name: req.body.class
+            wcclass.save (err, wcclass) ->
               if err
-                console.log "error saving user post add product: #{err}"
-              Products.find( purchase_date: {$lt:(new Date()).toJSON()} ).exec (err, clocks)->
-                mailer.newPurchase user, clocks.length
-                return res.render 'purchase', num: clocks.length
+                console.log err
+                return res.send "error creating purchase record in db, sorry"
+              user.purchased_wcclasses.addToSet wcclass
+              user.save (err, user) ->
+                if err
+                  console.log "error saving user post add wcclass: #{err}"
+                WCClass.find( purchase_date: {$lt:(new Date()).toJSON()} ).exec (err, wcclasses)->
+                  mailer.newPurchase user, wcclasses.length
+                  return res.render 'purchase', num: wcclasses.length
   
   isAdmin = (req, res, next) -> 
-    if process.env.NODE_ENV.match('production') && (!req.session.auth?.match('so-good') && !req.body.password?.match(process.env.ADMIN_PASSWORD))
+    if process.env.NODE_ENV.match('wcclassion') && (!req.session.auth?.match('so-good') && !req.body.password?.match(process.env.ADMIN_PASSWORD))
       return res.render 'login'
     else
       req.session['auth'] = 'so-good'
@@ -85,28 +105,28 @@ module.exports = (app) ->
     return res.redirect('/orders')
 
   app.get "/orders", isAdmin, (req, res) ->
-    Users.find().populate('purchased_products').exec (err, users) ->
+    Users.find().populate('purchased_wcclasses').exec (err, users) ->
       if err
         console.log err
         return res.send err
       users.sort (a,b) ->
-        a.purchased_products[0].purchase_date - b.purchased_products[0].purchase_date
+        a.purchased_wcclasses[0].purchase_date - b.purchased_wcclasses[0].purchase_date
       return res.render "orders.jade", users: users
 
   app.get "/purchase", isAdmin, (req, res) ->
-    Products.find().exec (err, clocks) ->
+    WCClass.find().exec (err, wcclasses) ->
       if err
         console.log err
-      return res.render 'purchase', num: clocks.length
+      return res.render 'purchase', num: wcclasses.length
 
   app.get "/confirmation", isAdmin, (req, res) ->
     Users.findOne().exec (err, user) ->
       if err
         console.log err
-      Products.find().exec (err, clocks) ->
+      WCClass.find().exec (err, wcclasses) ->
         if err
           console.log err
-        return res.render 'emailTemplates/confirmation', user: user, num: clocks.length, url: 'http://127.0.0.1:3000'
+        return res.render 'emailTemplates/confirmation', user: user, num: wcclasses.length, url: 'http://127.0.0.1:3000'
 
   app.get "/confirmation/:user", isAdmin, (req, res) ->
     res.redirect '/orders'
@@ -116,10 +136,10 @@ module.exports = (app) ->
       if err
         console.log err
       console.log req.body.clock
-      Products.find({purchase_date:{$lte:req.body.clock}}).exec (err, clocks) ->
+      WCClass.find({purchase_date:{$lte:req.body.clock}}).exec (err, wcclasses) ->
         if err
           console.log err
-        num = clocks.length
+        num = wcclasses.length
         if num < 10
           num = "0#{num.toString()}"
         mailer.confirmation user, num
@@ -127,7 +147,7 @@ module.exports = (app) ->
 
   app.post "/update/:user", isAdmin, (req, res) ->
     console.log "updating"
-    Users.findById(req.params.user).populate("purchased_products").exec (err, user) ->
+    Users.findById(req.params.user).populate("purchased_wcclasses").exec (err, user) ->
       if err || !user
         console.log err
         return res.send err

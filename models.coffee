@@ -2,16 +2,23 @@ config   = require './config'
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
 
-Product = new Schema
+WCClass = new Schema
   name:
     type: String
-    default: "clockblock"
-  price:
-    type: Number
-    default: 150
+    default: "processing"
+  #prices:
+    #one:
+      #type: Number
+      #default: 7.52
+    #four:
+      #type: Number
+      #default: 20.91
+    #twelve:
+      #type: Number
+      #default: 51.80
   image:
     type: String
-    default: "http://clockblocknola.com/images/clockblock.jpg"
+    default: "http://wileycousins.com/images/processing.jpg"
   purchase_date:
     type: Date
     default: (new Date()).toJSON()
@@ -29,10 +36,10 @@ User = new Schema
   city: String
   state: String
   zip: String
-  purchased_products: [
+  purchased_wcclasses: [
     type: Schema.ObjectId
-    ref: 'Product'
+    ref: 'WCClass'
   ]
 
 exports.User = mongoose.model 'User', User
-exports.Product = mongoose.model 'Product', Product
+exports.WCClass = mongoose.model 'WCClass', WCClass

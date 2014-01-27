@@ -1,4 +1,5 @@
 #= require jquery
+#= require bootstrap.min
 bindScroll = ->
   $(window).unbind "scroll"
   $(window).on "scroll", (e) ->
@@ -28,14 +29,16 @@ stripeResHandler = (status, res) ->
     form.find(".enrollment-errors").text res.error.message
     form.find("button").prop "disabled", false
   else
-    form.append $("<input type='hidden' name='stripeToken' value='" + res.id + "'/>")
-    form.get(0).submit()
+    form.find("[name='stripeToken']").val(res.id)
+    #form.get(0).submit()
+    $.post form.attr('action'), form.serialize(), (res) ->
+      console.log res
 bindEnrollmentForm = ->
   $("#num-classes").change ->
     val = $(@).val()
-    if val is "5"
+    if val is "1"
       $("#total").text "7.52"
-    else if val is "15"
+    else if val is "4"
       $("#total").text "20.91"
     else $("#total").text "51.80"  if val is "40"
 
@@ -46,7 +49,7 @@ bindEnrollmentForm = ->
     form.append $("#cc-info").removeClass("hidden")
     $("#enrollment-form").submit (e) ->
       e.preventDefault()
-      form.find("button").prop "disabled", true
+      #form.find("button").prop "disabled", true
       Stripe.card.createToken form, stripeResHandler
       false
 

@@ -23,20 +23,6 @@ credentials =
   key: privateKey
   cert: certificate
 
-#passport.use "email", new LocalStrategy(
-  #usernameField: "email"
-#, (email, password, done) ->
-  #process.nextTick ->
-    #User.authEmail email, password, done
-#)
-
-#passport.serializeUser (user, done) ->
-  #done null, user.id
-
-#passport.deserializeUser (id, done) ->
-  #User.findById id, (err, user) ->
-    #done err, user
-
 # connect the database
 mongoose.connect config.mongodb
 
