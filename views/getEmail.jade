@@ -1,0 +1,25 @@
+extends basic
+
+block content
+  .container
+    .col-sm-10.col-sm-offset-1
+      br
+      br
+      if error
+        h3!=error
+      form.form-horizontal(action="", method="post")
+        .form-group
+          label.col-sm-4.green
+            h2 email
+          .col-sm-7
+            .col-xs-12.hidden-xs
+              br
+              br
+            input.form-control(type='email', placeholder='jamiedoe@example.com', name='email')
+        .form-group
+          button.btn.white submit
+      br
+      br
+      br
+      br
+      br

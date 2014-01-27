@@ -9,9 +9,8 @@ head
 body
   div#main(style='border: 1px solid #B9C3CC; border-radius: 20px; padding: 15px; width: 400px; height: 400px; position: relative; margin: 10px auto;')
     h2 hey #{user.name.toLowerCase()},
-    p just wanted to let you know you successfully enrolled in our #{wcclass.name} class. you will receive another email soon with instructions on joining the mailing list and other fun things.
+    p just wanted to let you know you successfully enrolled in our #{wcclass.name} class. you will receive another email soon with instructions on joining the mailing list and other fun things. you can check your remaining class credits <a href='#{url}/my-classes?email=#{user.email}'>here</a>
     p if you have any questions or concerns shoot us an email at <a style='color: #2A3F42; text-decoration: none;', href='mailto:dev@wileycousins.com'>dev@wileycousins.com</a>
-    br
     br
     br
     br

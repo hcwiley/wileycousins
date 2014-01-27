@@ -98,6 +98,26 @@ module.exports = (app) ->
     wcclass = new WCClass buyer: user, name: class_name, has_paid: has_paid
     wcclass.save (err, wcclass) ->
       next(err)
+
+  app.get "/my-classes", (req, res) ->
+    console.log !req.query.email
+    if !req.query.email
+      return res.render "getEmail.jade"
+    Users.find( email: req.query.email ).populate('purchased_wcclasses').exec (err, users) ->
+      if err
+        return res.render "error.jade", error: err
+      if users.length == 0
+        return res.render "getEmail.jade", error:"Didn't find an account for <span class='blue'>#{req.query.email}</span><br>you sure you signed up?<br>If you are having problems email <a href='mailto:dev@wileycousins.com'> wiley cousins</a>"
+      user = users[0]
+      WCClass.find( buyer: user, has_paid: true ).exec (err, wcclasses) ->
+        if err
+          return res.render "error.jade", error: err
+        return res.render "my_classes.jade",
+          user:user
+          wcclasses: wcclasses
+
+  app.post "/my-classes", (req, res) ->
+    return res.redirect("/my-classes?email=#{req.body.email}")
   
   isAdmin = (req, res, next) -> 
     if process.env.NODE_ENV.match('wcclassion') && (!req.session.auth?.match('so-good') && !req.body.password?.match(process.env.ADMIN_PASSWORD))
@@ -105,7 +125,6 @@ module.exports = (app) ->
     else
       req.session['auth'] = 'so-good'
       next()
-
 
   app.all "/login", isAdmin, (req, res) ->
     return res.redirect('/orders')
