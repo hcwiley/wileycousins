@@ -30,6 +30,7 @@ module.exports = (app) ->
     state = req.body.state
     zip = req.body.zip
     classes = req.body.amount
+    class_name = req.body.class
 
     if !address
       enrollUser(req)
@@ -49,8 +50,6 @@ module.exports = (app) ->
         amount: amount*100
         currency: 'USD'
         card: stripeToken
-
-      console.log charge
 
       Users.findOne(
         name: name
@@ -80,18 +79,25 @@ module.exports = (app) ->
             console.log err
             return res.render 'error'
           else
-            wcclass = new WCClass buyer: user, name: req.body.class
-            wcclass.save (err, wcclass) ->
-              if err
-                console.log err
-                return res.send "error creating purchase record in db, sorry"
-              user.purchased_wcclasses.addToSet wcclass
+            while classes-- > 0
+              addClass user, true, class_name, (err, _wcclass) ->
+                if err
+                  console.log err
+                  return res.send "error saving purchase record in db, sorry. email dev@wileycousins.com and complain"
+            WCClass.find( buyer: user ).exec (err, wcclasses)->
+              for wcclass in wcclasses
+                user.purchased_wcclasses.addToSet wcclass
               user.save (err, user) ->
                 if err
                   console.log "error saving user post add wcclass: #{err}"
-                WCClass.find( purchase_date: {$lt:(new Date()).toJSON()} ).exec (err, wcclasses)->
-                  mailer.newPurchase user, wcclasses.length
-                  return res.render 'purchase', num: wcclasses.length
+                  mailer.sendEmailError user, err, res
+                mailer.newPurchase user, wcclasses[0], wcclasses
+                return res.render 'purchase', wcclass: wcclass
+
+  addClass = (user, has_paid, class_name, next) ->
+    wcclass = new WCClass buyer: user, name: class_name, has_paid: has_paid
+    wcclass.save (err, wcclass) ->
+      next(err)
   
   isAdmin = (req, res, next) -> 
     if process.env.NODE_ENV.match('wcclassion') && (!req.session.auth?.match('so-good') && !req.body.password?.match(process.env.ADMIN_PASSWORD))
@@ -126,7 +132,11 @@ module.exports = (app) ->
       WCClass.find().exec (err, wcclasses) ->
         if err
           console.log err
-        return res.render 'emailTemplates/confirmation', user: user, num: wcclasses.length, url: 'http://127.0.0.1:3000'
+        return res.render 'emailTemplates/confirmation',
+          user: user
+          num: wcclasses.length
+          wcclass: wcclasses[wcclasses.length - 1]
+          url: 'http://127.0.0.1:3000'
 
   app.get "/confirmation/:user", isAdmin, (req, res) ->
     res.redirect '/orders'

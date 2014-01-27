@@ -40,7 +40,8 @@ bindEnrollmentForm = ->
       $("#total").text "7.52"
     else if val is "4"
       $("#total").text "20.91"
-    else $("#total").text "51.80"  if val is "40"
+    else if val is "12"
+      $("#total").text "51.80"
 
   $("#enrollment-form #pay-online").click (e) ->
     e.preventDefault()

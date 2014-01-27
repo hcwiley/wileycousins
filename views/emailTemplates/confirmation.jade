@@ -1,0 +1,19 @@
+head
+  style
+    * {
+      color: #242323; font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    }
+    img, div {
+      border-radius: 15px;
+    }
+body
+  div#main(style='border: 1px solid #B9C3CC; border-radius: 20px; padding: 15px; width: 400px; height: 400px; position: relative; margin: 10px auto;')
+    h2 hey #{user.name.toLowerCase()},
+    p just wanted to let you know you successfully enrolled in our #{wcclass.name} class. you will receive another email soon with instructions on joining the mailing list and other fun things.
+    p if you have any questions or concerns shoot us an email at <a style='color: #2A3F42; text-decoration: none;', href='mailto:dev@wileycousins.com'>dev@wileycousins.com</a>
+    br
+    br
+    br
+    br
+    img(src='http://wileycousins.com/images/logo.png', width='120px', height='120px', style='display: inline-block; clear: none; float:left;')
+    img(src='#{wcclass.image}', width='120px', height='120px', style='display: inline-block; clear: none; float:right;')

@@ -3,9 +3,9 @@ config      = require './config'
 jade        = require 'jade'
 fs          = require 'fs'
 
-#newPurchaseTemplate = jade.compile fs.readFileSync "./views/emailTemplates/newPurchase.jade"
-#confirmationTemplate = jade.compile fs.readFileSync "./views/emailTemplates/confirmation.jade"
-#errorTemplate = jade.compile fs.readFileSync "./views/emailTemplates/error.jade"
+newPurchaseTemplate = jade.compile fs.readFileSync "./views/emailTemplates/newPurchase.jade"
+confirmationTemplate = jade.compile fs.readFileSync "./views/emailTemplates/confirmation.jade"
+errorTemplate = jade.compile fs.readFileSync "./views/emailTemplates/error.jade"
 
 
 # create reusable transport method (opens pool of SMTP connections)
@@ -21,48 +21,49 @@ smtpTransport = nodemailer.createTransport "SMTP",
 mailOptions =
   from: "Wiley Cousins <robot@wileycousins.com>"
   to: "le dudes <dev@wileycousins.com>"
-  subject: "clockblock"
+  subject: "wiley cousins class"
 
 # send them an email
-exports.confirmation = (user, num) ->
+exports.confirmation = (user, wcclass) ->
   mailOptions.to = user.email
-  mailOptions.subject = 'clockblock purchase confirmation'
+  mailOptions.subject = 'wiley cousins class enrollment confirmation'
   mailOptions.html = confirmationTemplate
       user: user
       url: config.url
-      num: num
+      wcclass: wcclass
   smtpTransport.sendMail mailOptions, (error, res) ->
     if error
-      sendEmailError user, num, error, res
       console.log error
+      exports.sendEmailError user, num, error, res
     else
       console.log "Message sent: " + res.message
 
 # send us an email
-exports.newPurchase = (user, num) ->
-  mailOptions.subject = '[clockblock] new purchase'
+exports.newPurchase = (user, wcclass, wcclasses) ->
+  mailOptions.subject = '[wc class] new enrollment'
   to: "le dudes <dev@wileycousins.com>"
   mailOptions.html = newPurchaseTemplate
       user: user
+      wcclass: wcclass
+      wcclasses: wcclasses
       url: config.url
-  if process.env.NODE_ENV == 'production'
+  if process.env.NODE_ENV == 'production' || true
     smtpTransport.sendMail mailOptions, (error, res) ->
       if error
         console.log error
       else
         console.log "Message sent: " + res.message
-  exports.confirmation user, num
+  exports.confirmation user, wcclass
 
 # send us an email if we got an error emailing them
-exports.sendEmailError = (user, num , error, res) ->
+exports.sendEmailError = (user, error, res) ->
   to: "HALP <dev@wileycousins.com>"
   mailOptions.html = errorTemplate
       user: user
       url: config.url
-      num: num
       error: error
       res: res
-  mailOptions.subject = '[clockblock] [error] send mail error'
+  mailOptions.subject = '[wc class] [error] send mail error'
   smtpTransport.sendMail mailOptions, (error, res) ->
     if error
       console.log error

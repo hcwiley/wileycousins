@@ -1,0 +1,9 @@
+div
+  h1 good news everyone!
+  p #{user.name} <#{user.email}> just enrolled in a #{wcclass.name} class.
+  if wcclass.has_paid
+    h4 even better news they, paid!
+  if wcclasses.length > 1
+    h4 actually they enrolled in #{wcclasses.length}
+  a(href='#{url}/orders')
+    view receipt

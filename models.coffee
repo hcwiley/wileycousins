@@ -5,26 +5,24 @@ Schema = mongoose.Schema
 WCClass = new Schema
   name:
     type: String
-    default: "processing"
-  #prices:
-    #one:
-      #type: Number
-      #default: 7.52
-    #four:
-      #type: Number
-      #default: 20.91
-    #twelve:
-      #type: Number
-      #default: 51.80
+    default: "Processing"
   image:
     type: String
-    default: "http://wileycousins.com/images/processing.jpg"
+    default: "#{config.url}/images/p5.png"
   purchase_date:
     type: Date
     default: (new Date()).toJSON()
   buyer:
     type: Schema.ObjectId
     ref: 'User'
+  been_used:
+    type: Boolean
+    default: false
+  used_date:
+    type: Date
+  has_paid:
+    type: Boolean
+    default: false
 
 User = new Schema
   email:
