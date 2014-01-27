@@ -4,12 +4,12 @@ bindScroll = ->
   $(window).on "scroll", (e) ->
     curPos = $(window).scrollTop()
     top = 0
-    if $("#about").length > 0
-      top = $("#about").offset().top - $(".navbar").height()
-    else if $("#pcb-design").length > 0
-      top = $("#pcb-design").offset().top - $(".navbar").height()
-    else
-      top = $(".navbar").height()
+    #if $("#about").length > 0
+    top = $($(".navbar.nav").siblings('div:not(.modal)')[1]).offset().top - $(".navbar").height()
+    #else if $("#pcb-design").length > 0
+      #top = $("#pcb-design").offset().top - $(".navbar").height()
+    #else
+      #top = $(".navbar").height()
     
     #console.log(curPos+", "+top);
     if curPos >= top
@@ -23,7 +23,6 @@ bindScroll = ->
       $(".home-link").addClass "hidden"
 
 stripeResHandler = (status, res) ->
-  form = undefined
   form = $("#enrollment-form")
   if res.error
     form.find(".enrollment-errors").text res.error.message
@@ -33,7 +32,7 @@ stripeResHandler = (status, res) ->
     form.get(0).submit()
 bindEnrollmentForm = ->
   $("#num-classes").change ->
-    val = $(this).val()
+    val = $(@).val()
     if val is "5"
       $("#total").text "7.52"
     else if val is "15"
@@ -42,8 +41,7 @@ bindEnrollmentForm = ->
 
   $("#enrollment-form #pay-online").click (e) ->
     e.preventDefault()
-    form = undefined
-    form = $(this).closest("form")
+    form = $(@).closest("form")
     form.find(".first-buttons").remove()
     form.append $("#cc-info").removeClass("hidden")
     $("#enrollment-form").submit (e) ->
