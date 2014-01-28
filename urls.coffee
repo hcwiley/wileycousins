@@ -101,7 +101,7 @@ module.exports = (app) ->
         stripe.charges.create charge, (err, charge) ->
           if err
             console.log err
-            return res.render 'error'
+            return res.send "<h3>error creating your purchase record, sorry. try again.</h3><p>if you have problems email <a href='mailto:dev@wileycousins.com'>dev@wileycousins.com</a> and complain</p>"
           else
             while classes-- > 0
               addClass user, true, class_name, (err, _wcclass) ->
