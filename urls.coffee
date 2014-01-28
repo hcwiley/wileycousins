@@ -73,11 +73,14 @@ module.exports = (app) ->
       else
         return res.send "not a good amount"
       stripeToken = req.body.stripeToken
+      console.log stripeToken
       charge =
         description: "#{name} <#{email}> (#{phone}) @ #{address}, #{city}, #{state}, #{zip}"
         amount: amount*100
         currency: 'USD'
         card: stripeToken
+
+      console.log charge
 
       Users.findOne(
         name: name

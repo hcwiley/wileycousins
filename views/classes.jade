@@ -50,6 +50,8 @@ block content
           h3.white enroll
           form#enrollment-form(name='enrollment', action='', method='post', role="form").form-horizontal
             .form-group.white
+              label.enrollment-errors
+            .form-group.white
               label.col-sm-2 name
               .col-sm-8
                 input.form-control(name='name', type='text', placeholder='Jamie Doe')
@@ -106,7 +108,6 @@ block content
                   option(value='4') 4 classes
                   option(value='12') 12 classes
             input(type='hidden', name='class_name', value='Processing')
-            input(type='hidden', name='stripeToken', value='')
             .row
               .col-sm-10.text-right
                 hr.dotted.white

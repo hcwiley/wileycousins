@@ -28,7 +28,7 @@ stripeResHandler = (status, res) ->
     form.find(".enrollment-errors").text res.error.message
     form.find("button").prop "disabled", false
   else
-    form.find("[name='stripeToken']").val(res.id)
+    form.append("<input type='hidden' name='stripeToken' value='#{res.id}'/>")
     #form.get(0).submit()
     $.post form.attr('action'), form.serialize(), (res) ->
       form.html(res)
@@ -51,6 +51,7 @@ bindEnrollmentForm = ->
     false
   $("#enrollment-form #pay-online").click (e) ->
     e.preventDefault()
+    $("#enrollment-form").unbind 'submit'
     form = $(@).closest("form")
     form.find(".first-buttons").remove()
     form.append $("#cc-info").removeClass("hidden")
