@@ -12,8 +12,8 @@ addClass = (user, has_paid, class_name, next) ->
     next(err, wcclass)
 
 module.exports = (app) ->
-  # UI routes 
   app.get "/robots.txt", (req, res) ->
+    res.type('text/plain')
     res.send "User-agent: *\n"+
         "Disallow: /images/\n"+
         "Disallow: /css/\n"+
