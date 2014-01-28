@@ -1,5 +1,6 @@
 git pull
 cp -rf ~/git/wileycousins/* ~/webapps/wileycousins/
+cp -rf ~/git/wileycousins/public/images ~/webapps/wileycousins_static
 cd ~/webapps/wileycousins/
 npm install
 forever stop app.coffee
