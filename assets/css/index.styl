@@ -79,6 +79,9 @@ p
 .bg-blue
   background $lightBlueColor
 
+.m0auto
+  margin 0 auto
+
 .title
   width 90%
   margin 30px auto
@@ -108,15 +111,36 @@ p
     border-right 1px solid $greenColor
     padding 5px 50px
     padding-bottom 11px
+    color $whiteColor
     a
       font-size 23px
       font-weight 200
       font-family 'Ubuntu'
-      color $whiteColor
-      //color $lightBlueColor
       font-variant small-caps
+      color $whiteColor
+      b.caret
+        color $whiteColor!important
+        border-top-color $whiteColor!important
+        border-bottom-color $whiteColor!important
+        border-top-width 6px
+        border-right-width 6px
+        border-left-width 6px
+        margin-left 10px
+        margin-right -5px
   .nav-link:last-child
     border-right none
+  .dropdown-menu
+    padding 0px
+    margin 0px
+    border-radius 0px
+    background $mainColor
+    >li
+      margin 0px
+      >a
+        padding 7px 9px
+      >a:hover, >a:focus
+        background $whiteColor!important
+        color $lightBlueColor
 
 .navbar.nav.navbar-fixed-top
   transition box-shadow 1s
@@ -128,7 +152,7 @@ p
       padding 5px 40px
       padding-bottom 11px
 
-@media only screen and (max-width: 830px) and (min-width: 693px)
+@media only screen and (max-width: 830px) and (min-width: 711px)
   .navbar.nav.navbar-fixed-top
     .nav-link
       padding 5px 30px
@@ -194,19 +218,19 @@ p
       padding-left 0px
       padding-right 0px
 
-@media only screen and (max-width: 793px) and (min-width: 693px)
+@media only screen and (max-width: 823px) and (min-width: 717px)
   .navbar.nav:not(.navbar-fixed-top)
     .nav-link
       padding 5px 40px
       padding-bottom 11px
 
-@media only screen and (max-width: 692px) and (min-width: 494px)
+@media only screen and (max-width: 716px) and (min-width: 524px)
   .navbar.nav:not(.navbar-fixed-top)
     .nav-link
       padding 5px 20px
       padding-bottom 11px
 
-@media only screen and (max-width: 493px) and (min-width: 504px)
+@media only screen and (max-width: 523px) and (min-width: 504px)
   .navbar.nav:not(.navbar-fixed-top)
     .nav-link
       padding 5px 16px
@@ -221,7 +245,7 @@ p
 @media only screen and (max-width: 393px)
   .navbar.nav:not(.navbar-fixed-top)
     .nav-link
-      padding 5px 7px
+      padding 5px 6px
       padding-bottom 11px
       a
         font-size 18px
@@ -380,6 +404,16 @@ i
   margin 0px
   border none
   background none
+  border-radius 0px
   
 .inline
   display inline-block
+
+$partner-height = 150px;
+.partner-logo
+  height $partner-height
+  line-height $partner-height
+  text-align center
+  img
+    vertical-align middle
+    max-height 80%

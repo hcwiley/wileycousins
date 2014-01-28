@@ -28,10 +28,35 @@ html
       .nav-link.hidden.home-link
         a(href='/#home')
           img(src='/images/logo.png')
+      .nav-link.dropdown
+        a(href='#', data-target="#", data-toggle="dropdown")
+          | about
+          b.caret
+        ul(class="dropdown-menu",role="menu")
+          li
+            a(href='/#skills') skills
+          li.divider
+          li
+            a(href='/#products') products
+          li.divider
+          li
+            a(href='/#gents') gents
+          li.divider
+          li
+            a(href='/#partners') partners
       .nav-link
-        a(href='/#products') products
-      .nav-link
-        a(href='/work') work
+        a(href='/work', data-target="#", data-toggle="dropdown")
+          | work
+          b.caret
+        ul(class="dropdown-menu",role="menu")
+          li
+            a(href='/work#pcb-design') pcb design
+          li.divider
+          li
+            a(href='/work#cad') cad
+          li.divider
+          li
+            a(href='/work#software') software
       .nav-link
         a(href='/classes') classes
       .nav-link
