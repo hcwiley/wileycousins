@@ -4,3 +4,4 @@ _site
 *.csr
 *.crt
 *.key
+*.pem
