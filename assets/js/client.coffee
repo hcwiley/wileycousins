@@ -12,7 +12,6 @@ bindScroll = ->
     #else
       #top = $(".navbar").height()
     
-    #console.log(curPos+", "+top);
     if curPos >= top
       unless $(".navbar").hasClass("navbar-fixed-top")
         $(".home-link").removeClass "hidden"
@@ -32,7 +31,6 @@ stripeResHandler = (status, res) ->
     form.find("[name='stripeToken']").val(res.id)
     #form.get(0).submit()
     $.post form.attr('action'), form.serialize(), (res) ->
-      console.log res
       form.html(res)
 bindEnrollmentForm = ->
   $("#num-classes").change ->
@@ -44,6 +42,13 @@ bindEnrollmentForm = ->
     else if val is "12"
       $("#total").text "51.80"
 
+  $("#enrollment-form").submit (e) ->
+    e.preventDefault()
+    form = $("#enrollment-form")
+    form.find("button").prop "disabled", true
+    $.post form.attr('action'), form.serialize(), (res) ->
+      form.html(res)
+    false
   $("#enrollment-form #pay-online").click (e) ->
     e.preventDefault()
     form = $(@).closest("form")

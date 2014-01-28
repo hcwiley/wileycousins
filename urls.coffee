@@ -5,7 +5,11 @@ Users     = models.User
 WCClass     = models.WCClass
 mailer    = require './mailer'
 
-enrollUser = (req) ->
+
+addClass = (user, has_paid, class_name, next) ->
+  wcclass = new WCClass buyer: user, name: class_name, has_paid: has_paid
+  wcclass.save (err, wcclass) ->
+    next(err, wcclass)
 
 module.exports = (app) ->
   # UI routes 
@@ -33,7 +37,31 @@ module.exports = (app) ->
     class_name = req.body.class
 
     if !address
-      enrollUser(req)
+      Users.findOne(
+        name: name
+        email: email
+        phone: phone
+      ).exec (err, user) ->
+        if err
+          console.log err
+          return res.send "error finding user in db, sorry"
+        if !user
+          user = new Users
+            name: name
+            email: email
+            phone: phone
+        user.save (err, user) ->
+          addClass user, false, class_name, (err, wcclass) ->
+            if err
+              console.log err
+              return res.send "error saving purchase record in db, sorry. email dev@wileycousins.com and complain"
+            user.purchased_wcclasses.addToSet wcclass
+            user.save (err, user) ->
+              if err
+                console.log "error saving user post add wcclass: #{err}"
+                mailer.sendEmailError user, err, res
+              mailer.newPurchase user, wcclass, [wcclass]
+              return res.render 'purchase', user:user, wcclasses: [wcclass], wcclass: wcclass
     else
       amount = 0
       if classes == '1'
@@ -55,10 +83,6 @@ module.exports = (app) ->
         name: name
         email: email
         phone: phone
-        address: address
-        city: city
-        state: state
-        zip: zip
       ).exec (err, user) ->
         if err
           console.log err
@@ -93,11 +117,6 @@ module.exports = (app) ->
                   mailer.sendEmailError user, err, res
                 mailer.newPurchase user, wcclasses[0], wcclasses
                 return res.render 'purchase', user:user, wcclasses: wcclasses, wcclass: wcclass
-
-  addClass = (user, has_paid, class_name, next) ->
-    wcclass = new WCClass buyer: user, name: class_name, has_paid: has_paid
-    wcclass.save (err, wcclass) ->
-      next(err)
 
   app.get "/my-classes", (req, res) ->
     console.log !req.query.email
