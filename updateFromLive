@@ -1,0 +1,8 @@
+git pull
+cp -rf ~/git/wileycousins/* ~/webapps/wileycousins/
+cd ~/webapps/wileycousins/
+npm install
+forever stop app.coffee
+rm ~/.forever/wileycousins.log
+source .env
+forever -l ./wileycousins.log start -c coffee app.coffee
