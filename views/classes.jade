@@ -37,11 +37,23 @@ block content
             p $50 for 12 classes
         .col-sm-5.col-sm-offset-1.col-xs-offset-3
           h3.white requirements
-          .col-sm-5.white
-            p laptop
-              img(src='/images/laptop.svg')
-            a.white(href='http://www.processing.org/download/', target='_blank')
-              p Processing
+          .row
+            .col-sm-5(data-toggle="tooltip", data-placement="top", data-original-title="Mac, PC, or Linux", title='')
+              .col-sm-6.white
+                br
+                p.pull-left.inline laptop
+              .col-sm-6
+                img.inline.pull-right(height=60, src='/images/laptop.svg')
+          .row
+            br
+          .row
+            .col-sm-5.white(data-toggle="tooltip", data-placement="top", data-original-title="Download and install Processing", title='')
+              a.white(href='http://www.processing.org/download/', target='_blank') 
+                .col-sm-6.white
+                  br
+                  p.pull-left.inline Processing
+                .col-sm-6.white
+                  img.inline.pull-right(height=60, src='/images/download.svg')
         .row
           .col-sm-8.col-sm-offset-2
             br

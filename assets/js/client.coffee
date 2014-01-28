@@ -66,4 +66,5 @@ bindEnrollmentForm = ->
 $(window).ready ->
   bindScroll()
   bindEnrollmentForm()
+  $("[data-toggle='tooltip']").tooltip()
 
