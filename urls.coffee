@@ -34,7 +34,7 @@ module.exports = (app) ->
     state = req.body.state
     zip = req.body.zip
     classes = req.body.amount
-    class_name = req.body.class
+    class_name = req.body.class_name
 
     if !address
       Users.findOne(
