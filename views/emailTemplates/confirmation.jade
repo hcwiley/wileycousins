@@ -9,10 +9,8 @@ head
 body
   div#main(style='border: 1px solid #B9C3CC; border-radius: 20px; padding: 15px; width: 400px; height: 400px; position: relative; margin: 10px auto;')
     h2 hey #{user.name.toLowerCase()},
-    p just wanted to let you know you successfully enrolled in our #{wcclass.name} class. you will receive another email soon with instructions on joining the mailing list and other fun things. you can check your remaining class credits <a href='#{url}/my-classes?email=#{user.email}'>here</a>
-    p if you have any questions or concerns shoot us an email at <a style='color: #2A3F42; text-decoration: none;', href='mailto:dev@wileycousins.com'>dev@wileycousins.com</a>
-    br
-    br
-    br
+    p just wanted to let you know you successfully enrolled in our #{wcclass.name} class. you will receive another email soon with instructions on joining the mailing list and other fun things. you can check your remaining class credits <a style='color: #B7C22C; text-decoration: none;'  href='#{url}/my-classes?email=#{user.email}'>here</a>
+    p if you have any questions or concerns shoot us an email at <a style='color: #B7C22C; text-decoration: none;' href='mailto:dev@wileycousins.com'>dev@wileycousins.com</a>
+    p look forward to seeing you in class on March 6th. add the class to your <a style='color: #B7C22C; text-decoration: none;' target="_blank" href="https://www.google.com/calendar/event?action=TEMPLATE&tmeid=djA3NDVwcHU5ODZ0aXQ0c2EzZzU3NXE2OWNfMjAxNDAzMDdUMDAwMDAwWiByNWFpdGg2YThlc2FuczEyb3M5cHFtc2dpc0Bn&tmsrc=r5aith6a8esans12os9pqmsgis%40group.calendar.google.com">google calendar</a>.
     img(src='http://wileycousins.com/images/logo.png', width='120px', height='120px', style='display: inline-block; clear: none; float:left;')
     img(src='#{wcclass.image}', width='120px', height='120px', style='display: inline-block; clear: none; float:right;')
