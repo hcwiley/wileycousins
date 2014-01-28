@@ -13,19 +13,29 @@ block content
         h2.text-center classes
         br
         br
-      .col-sm-12
+      #processing.col-sm-12
         .row
           .col-sm-12
             .row
-              .col-sm-2.col-sm-offset-2
-                h3.blue.text-center Processing
+              a(href="http://processing.org", target="_blank")
+                .col-sm-2.col-sm-offset-2
+                  h3.blue.text-center Processing
             .row
-              .col-sm-2.col-sm-offset-2
-                img.img-thumbnail.no-border(src='/images/p5.png')
+              a(href="http://processing.org", target="_blank")
+                .col-sm-2.col-sm-offset-2
+                  img.img-thumbnail.no-border(src='/images/p5.png')
               .col-sm-4.col-sm-offset-1
-                .panel-body
-                  p Want to learn how to code? Want to make interactive installations? Already slinging for loops around, but need refinement or help with a new project? Take our <a href="http://processing.org" target="_blank">Processing</a> class.
-                  p The class meets every Thursday from 6 - 7pm at the studio, <a href='https://maps.google.com/maps?q=1201+Mazant+St,+New+Orleans,+LA&sll=29.966471,-90.033884&hl=en&ie=UTF8&hq=&hnear=1201+Mazant+St,+New+Orleans,+Louisiana+70117&ll=29.966554,-90.034094&spn=0.001764,0.002631&t=m&z=19&vpsrc=0&iwloc=A' target='_blank')>1201 Mazant</a>. Class will start the Thursday after Mardi Gras, March 6th.
+                .visible-xs
+                  br
+                  br
+                p Want to learn how to code? Want to make interactive installations? Already slinging for loops around, but need refinement or help with a new project? Take our <a href="http://processing.org" target="_blank">Processing</a> class.
+                p The class meets every Thursday from 6 - 7pm at the studio, <a href='https://maps.google.com/maps?q=1201+Mazant+St,+New+Orleans,+LA&sll=29.966471,-90.033884&hl=en&ie=UTF8&hq=&hnear=1201+Mazant+St,+New+Orleans,+Louisiana+70117&ll=29.966554,-90.034094&spn=0.001764,0.002631&t=m&z=19&vpsrc=0&iwloc=A' target='_blank')>1201 Mazant</a>. Class will start the Thursday after Mardi Gras, March 6th.
+          .row
+            .col-md-6
+              a(data-toggle='collapse', data-target='#processing-about') &nbsp;&nbsp;&nbsp;What is Processing?
+              #processing-about.collapse.col-sm-9.col-sm-offset-3
+                br
+                p Processing is a programming language, development environment, and online community. Since 2001, Processing has promoted software literacy within the visual arts and visual literacy within technology. <strong>Initially created to serve as a software sketchbook and to teach computer programming fundamentals within a visual context</strong>, Processing evolved into a development tool for professionals. Today, there are tens of thousands of students, artists, designers, researchers, and hobbyists who use Processing for learning, prototyping, and production (quoted from <a href='http://processing.org' target="_blank">processing.org</a>).
   #products
     .container
       .row
