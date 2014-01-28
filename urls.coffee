@@ -13,6 +13,12 @@ addClass = (user, has_paid, class_name, next) ->
 
 module.exports = (app) ->
   # UI routes 
+  app.get "/robots.txt", (req, res) ->
+    res.send "User-agent: *\n"+
+        "Disallow: /images/\n"+
+        "Disallow: /css/\n"+
+        "Disallow: /js/\n"
+
   app.get "/", (req, res) ->
     res.render "index.jade"
 
