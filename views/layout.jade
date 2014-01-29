@@ -58,7 +58,15 @@ html
           li
             a(href='/work#software') software
       .nav-link
-        a(href='/classes') classes
+        a(href='/classes', data-target='#', data-toggle='dropdown')
+          | classes
+          b.caret
+        ul(class="dropdown-menu",role="menu")
+          li
+            a(href='/classes#classes') get clever
+          li.divider
+          li
+            a(href='/classes#processing') intro to programming
       .nav-link
         a(href='#contact') contact
       .nav-link

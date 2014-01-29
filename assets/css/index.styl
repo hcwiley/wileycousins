@@ -69,10 +69,13 @@ p
 
 .blue
   color $lightBlueColor
+  border-color $lightBlueColor
 .green
   color $greenColor
+  border-color $greenColor
 .white
   color $whiteColor
+  border-color $whiteColor
   > *
     color $whiteColor
 
@@ -82,11 +85,13 @@ p
 .m0auto
   margin 0 auto
 
+.ptb40
+  padding 40px 0px
+
 .title
   width 90%
   margin 30px auto
   max-width 700px
-
 .navbar.nav
   height auto
   //background linear-gradient(top, $mainColor, $gradMid, $mainColor)
@@ -141,6 +146,11 @@ p
       >a:hover, >a:focus
         background $whiteColor!important
         color $lightBlueColor
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus
+  background $mainColor
+  text-decoration none
+  color $lightBlueColor
 
 .navbar.nav.navbar-fixed-top
   transition box-shadow 1s
