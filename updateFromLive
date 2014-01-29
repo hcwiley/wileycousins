@@ -4,8 +4,8 @@ cp -rf ~/git/wileycousins/* ~/webapps/wileycousins/
 cp -rf ~/git/wileycousins/public/images/* ~/webapps/wileycousins_static/
 cd ~/webapps/wileycousins/
 npm install
-#/*forever stop app.coffee*/
-#rm ~/.forever/wileycousins.log
+rm ~/.forever/wileycousins.log
 source .env
-#forever -l ./wileycousins.log start -c coffee app.coffee
-./bin/start
+forever stop $PWD/app.coffee
+forever -l ./wileycousins.log start -c coffee $PWD/app.coffee
+#./bin/start
