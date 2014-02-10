@@ -148,7 +148,7 @@ module.exports = (app) ->
     return res.redirect("/my-classes?email=#{req.body.email}")
   
   isAdmin = (req, res, next) -> 
-    if process.env.NODE_ENV.match('wcclassion') && (!req.session.auth?.match('so-good') && !req.body.password?.match(process.env.ADMIN_PASSWORD))
+    if process.env.NODE_ENV.match('production') && (!req.session.auth?.match('so-good') && !req.body.password?.match(process.env.ADMIN_PASSWORD))
       return res.render 'login'
     else
       req.session['auth'] = 'so-good'
