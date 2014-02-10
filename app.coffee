@@ -34,7 +34,7 @@ app = express()
 if process.env.NODE_ENV != 'production'
   server = https.createServer(credentials, app)
 else
-  server = http.createServer(credentials, app)
+  server = http.createServer(app)
 
 compile = (str, path) ->
   stylus(str).set('filename', path).use(nib())
