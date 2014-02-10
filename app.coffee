@@ -31,8 +31,10 @@ mongoose.connect config.mongodb
 
 # create app, server, and web sockets
 app = express()
-#if process.env.NODE_ENV != 'production'
-server = https.createServer(credentials, app)
+if process.env.NODE_ENV != 'production'
+  server = https.createServer(credentials, app)
+else
+  server = http.createServer(credentials, app)
 
 compile = (str, path) ->
   stylus(str).set('filename', path).use(nib())
