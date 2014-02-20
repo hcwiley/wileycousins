@@ -48,7 +48,7 @@ exports.newPurchase = (user) ->
       user: user
       url: config.url
       wcclasses: wcclasses
-  if process.env.NODE_ENV == 'production'
+  if process.env.NODE_ENV == 'production' || true
     smtpTransport.sendMail mailOptions, (error, res) ->
       if error
         console.log error
