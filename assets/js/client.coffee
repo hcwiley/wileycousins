@@ -38,17 +38,26 @@ bindEnrollmentForm = ->
     $("#class").trigger 'change'
     $("#num-classes").trigger 'change'
 
+  $("#circuits-kit").change ->
+    $("#num-classes").trigger 'change'
+    if $(@).val() == components_price
+      $("#kit-check").modal 'show'
+
   $("#class").change ->
     val = $(@).val()
     if val is "intro-circuits"
       $("#enroll").removeClass('bg-blue').addClass 'bg-gray'
+      $("#circuits-kit").parents(".form-group").removeClass 'hidden'
     else if val is "intro-programming"
       $("#enroll").removeClass('bg-gray').addClass 'bg-blue'
+      $("#circuits-kit").parents(".form-group").addClass 'hidden'
     $("#num-classes").trigger 'change'
 
   $("#num-classes").change ->
     val = $(@).val()
     amt = 0
+    if $("#class").val() == "intro-circuits"
+      amt = parseInt $("#circuits-kit").val()
     if val is "1"
       amt = 7
     else if val is "4"
@@ -57,6 +66,7 @@ bindEnrollmentForm = ->
       amt = 50
     if $("#class").val() == 'intro-circuits'
       amt *= 2
+      amt += parseInt $("#circuits-kit").val()
     # account for stripe transaction fee
     amt = (amt + 0.3)/(1-0.029)
     amt = Math.round(amt * 100) / 100
@@ -89,4 +99,5 @@ $(window).ready ->
   bindScroll()
   bindEnrollmentForm()
   $("[data-toggle='tooltip']").tooltip()
+  $("[data-toggle='popover']").popover()
 

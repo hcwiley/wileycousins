@@ -5,6 +5,19 @@ block extra-head
   script(type='text/javascript')
     Stripe.setPublishableKey('#{stripe_js}')
 block content
+  #kit-check.modal.fade
+    .modal-dialog.modal-lg
+      .modal-content.pull-left
+        .modal-header.bg-blue
+          button.white.close(data-dismiss="modal",aria-hidden="true")&times;
+          h4.white Kit Check!
+        .modal-body.col-sm-12.pull-left
+          .row
+            .col-sm-12
+              .col-sm-8.col-sm-offset-2
+                strong We have to ask... You will need all the tools that are sold in the everything kit.
+                br
+                strong If you don't have an Arduino, multimeter, breadboard, and wire strippers you should get the everything kit.
   #classes.row.col-md-12
     img(src='/images/classes.png')
   #skills
@@ -21,28 +34,28 @@ block content
                   .col-sm-10.col-sm-offset-1
                     hr.dotted.green
             .row
-              .col-sm-4.col-sm-offset-1.text-left
+              .col-sm-8.col-sm-offset-2
                 .visible-xs
                   br
                   br
-                p Want to learn how to code? Want to make interactive installations? Already slinging for loops around, but need refinement or help with a new project? Take our <a href="http://processing.org" target="_blank">Processing</a> class.
-                p The class meets every Thursday from 6 - 7pm at the studio, <a href='https://maps.google.com/maps?q=1201+Mazant+St,+New+Orleans,+LA&sll=29.966471,-90.033884&hl=en&ie=UTF8&hq=&hnear=1201+Mazant+St,+New+Orleans,+Louisiana+70117&ll=29.966554,-90.034094&spn=0.001764,0.002631&t=m&z=19&vpsrc=0&iwloc=A' target='_blank')>1201 Mazant</a>. Class will start the Thursday after Mardi Gras, March 6th.
+                p Want to learn how to code? Want to make interactive installations? Already slinging for loops around, but need refinement or help with a new project? Take this class! It will be taught in <a href="http://processing.org" target="_blank">Processing</a> class.
+                p This is a 3 month class with a rather open format. If you want to come some times and not others, feel free to. However, the objective is after taking 12 classes you will be profecient at writing code. Meaning that you will be able to <strong>debug your problems, search the web for help, and implement the answers you find in your code</strong>. Once you can do that, the door is wide open for what you can accomplish with code.
+                p.blue.strong The class meets every Thursday from 5:30 - 6:30pm at <a href='http://gopropeller.org/'>Propeller</a>, <a href='https://maps.google.com/maps?q=Propeller+4035+Washington+Ave+New+Orleans+70125' target='_blank')>4035 Washington Ave</a>.
                 br
-                strong Watch the video to learn more
-                  span.glyphicon.glyphicon-chevron-right
+                h4.strong.text-center Class starts March 6th.
                 br
-                br
-                a(data-toggle='collapse', data-target='#processing-about') What is Processing?
-                .col-sm-12.visible-xs
+                .row
+                  .col-sm-12.text-left
+                    a(data-toggle='collapse', data-target='#processing-about') What is Processing?
+                .col-sm-12
+                  br
+                #processing-about.collapse.col-sm-12
+                  p Processing is a programming language, development environment, and online community. Since 2001, Processing has promoted software literacy within the visual arts and visual literacy within technology. <strong>Initially created to serve as a software sketchbook and to teach computer programming fundamentals within a visual context</strong>, Processing evolved into a development tool for professionals. Today, there are tens of thousands of students, artists, designers, researchers, and hobbyists who use Processing for learning, prototyping, and production (quoted from <a href='http://processing.org' target="_blank">processing.org</a>).
                   br
                   br
-              .col-sm-6
+              .col-sm-6.col-sm-offset-3
                 iframe(src="//player.vimeo.com/video/80274630?title=0&amp;byline=0&amp;portrait=0", width="100%", height="250px", frameborder="0", webkitallowfullscreen mozallowfullscreen allowfullscreen)
                 a(href="http://vimeo.com/80274630") 1. HELLO</a> from <a href="http://vimeo.com/shiffman">shiffman</a> on <a href="https://vimeo.com">Vimeo</a>.</p>.
-            .row
-              #processing-about.collapse.col-sm-8.col-sm-offset-2
-                br
-                p Processing is a programming language, development environment, and online community. Since 2001, Processing has promoted software literacy within the visual arts and visual literacy within technology. <strong>Initially created to serve as a software sketchbook and to teach computer programming fundamentals within a visual context</strong>, Processing evolved into a development tool for professionals. Today, there are tens of thousands of students, artists, designers, researchers, and hobbyists who use Processing for learning, prototyping, and production (quoted from <a href='http://processing.org' target="_blank">processing.org</a>).
   .col-sm-12.bg-blue.ptb40
     .container
       .row
@@ -114,17 +127,17 @@ block content
               .col-sm-4
                 img.img-thumbnail.no-border(src='/images/capacitor.svg')
               .col-sm-4
-                img.img-thumbnail.no-border(src='/images/op-amp.svg')
-              .col-sm-4
                 img.img-thumbnail.no-border(src='/images/soldering-iron.svg')
+              .col-sm-4
+                img.img-thumbnail.no-border(src='/images/op-amp.svg')
           .row
             .col-sm-12
               br
               br
           .row
-            .col-sm-6.col-sm-offset-3
-              p The class meets every Sunday from 1 - 3pm at <a href='http://gopropeller.org/'>Propeller</a>, <a href='https://maps.google.com/maps?q=Propeller+4035+Washington+Ave+New+Orleans+70125' target='_blank')>4035 Washington Ave</a>.
-              strong Class starts March 16th.
+            .col-sm-8.col-sm-offset-2
+              p.blue.strong.text-center The class meets every Sunday from 1 - 3pm at <a href='http://gopropeller.org/'>Propeller</a>, <a href='https://maps.google.com/maps?q=Propeller+4035+Washington+Ave+New+Orleans+70125' target='_blank')>4035 Washington Ave</a>.
+              h4.strong.text-center Class starts March 16th.
 
   .col-sm-12.bg-gray.ptb40
     .container
@@ -132,9 +145,11 @@ block content
         .col-sm-3.col-sm-offset-3.col-xs-offset-3
           h3.white cost
           .col-sm-12.white
-            p $7 per class
-            p $20 for 4 classes
-            p $50 for 12 classes
+            p $14 per class &nbsp;
+              span.italic.tiny (only first class)
+            p $40 for 4 classes &nbsp;
+              span.italic.tiny (only first month)
+            p $100 for 12 classes
         .col-sm-5.col-sm-offset-1.col-xs-offset-3
           h3.white requirements
           .row
@@ -148,14 +163,30 @@ block content
           .row
             br
           .row
-            .col-sm-7.white(data-toggle="tooltip", data-placement="top", data-original-title="Download and install Processing", title='')
-              a.white(href='http://www.processing.org/download/', target='_blank') 
-                .col-sm-8.white
+            .col-sm-8.white
+                .col-sm-12.white
                   br
-                  p.pull-left.inline Processing
-                .col-sm-4.white
-                  img.hidden-xs.inline.pull-right(height=60, src='/images/download.svg')
-                  img.visible-xs.inline.m0auto(height=60, src='/images/download.svg')
+                  .row
+                    .col-sm-12.white
+                      p.pull-left.inline
+                        | Circuits Kit &nbsp;&nbsp;
+                        span.italic.tiny (choose one)
+                  a(data-toggle="popover", data-placement="top",data-title='Stater Kit', data-content="Comes with an Arduino, multimeter, breadboard, and wire strippers. If you don't have any of these things, get this. You won't find a better price... We checked.")
+                    .row
+                      .col-sm-4.white
+                        p
+                          span.glyphicon.glyphicon-info-sign
+                          | &nbsp;$#{everything_kit}
+                      .col-sm-8.white
+                        p Everything Kit
+                  a(data-toggle="popover", data-placement="top",data-title='Maker Kit', data-content="Does NOT come with an Arduino, multimeter, breadboard, and wire strippers. If you already have a few of these things, save yourself a couple bucks and pickup the other ones.")
+                    .row
+                      .col-sm-4.white
+                        p
+                          span.glyphicon.glyphicon-info-sign
+                          | &nbsp;$#{components_kit}
+                      .col-sm-8.white
+                        p Componets Only Kit
       .row
         .col-sm-12
           br
@@ -170,7 +201,7 @@ block content
   #gents
     #cole.container.responsive
       .row
-        h2.text-center your teachers
+        h2.text-center your instructors
         br
         br
       .col-sm-9
@@ -225,65 +256,72 @@ block content
               .col-sm-6
                 .form-group.white
                   label.col-sm-3.text-left name
-                  .col-sm-8
-                    input.form-control(name='name', type='text', required='true', placeholder='Jamie Doe')
+                  .col-sm-9
+                    input.form-control(name='name', type='text', required='true', placeholder='Jenny Doe')
                 .form-group.white
                   label.col-sm-3.text-left email
-                  .col-sm-8
-                    input.form-control(name='email', type='email', required='true', placeholder='jamiedoe@example.com')
+                  .col-sm-9
+                    input.form-control(name='email', type='email', required='true', placeholder='jenny@tommytutone.com')
                 .form-group.white
                   label.col-sm-3.text-left phone
-                  .col-sm-8
-                    input.form-control(name='phone', type='phone', required='true', placeholder='jamiedoe@example.com')
+                  .col-sm-9
+                    input.form-control(name='phone', type='phone', required='true', placeholder='504-867-5309')
                 .form-group.white
                   label.col-sm-3.text-left class
-                  .col-sm-8
+                  .col-sm-9
                     select#class.text-center.form-control(name='class_name')
                       option(value='intro-programming') Intro to programming
                       option(value='intro-circuits') Intro to circuits
                 .form-group.white
                   label.col-sm-3.text-left classes
-                  .col-sm-8
+                  .col-sm-9
                     select#num-classes.text-center.form-control(name='amount')
                       option(value='1') 1 class
                       option(value='4') 4 classes
                       option(value='12') 12 classes
+                .form-group.white.hidden
+                  label.col-sm-3.text-left circuits kit
+                  .col-sm-9
+                    select#circuits-kit.text-center.form-control(name='amount')
+                      option(value='#{everything_kit}') Everything Kit
+                      option(value='#{components_kit}') Componets Only Kit
               .col-sm-6
                 .form-group.white
                   label.col-sm-3.text-left address
-                  .col-sm-8
+                  .col-sm-9
                     input.form-control(type='text', data-stripe='address_line1', required='true', name='address', placeholder='123 Foo Bar Ave.')
                 .form-group.white
                   label.col-sm-3.text-left city
-                  .col-sm-8
+                  .col-sm-9
                     input.form-control(type='city', data-stripe='address_city', required='true', name='city', placeholder='New Orleans')
                 .form-group.white
                   label.col-sm-3.text-left state
-                  .col-sm-8
+                  .col-sm-9
                     input.mini.form-control(type='state', required='true', data-stripe='address_state', name='state', placeholder='LA')
                 .form-group.white
                   label.col-sm-3.text-left.mini zip
-                  .col-sm-8
+                  .col-sm-9
                     input.mini.form-control(type='zip', data-stripe='address_zip', required='true', name='zip', placeholder='701##')
                 .form-group.white
                   label.col-sm-3.text-left card #
-                  .col-sm-8
+                  .col-sm-9
                     input.cc.form-control(type='text', required='true',size='20', name='cc-number', x-autocompletetype='cc-number', data-stripe='number', placeholder='####-####-####-####')
                 .form-group.white
                   label.col-sm-3.text-left cvc
-                  .col-sm-8
+                  .col-sm-9
                     input.mini.form-control(type='text', required='true',size='4',name='cc-cvc', x-autocompletetype='cc-csc', data-stripe='cvc', placeholder='###')
                 .form-group.white
                   label.col-sm-3.text-left expiration
                   .visible-sm.col-sm-12
                     .row
                       br
-                  .col-sm-5.col-md-3
-                    input.inline.form-control(type='text', required='true',size='2', name='cc-exp-month', data-stripe='exp-month', placeholder='mm')
-                  .col-sm-1.col-md-1.text-center
-                    label.white.text-center(style='width:10px;margin-left:-15px;').inline  / 
-                  .col-sm-5.col-md-4
-                    input.mini.inline.form-control(type='text', required='true',size='4', name='cc-exp-year', data-stripe='exp-year', placeholder='yyyy')
+                  .col-sm-12.col-md-9
+                    .row
+                     .col-sm-6
+                       input.inline.form-control(type='text', required='true',size='2', name='cc-exp-month', data-stripe='exp-month', placeholder='mm')
+                     label.white.inline.pull-left.text-center(style='width: 0px') / 
+                     .col-sm-6
+                       input.mini.inline.form-control(type='text', required='true',size='4', name='cc-exp-year', data-stripe='exp-year', placeholder='yyyy')
           .row
             .col-sm-12.text-right
               hr.dotted.white
@@ -293,12 +331,14 @@ block content
                 button.btn.white#charge charge my card
           .row
             br
-            .col-sm-10
+            .col-sm-12
               .col-sm-4.text-left
                 a(href='https://stripe.com/us/help/faq#security', target='_blank')
                   img(src='/images/stripe.png', width=150, title='stripe')
               .col-sm-8.text-right(style='margin-top: 5px;')
-                i.white.skinny we don't store credit card information on our servers
+                i.white.italic.skinny we don't store credit card information on our servers
                 br
                 br
     br
+    script
+      var components_price = "#{components_kit}";
