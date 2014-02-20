@@ -6,11 +6,6 @@ WCClass     = models.WCClass
 mailer    = require './mailer'
 
 
-addClass = (user, has_paid, class_name, next) ->
-  wcclass = new WCClass buyer: user, name: class_name, has_paid: has_paid
-  wcclass.save (err, wcclass) ->
-    next(err, wcclass)
-
 module.exports = (app) ->
   app.get "/robots.txt", (req, res) ->
     res.type('text/plain')
@@ -41,93 +36,67 @@ module.exports = (app) ->
     city = req.body.city
     state = req.body.state
     zip = req.body.zip
-    classes = req.body.amount
+    classes = req.body.classes
     class_name = req.body.class_name
+    amount = req.body.amount
+    kit = req.body.kit
+    amount = parseFloat amount
+    classes = parseInt classes
 
-    if !address
-      Users.findOne(
-        name: name
-        email: email
-        phone: phone
-      ).exec (err, user) ->
+    console.log req.body
+
+    if amount < 5
+      return res.send "not a good amount"
+    stripeToken = req.body.stripeToken
+
+    console.log "amount #{amount}"
+
+    charge =
+      description: "#{name} <#{email}> (#{phone}) @ #{address}, #{city}, #{state}, #{zip}"
+      amount: amount*100
+      currency: 'USD'
+      card: stripeToken
+
+    Users.findOne(
+      email: email
+    ).exec (err, user) ->
+      if err
+        console.log err
+        return res.send "error finding user in db, sorry"
+      if !user
+        console.log "new user"
+        user = new Users
+          name: name
+          email: email
+          phone: phone
+          address: address
+          city: city
+          state: state
+          zip: zip
+        user.save()
+      stripe.charges.create charge, (err, charge) ->
         if err
           console.log err
-          return res.send "error finding user in db, sorry"
-        if !user
-          user = new Users
-            name: name
-            email: email
-            phone: phone
-        user.save (err, user) ->
-          addClass user, false, class_name, (err, wcclass) ->
-            if err
-              console.log err
-              return res.send "error saving purchase record in db, sorry. email dev@wileycousins.com and complain"
-            user.purchased_wcclasses.addToSet wcclass
-            user.save (err, user) ->
+          return res.send "<h3>error creating your purchase record, sorry. try again.</h3><p>if you have problems email <a href='mailto:dev@wileycousins.com'>dev@wileycousins.com</a> and complain</p>"
+        else
+          kit = kit || 0
+          i = parseInt classes
+          while i-- > 0
+            console.log 'saving new class'
+            wcclass = new WCClass(buyer: user, kit: kit, name: class_name, has_paid: true)
+            console.log "new class: #{wcclass}"
+            wcclass.save (err, wcclass) ->
+              console.log 'saved class'
+              user.purchased_wcclasses.addToSet wcclass
+              user.save()
+              console.log user
               if err
-                console.log "error saving user post add wcclass: #{err}"
-                mailer.sendEmailError user, err, res
-              mailer.newPurchase user, wcclass, [wcclass]
-              return res.render 'purchase', user:user, wcclasses: [wcclass], wcclass: wcclass
-    else
-      amount = 0
-      if classes == '1'
-        amount = 7.52
-      else if classes == '4'
-        amount = 20.91
-      else if classes == '12'
-        amount = 51.80
-      else
-        return res.send "not a good amount"
-      stripeToken = req.body.stripeToken
-      console.log stripeToken
-      charge =
-        description: "#{name} <#{email}> (#{phone}) @ #{address}, #{city}, #{state}, #{zip}"
-        amount: amount*100
-        currency: 'USD'
-        card: stripeToken
-
-      console.log charge
-
-      Users.findOne(
-        name: name
-        email: email
-        phone: phone
-      ).exec (err, user) ->
-        if err
-          console.log err
-          return res.send "error finding user in db, sorry"
-        if !user
-          console.log "new user"
-          user = new Users
-            name: name
-            email: email
-            phone: phone
-            address: address
-            city: city
-            state: state
-            zip: zip
-          user.save()
-        stripe.charges.create charge, (err, charge) ->
-          if err
-            console.log err
-            return res.send "<h3>error creating your purchase record, sorry. try again.</h3><p>if you have problems email <a href='mailto:dev@wileycousins.com'>dev@wileycousins.com</a> and complain</p>"
-          else
-            while classes-- > 0
-              addClass user, true, class_name, (err, _wcclass) ->
-                if err
-                  console.log err
-                  return res.send "error saving purchase record in db, sorry. email dev@wileycousins.com and complain"
-            WCClass.find( buyer: user ).exec (err, wcclasses)->
-              for wcclass in wcclasses
-                user.purchased_wcclasses.addToSet wcclass
-              user.save (err, user) ->
-                if err
-                  console.log "error saving user post add wcclass: #{err}"
-                  mailer.sendEmailError user, err, res
-                mailer.newPurchase user, wcclasses[0], wcclasses
-                return res.render 'purchase', user:user, wcclasses: wcclasses, wcclass: wcclass
+                console.log err
+                return res.send "error saving purchase record in db, sorry. email dev@wileycousins.com and complain"
+              console.log i
+              if i <= 0
+                mailer.newPurchase user
+                return res.render 'purchase', user:user
 
   app.get "/my-classes", (req, res) ->
     console.log !req.query.email
@@ -165,7 +134,7 @@ module.exports = (app) ->
         console.log err
         return res.send err
       users.sort (a,b) ->
-        a.purchased_wcclasses[0].purchase_date - b.purchased_wcclasses[0].purchase_date
+        a.purchased_wcclasses[0]?.purchase_date - b.purchased_wcclasses[0]?.purchase_date
       return res.render "orders.jade", users: users
 
   app.get "/purchase", isAdmin, (req, res) ->

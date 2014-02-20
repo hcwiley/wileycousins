@@ -250,85 +250,87 @@ block content
             h3.white enroll
           .row
             form#enrollment-form(name='enrollment', action='', method='post', role="form").form-horizontal
-              .col-sm-12
-                .form-group.white
-                  label.enrollment-errors
-              .col-sm-6
-                .form-group.white
-                  label.col-sm-3.text-left name
-                  .col-sm-9
-                    input.form-control(name='name', type='text', required='true', placeholder='Jenny Doe')
-                .form-group.white
-                  label.col-sm-3.text-left email
-                  .col-sm-9
-                    input.form-control(name='email', type='email', required='true', placeholder='jenny@tommytutone.com')
-                .form-group.white
-                  label.col-sm-3.text-left phone
-                  .col-sm-9
-                    input.form-control(name='phone', type='phone', required='true', placeholder='504-867-5309')
-                .form-group.white
-                  label.col-sm-3.text-left class
-                  .col-sm-9
-                    select#class.text-center.form-control(name='class_name')
-                      option(value='intro-programming') Intro to programming
-                      option(value='intro-circuits') Intro to circuits
-                .form-group.white
-                  label.col-sm-3.text-left classes
-                  .col-sm-9
-                    select#num-classes.text-center.form-control(name='amount')
-                      option(value='1') 1 class
-                      option(value='4') 4 classes
-                      option(value='12') 12 classes
-                .form-group.white.hidden
-                  label.col-sm-3.text-left circuits kit
-                  .col-sm-9
-                    select#circuits-kit.text-center.form-control(name='amount')
-                      option(value='#{everything_kit}') Everything Kit
-                      option(value='#{components_kit}') Componets Only Kit
-              .col-sm-6
-                .form-group.white
-                  label.col-sm-3.text-left address
-                  .col-sm-9
-                    input.form-control(type='text', data-stripe='address_line1', required='true', name='address', placeholder='123 Foo Bar Ave.')
-                .form-group.white
-                  label.col-sm-3.text-left city
-                  .col-sm-9
-                    input.form-control(type='city', data-stripe='address_city', required='true', name='city', placeholder='New Orleans')
-                .form-group.white
-                  label.col-sm-3.text-left state
-                  .col-sm-9
-                    input.mini.form-control(type='state', required='true', data-stripe='address_state', name='state', placeholder='LA')
-                .form-group.white
-                  label.col-sm-3.text-left.mini zip
-                  .col-sm-9
-                    input.mini.form-control(type='zip', data-stripe='address_zip', required='true', name='zip', placeholder='701##')
-                .form-group.white
-                  label.col-sm-3.text-left card #
-                  .col-sm-9
-                    input.cc.form-control(type='text', required='true',size='20', name='cc-number', x-autocompletetype='cc-number', data-stripe='number', placeholder='####-####-####-####')
-                .form-group.white
-                  label.col-sm-3.text-left cvc
-                  .col-sm-9
-                    input.mini.form-control(type='text', required='true',size='4',name='cc-cvc', x-autocompletetype='cc-csc', data-stripe='cvc', placeholder='###')
-                .form-group.white
-                  label.col-sm-3.text-left expiration
-                  .visible-sm.col-sm-12
-                    .row
-                      br
-                  .col-sm-12.col-md-9
-                    .row
-                     .col-sm-6
-                       input.inline.form-control(type='text', required='true',size='2', name='cc-exp-month', data-stripe='exp-month', placeholder='mm')
-                     label.white.inline.pull-left.text-center(style='width: 0px') / 
-                     .col-sm-6
-                       input.mini.inline.form-control(type='text', required='true',size='4', name='cc-exp-year', data-stripe='exp-year', placeholder='yyyy')
-          .row
-            .col-sm-12.text-right
-              hr.dotted.white
-              .col-sm-4.col-sm-offset-4
-                h4.thin.white.text-right total: $<span class='heavy' id='total'>7.52</span>
-              .col-sm-3
-                button.btn.white#charge charge my card
+              input(type='hidden', name='amount')
+              .row
+                .col-sm-12
+                  .form-group.white
+                    label.enrollment-errors
+                .col-sm-6
+                  .form-group.white
+                    label.col-sm-3.text-left name
+                    .col-sm-9
+                      input.form-control(name='name', type='text', required='true', placeholder='Jenny Doe')
+                  .form-group.white
+                    label.col-sm-3.text-left email
+                    .col-sm-9
+                      input.form-control(name='email', type='email', required='true', placeholder='jenny@tommytutone.com')
+                  .form-group.white
+                    label.col-sm-3.text-left phone
+                    .col-sm-9
+                      input.form-control(name='phone', type='phone', required='true', placeholder='504-867-5309')
+                  .form-group.white
+                    label.col-sm-3.text-left class
+                    .col-sm-9
+                      select#class.text-center.form-control(name='class_name')
+                        option(value='intro-programming') Intro to programming
+                        option(value='intro-circuits') Intro to circuits
+                  .form-group.white
+                    label.col-sm-3.text-left classes
+                    .col-sm-9
+                      select#num-classes.text-center.form-control(name='classes')
+                        option(value='1') 1 class
+                        option(value='4') 4 classes
+                        option(value='12') 12 classes
+                  .form-group.white.hidden
+                    label.col-sm-3.text-left circuits kit
+                    .col-sm-9
+                      select#circuits-kit.text-center.form-control(name='kit')
+                        option(value='#{everything_kit}') Everything Kit
+                        option(value='#{components_kit}') Componets Only Kit
+                .col-sm-6
+                  .form-group.white
+                    label.col-sm-3.text-left address
+                    .col-sm-9
+                      input.form-control(type='text', data-stripe='address_line1', required='true', name='address', placeholder='123 Foo Bar Ave.')
+                  .form-group.white
+                    label.col-sm-3.text-left city
+                    .col-sm-9
+                      input.form-control(type='city', data-stripe='address_city', required='true', name='city', placeholder='New Orleans')
+                  .form-group.white
+                    label.col-sm-3.text-left state
+                    .col-sm-9
+                      input.mini.form-control(type='state', required='true', data-stripe='address_state', name='state', placeholder='LA')
+                  .form-group.white
+                    label.col-sm-3.text-left.mini zip
+                    .col-sm-9
+                      input.mini.form-control(type='zip', data-stripe='address_zip', required='true', name='zip', placeholder='701##')
+                  .form-group.white
+                    label.col-sm-3.text-left card #
+                    .col-sm-9
+                      input.cc.form-control(type='text', required='true',size='20', name='cc-number', x-autocompletetype='cc-number', data-stripe='number', placeholder='####-####-####-####')
+                  .form-group.white
+                    label.col-sm-3.text-left cvc
+                    .col-sm-9
+                      input.mini.form-control(type='text', required='true',size='4',name='cc-cvc', x-autocompletetype='cc-csc', data-stripe='cvc', placeholder='###')
+                  .form-group.white
+                    label.col-sm-3.text-left expiration
+                    .visible-sm.col-sm-12
+                      .row
+                        br
+                    .col-sm-12.col-md-9
+                      .row
+                       .col-sm-6
+                         input.inline.form-control(type='text', required='true',size='2', name='cc-exp-month', data-stripe='exp-month', placeholder='mm')
+                       label.white.inline.pull-left.text-center(style='width: 0px') / 
+                       .col-sm-6
+                         input.mini.inline.form-control(type='text', required='true',size='4', name='cc-exp-year', data-stripe='exp-year', placeholder='yyyy')
+              .row
+                .col-sm-12.text-right
+                  hr.dotted.white
+                  .col-sm-4.col-sm-offset-4
+                    h4.thin.white.text-right total: $<span class='heavy' id='total'>7.52</span>
+                  .col-sm-3
+                    button#charge.btn.white(type='submit') charge my card
           .row
             br
             .col-sm-12

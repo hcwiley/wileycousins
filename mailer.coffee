@@ -24,13 +24,14 @@ mailOptions =
   subject: "wiley cousins class"
 
 # send them an email
-exports.confirmation = (user, wcclass) ->
+exports.confirmation = (user) ->
   mailOptions.to = user.email
   mailOptions.subject = 'wiley cousins class enrollment confirmation'
+  wcclass = user.purchased_wcclasses[0]
   mailOptions.html = confirmationTemplate
       user: user
-      url: config.url
       wcclass: wcclass
+      url: config.url
   smtpTransport.sendMail mailOptions, (error, res) ->
     if error
       console.log error
@@ -39,21 +40,21 @@ exports.confirmation = (user, wcclass) ->
       console.log "Message sent: " + res.message
 
 # send us an email
-exports.newPurchase = (user, wcclass, wcclasses) ->
+exports.newPurchase = (user) ->
   mailOptions.subject = '[wc class] new enrollment'
   to: "le dudes <dev@wileycousins.com>"
+  wcclasses = user.purchased_wcclasses
   mailOptions.html = newPurchaseTemplate
       user: user
-      wcclass: wcclass
-      wcclasses: wcclasses
       url: config.url
+      wcclasses: wcclasses
   if process.env.NODE_ENV == 'production'
     smtpTransport.sendMail mailOptions, (error, res) ->
       if error
         console.log error
       else
         console.log "Message sent: " + res.message
-  exports.confirmation user, wcclass
+  exports.confirmation user
 
 # send us an email if we got an error emailing them
 exports.sendEmailError = (user, error, res) ->

@@ -32,6 +32,7 @@ stripeResHandler = (status, res) ->
     #form.get(0).submit()
     $.post form.attr('action'), form.serialize(), (res) ->
       form.html(res)
+
 bindEnrollmentForm = ->
   $("a[href='#enroll']").click ->
     $("#class").val $(@).data 'class'
@@ -73,26 +74,14 @@ bindEnrollmentForm = ->
     if amt.toString().split('.')[1].length < 2
       amt = "#{amt}0"
     $("#total").text amt
+    $("input[name='amount']").val amt
 
   $("#enrollment-form").submit (e) ->
     e.preventDefault()
-    form = $("#enrollment-form")
+    $("#num-classes").trigger 'change'
+    form = $(@)
     form.find("button").prop "disabled", true
-    $.post form.attr('action'), form.serialize(), (res) ->
-      form.html(res)
-    false
-  $("#enrollment-form #pay-online").click (e) ->
-    e.preventDefault()
-    $("#enrollment-form").unbind 'submit'
-    form = $(@).closest("form")
-    form.find(".first-buttons").remove()
-    form.append $("#cc-info").removeClass("hidden")
-    $("#enrollment-form").submit (e) ->
-      e.preventDefault()
-      form.find("button").prop "disabled", true
-      Stripe.card.createToken form, stripeResHandler
-      false
-
+    Stripe.card.createToken form, stripeResHandler
     false
 
 $(window).ready ->

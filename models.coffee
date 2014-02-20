@@ -20,6 +20,8 @@ WCClass = new Schema
     default: false
   used_date:
     type: Date
+  kit:
+    type: Number
   has_paid:
     type: Boolean
     default: false
