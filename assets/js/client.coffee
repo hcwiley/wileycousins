@@ -33,14 +33,36 @@ stripeResHandler = (status, res) ->
     $.post form.attr('action'), form.serialize(), (res) ->
       form.html(res)
 bindEnrollmentForm = ->
+  $("a[href='#enroll']").click ->
+    $("#class").val $(@).data 'class'
+    $("#class").trigger 'change'
+    $("#num-classes").trigger 'change'
+
+  $("#class").change ->
+    val = $(@).val()
+    if val is "intro-circuits"
+      $("#enroll").removeClass('bg-blue').addClass 'bg-gray'
+    else if val is "intro-programming"
+      $("#enroll").removeClass('bg-gray').addClass 'bg-blue'
+    $("#num-classes").trigger 'change'
+
   $("#num-classes").change ->
     val = $(@).val()
+    amt = 0
     if val is "1"
-      $("#total").text "7.52"
+      amt = 7
     else if val is "4"
-      $("#total").text "20.91"
+      amt = 20
     else if val is "12"
-      $("#total").text "51.80"
+      amt = 50
+    if $("#class").val() == 'intro-circuits'
+      amt *= 2
+    # account for stripe transaction fee
+    amt = (amt + 0.3)/(1-0.029)
+    amt = Math.round(amt * 100) / 100
+    if amt.toString().split('.')[1].length < 2
+      amt = "#{amt}0"
+    $("#total").text amt
 
   $("#enrollment-form").submit (e) ->
     e.preventDefault()

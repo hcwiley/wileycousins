@@ -15,9 +15,9 @@ block content
         .row
           .col-sm-12
             .row
-              a(href="/classes#processing")
+              a(href="/classes#intro-to-programming")
                 .col-sm-12.text-center
-                  h2.blue.text-center intro to programming <span class='green' style='font-size: 42px'>&amp;</span> visualizations
+                  h2.blue.text-center intro to programming
                   .col-sm-10.col-sm-offset-1
                     hr.dotted.green
             .row
@@ -73,90 +73,100 @@ block content
                 .col-sm-4.white
                   img.hidden-xs.inline.pull-right(height=60, src='/images/download.svg')
                   img.visible-xs.inline.m0auto(height=60, src='/images/download.svg')
+      .row
+        .col-sm-12
+          br
+          br
+      .row
+        .col-sm-12
+          a(href='#enroll', data-class='intro-programming')
+            h4.grey.small-caps.strong.text-center
+              span.glyphicon.glyphicon-chevron-right
+              span(style='font-size:45px') &nbsp; enroll me please &nbsp;
+              span.glyphicon.glyphicon-chevron-left
+  #skills
+    .container
+      #intro-to-circuits.col-sm-12
+        br
+        br
         .row
-          .col-sm-8.col-sm-offset-2
-            br
-            hr.white.dotted
-        .col-sm-9.col-sm-offset-2
-          h3.white enroll
-          form#enrollment-form(name='enrollment', action='', method='post', role="form").form-horizontal
-            .form-group.white
-              label.enrollment-errors
-            .form-group.white
-              label.col-sm-2 name
-              .col-sm-8
-                input.form-control(name='name', type='text', required='true', placeholder='Jamie Doe')
-            .form-group.white
-              label.col-sm-2 email
-              .col-sm-8
-                input.form-control(name='email', type='email', required='true', placeholder='jamiedoe@example.com')
-            .form-group.white
-              label.col-sm-2 phone
-              .col-sm-8
-                input.form-control(name='phone', type='phone', required='true', placeholder='jamiedoe@example.com')
-            .col-xs-5.col-sm-offset-1.first-buttons
-              button.btn.white pay at the door
-            .col-xs-4.first-buttons.col-xs-offset-1
-              button#pay-online.btn.white pay online
-          #cc-info.hidden
-            .form-group.white
-              label.col-sm-2 address
-              .col-sm-8
-                input.form-control(type='text', data-stripe='address_line1', required='true', name='address')
-            .form-group.white
-              label.col-sm-2 city
-              .col-sm-8
-                input.form-control(type='city', data-stripe='address_city', required='true', name='city')
-            .form-group.white
-              label.col-sm-2 state
-              .col-sm-8
-                input.mini.form-control(type='state', required='true', data-stripe='address_state', name='state')
-            .form-group.white
-              label.col-sm-2.mini zip
-              .col-sm-8
-                input.mini.form-control(type='zip', data-stripe='address_zip', required='true', name='zip')
-            .form-group.white
-              label.col-sm-2 card #
-              .col-sm-8
-                input.cc.form-control(type='text', required='true',size='20', name='cc-number', x-autocompletetype='cc-number', data-stripe='number', placeholder='####-####-####-####')
-            .form-group.white
-              label.col-sm-2 cvc
-              .col-sm-8
-                input.mini.form-control(type='text', required='true',size='4',name='cc-cvc', x-autocompletetype='cc-csc', data-stripe='cvc', placeholder='###')
-            .form-group.white
-              label.col-sm-2 expiration
-              .col-sm-3
-                input.inline.form-control(type='text', required='true',size='2', name='cc-exp-month', data-stripe='exp-month', placeholder='mm')
-              .col-sm-2.text-center
-                label.white.text-center(style='width:10px;margin-left:-15px;').inline  / 
-              .col-sm-3
-                input.mini.inline.form-control(type='text', required='true',size='4', name='cc-exp-year', data-stripe='exp-year', placeholder='yyyy')
-            .form-group.white
-              label.col-sm-2 classes
-              .col-sm-8
-                select#num-classes.text-center.form-control(name='amount')
-                  option(value='1') 1 class
-                  option(value='4') 4 classes
-                  option(value='12') 12 classes
-            input(type='hidden', name='class_name', value='Processing')
+          .col-sm-12
             .row
-              .col-sm-10.text-right
-                hr.dotted.white
-                h4.white.text-right.pull-right total: $<span id='total'>7.52</span>
+              a(href="/classes#intro-to-circuits")
+                .col-sm-12.text-center
+                  h2.gray.text-center intro to circuits
+                  .col-sm-10.col-sm-offset-1
+                    hr.dotted.green
             .row
-              .col-sm-10.text-right
-                button.btn.white.pull-right#charge charge my card
-            .row
+              .col-sm-8.col-sm-offset-2.text-left
+                .visible-xs
+                  br
+                  br
+                p This course will take you from nothing to an understanding of digital logic. We'll teach you about different electronic components and you'll <strong>build circuits</strong> that fit them together.
+                p Do you know what an operation amplifier is? No? Great! You will after <strong>twelve two-hour courses taught once a week</strong>. Resistors! Diodes! Filters! Logic gates! Datasheets! We'll give you the foundation to tackle some cool projects and to continue on to bigger and better things.
+                br
+          .row
+            .col-sm-12
               br
-              .col-sm-10
-                .col-sm-4.text-left
-                  a(href='https://stripe.com/us/help/faq#security', target='_blank')
-                    img(src='/images/stripe.png', width=150, title='stripe')
-                .col-sm-8.text-right(style='margin-top: 5px;')
-                  i.white.skinny we don't store credit card information on our servers
+              br
+          .row
+            .col-sm-8.col-sm-offset-2
+              .col-sm-4
+                img.img-thumbnail.no-border(src='/images/capacitor.svg')
+              .col-sm-4
+                img.img-thumbnail.no-border(src='/images/op-amp.svg')
+              .col-sm-4
+                img.img-thumbnail.no-border(src='/images/soldering-iron.svg')
+          .row
+            .col-sm-12
+              br
+              br
+          .row
+            .col-sm-6.col-sm-offset-3
+              p The class meets every Sunday from 1 - 3pm at <a href='http://gopropeller.org/'>Propeller</a>, <a href='https://maps.google.com/maps?q=Propeller+4035+Washington+Ave+New+Orleans+70125' target='_blank')>4035 Washington Ave</a>.
+              strong Class starts March 16th.
+
+  .col-sm-12.bg-gray.ptb40
+    .container
+      .row
+        .col-sm-3.col-sm-offset-3.col-xs-offset-3
+          h3.white cost
+          .col-sm-12.white
+            p $7 per class
+            p $20 for 4 classes
+            p $50 for 12 classes
+        .col-sm-5.col-sm-offset-1.col-xs-offset-3
+          h3.white requirements
+          .row
+            .col-sm-7(data-toggle="tooltip", data-placement="top", data-original-title="Mac, PC, or Linux", title='')
+              .col-sm-8.white
+                br
+                p.pull-left.inline laptop
+              .col-sm-4
+                img.inline.hidden-xs.pull-right(height=60, src='/images/laptop.svg')
+                img.inline.visible-xs.m0auto(height=60, src='/images/laptop.svg')
+          .row
+            br
+          .row
+            .col-sm-7.white(data-toggle="tooltip", data-placement="top", data-original-title="Download and install Processing", title='')
+              a.white(href='http://www.processing.org/download/', target='_blank') 
+                .col-sm-8.white
                   br
-                  br
-    br
+                  p.pull-left.inline Processing
+                .col-sm-4.white
+                  img.hidden-xs.inline.pull-right(height=60, src='/images/download.svg')
+                  img.visible-xs.inline.m0auto(height=60, src='/images/download.svg')
+      .row
+        .col-sm-12
+          br
+          br
+      .row
+        .col-sm-12
+          a(href='#enroll', data-class='intro-circuits')
+            h4.blue.small-caps.strong.text-center
+              span.glyphicon.glyphicon-chevron-right
+              span(style='font-size:45px') &nbsp; enroll me please &nbsp;
+              span.glyphicon.glyphicon-chevron-left
   #gents
     #cole.container.responsive
       .row
@@ -202,3 +212,93 @@ block content
               img.hover(src='/images/email-hover.svg', title='email')
       .col-sm-3
         img.gents-img(src='/images/gents.png', title='the gents', width="100%")
+  #enroll.col-sm-12.bg-blue.ptb40
+    .container
+        .col-sm-8.col-sm-offset-2
+          .row
+            h3.white enroll
+          .row
+            form#enrollment-form(name='enrollment', action='', method='post', role="form").form-horizontal
+              .col-sm-12
+                .form-group.white
+                  label.enrollment-errors
+              .col-sm-6
+                .form-group.white
+                  label.col-sm-3.text-left name
+                  .col-sm-8
+                    input.form-control(name='name', type='text', required='true', placeholder='Jamie Doe')
+                .form-group.white
+                  label.col-sm-3.text-left email
+                  .col-sm-8
+                    input.form-control(name='email', type='email', required='true', placeholder='jamiedoe@example.com')
+                .form-group.white
+                  label.col-sm-3.text-left phone
+                  .col-sm-8
+                    input.form-control(name='phone', type='phone', required='true', placeholder='jamiedoe@example.com')
+                .form-group.white
+                  label.col-sm-3.text-left class
+                  .col-sm-8
+                    select#class.text-center.form-control(name='class_name')
+                      option(value='intro-programming') Intro to programming
+                      option(value='intro-circuits') Intro to circuits
+                .form-group.white
+                  label.col-sm-3.text-left classes
+                  .col-sm-8
+                    select#num-classes.text-center.form-control(name='amount')
+                      option(value='1') 1 class
+                      option(value='4') 4 classes
+                      option(value='12') 12 classes
+              .col-sm-6
+                .form-group.white
+                  label.col-sm-3.text-left address
+                  .col-sm-8
+                    input.form-control(type='text', data-stripe='address_line1', required='true', name='address', placeholder='123 Foo Bar Ave.')
+                .form-group.white
+                  label.col-sm-3.text-left city
+                  .col-sm-8
+                    input.form-control(type='city', data-stripe='address_city', required='true', name='city', placeholder='New Orleans')
+                .form-group.white
+                  label.col-sm-3.text-left state
+                  .col-sm-8
+                    input.mini.form-control(type='state', required='true', data-stripe='address_state', name='state', placeholder='LA')
+                .form-group.white
+                  label.col-sm-3.text-left.mini zip
+                  .col-sm-8
+                    input.mini.form-control(type='zip', data-stripe='address_zip', required='true', name='zip', placeholder='701##')
+                .form-group.white
+                  label.col-sm-3.text-left card #
+                  .col-sm-8
+                    input.cc.form-control(type='text', required='true',size='20', name='cc-number', x-autocompletetype='cc-number', data-stripe='number', placeholder='####-####-####-####')
+                .form-group.white
+                  label.col-sm-3.text-left cvc
+                  .col-sm-8
+                    input.mini.form-control(type='text', required='true',size='4',name='cc-cvc', x-autocompletetype='cc-csc', data-stripe='cvc', placeholder='###')
+                .form-group.white
+                  label.col-sm-3.text-left expiration
+                  .visible-sm.col-sm-12
+                    .row
+                      br
+                  .col-sm-5.col-md-3
+                    input.inline.form-control(type='text', required='true',size='2', name='cc-exp-month', data-stripe='exp-month', placeholder='mm')
+                  .col-sm-1.col-md-1.text-center
+                    label.white.text-center(style='width:10px;margin-left:-15px;').inline  / 
+                  .col-sm-5.col-md-4
+                    input.mini.inline.form-control(type='text', required='true',size='4', name='cc-exp-year', data-stripe='exp-year', placeholder='yyyy')
+          .row
+            .col-sm-12.text-right
+              hr.dotted.white
+              .col-sm-4.col-sm-offset-4
+                h4.thin.white.text-right total: $<span class='heavy' id='total'>7.52</span>
+              .col-sm-3
+                button.btn.white#charge charge my card
+          .row
+            br
+            .col-sm-10
+              .col-sm-4.text-left
+                a(href='https://stripe.com/us/help/faq#security', target='_blank')
+                  img(src='/images/stripe.png', width=150, title='stripe')
+              .col-sm-8.text-right(style='margin-top: 5px;')
+                i.white.skinny we don't store credit card information on our servers
+                br
+                br
+    br

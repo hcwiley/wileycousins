@@ -14,7 +14,6 @@ reset-html5()
   text-decoration none
   font-family "Roboto", "Helvetica", sans-serif
   text-align center
-  color $mainColor
 
 html, body
   width 100%
@@ -31,6 +30,8 @@ a:hover
   h4
     color $whiteColor
   p
+    color $whiteColor
+  *:not(h1):not(h2)
     color $whiteColor
 
 h1,h2,h3,h4,h5
@@ -67,6 +68,9 @@ p
   color $mainColor
   font-weight 100
 
+.gray
+  color $mainColor
+  border-color $mainColor
 .blue
   color $lightBlueColor
   border-color $lightBlueColor
@@ -81,12 +85,22 @@ p
 
 .bg-blue
   background $lightBlueColor
+  transition background .5s
+.bg-gray
+  transition background .5s
+  background $mainColor
 
 .m0auto
   margin 0 auto
 
 .ptb40
   padding 40px 0px
+
+.thin
+  font-weight 100
+
+.heavy
+  font-weight 900
 
 .title
   width 90%
@@ -393,6 +407,9 @@ p
     background-size auto 100%
     background-position 50% 0px
 
+.small-caps
+  font-variant small-caps
+
 strong
   font-weight 900
 
@@ -415,6 +432,9 @@ i
   border none
   background none
   border-radius 0px
+
+.radius10
+  border-radius 10px
   
 .inline
   display inline-block

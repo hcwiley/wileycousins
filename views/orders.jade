@@ -12,7 +12,7 @@ block content
     .row
       .col-sm-12
         for user in users
-          .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed
+          .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed.bg-blue
             a(href='#collapse#{user._id}', data-toggle='collapse')
               h4.red.text-center=user.name.toLowerCase()
             .col-sm-12.panel-collapse.collapse(id='collapse#{user._id}')
