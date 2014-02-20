@@ -45,8 +45,12 @@ h2
   font-size 60px
   font-weight 400
 
-.strong
-  font-weight 500
+.strong, strong
+  font-weight 900
+@media (-webkit-max-device-pixel-ratio: 1.9)
+  .strong, strong
+    color $lightBlueColor
+
 
 hr
   color $mainColor
@@ -417,9 +421,6 @@ p
 
 .small-caps
   font-variant small-caps
-
-strong
-  font-weight 900
 
 i
   font-style italic
