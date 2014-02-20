@@ -81,20 +81,20 @@ module.exports = (app) ->
         else
           kit = kit || 0
           i = parseInt classes
+          addClass = (wcclass, user, i, next) ->
+            wcclass.save (err, wcclass) ->
+              user.purchased_wcclasses.addToSet wcclass
+              user.save()
+              next err, i
           while i-- > 0
             console.log 'saving new class'
             wcclass = new WCClass(buyer: user, kit: kit, name: class_name, has_paid: true)
             console.log "new class: #{wcclass}"
-            wcclass.save (err, wcclass) ->
-              console.log 'saved class'
-              user.purchased_wcclasses.addToSet wcclass
-              user.save()
-              console.log user
+            addClass wcclass, user, i, (err, count) ->
               if err
                 console.log err
                 return res.send "error saving purchase record in db, sorry. email dev@wileycousins.com and complain"
-              console.log i
-              if i <= 0
+              if count <= 0
                 mailer.newPurchase user
                 return res.render 'purchase', user:user
 
