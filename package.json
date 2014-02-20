@@ -11,7 +11,7 @@
   "dependencies": {
     "async"                 : "*",
     "coffee-script"         : "*",
-    "connect-assets"        : "*",
+    "connect-assets"        : "2.5.3",
     "cookie"                : "*",
     "express"               : "*",
     "jade"                  : "0.35.0",
