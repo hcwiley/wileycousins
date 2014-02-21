@@ -37,6 +37,9 @@ User = new Schema
   city: String
   state: String
   zip: String
+  is_small_business:
+    type: Boolean
+    default: false
   purchased_wcclasses: [
     type: Schema.ObjectId
     ref: 'WCClass'
