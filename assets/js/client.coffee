@@ -52,6 +52,7 @@ bindEnrollmentForm = ->
     else if val is "intro-programming"
       $("#enroll").removeClass('bg-gray').addClass 'bg-blue'
       $("#circuits-kit").parents(".form-group").addClass 'hidden'
+    $("#class-title").text $("option[value='#{val}']").text()
     $("#num-classes").trigger 'change'
 
   $("#num-classes").change ->
