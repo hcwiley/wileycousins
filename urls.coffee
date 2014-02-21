@@ -43,6 +43,7 @@ module.exports = (app) ->
     kit = parseInt kit
     amount = parseFloat amount
     classes = parseInt classes
+    is_small_business = req.body.is_small_business
 
     # server side validate that the amount is right
     amt = 0
@@ -88,6 +89,7 @@ module.exports = (app) ->
           state: state
           zip: zip
         user.save()
+      user.is_small_business = is_small_business
       stripe.charges.create charge, (err, charge) ->
         if err
           console.log err

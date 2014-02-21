@@ -5,6 +5,18 @@ block extra-head
   script(type='text/javascript')
     Stripe.setPublishableKey('#{stripe_js}')
 block content
+  #small-business.modal.fade
+    .modal-dialog.modal-lg
+      .modal-content.pull-left
+        .modal-header.bg-blue
+          button.white.close(data-dismiss="modal",aria-hidden="true")&times;
+          h4.white Small for-profit Business
+        .modal-body.col-sm-12.pull-left
+          .row
+            .col-sm-12
+              .col-sm-8.col-sm-offset-2
+                strong If you run a small for-profit business we'd like to know. We work with LED...
+                a(href='http://www.louisianaeconomicdevelopment.com/') more things
   #kit-check.modal.fade
     .modal-dialog.modal-lg
       .modal-content.pull-left
@@ -329,6 +341,15 @@ block content
                        label.white.inline.pull-left.text-center(style='width: 0px') / 
                        .col-sm-6
                          input.mini.inline.form-control(type='text', required='true',size='4', name='cc-exp-year', data-stripe='exp-year', placeholder='yyyy')
+              .row
+                .col-sm-8.col-sm-offset-0
+                  .form-group.white
+                    a(href='', data-toggle="modal", data-target="#small-business")
+                      h5.col-sm-9.text-left.strong
+                        span.glyphicon.glyphicon-info-sign
+                        | &nbsp; run a small for-profit business?
+                    .col-sm-2
+                      input.form-control(name='is_small_business', type='checkbox')
               .row
                 .col-sm-12.text-right
                   hr.dotted.white
