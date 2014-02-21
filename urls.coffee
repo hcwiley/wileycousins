@@ -24,7 +24,7 @@ module.exports = (app) ->
   app.get "/classes", (req, res) ->
     res.render "classes.jade",
       components_kit: 20
-      everything_kit: 40
+      everything_kit: 60
       stripe_js: config.stripe_js
       title: "Get Clever | Wiley Cousins"
 
