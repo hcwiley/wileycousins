@@ -38,10 +38,19 @@ block content
                 button.btn.btn-default Update
             .col-sm-10.col-sm-offset-1
               hr.white.dotted
-            a(href='#collapsewcclass#{user._id}', data-toggle='collapse')
-              h4.red.text-center classes: #{user.purchased_wcclasses.length}
-            .col-sm-12.panel-collapse.collapse(id='collapsewcclass#{user._id}')
-              for wcclass in user.purchased_wcclasses
+            a(href='#collapsewcclass-prog#{user._id}', data-toggle='collapse')
+              h4.red.text-center programming classes: #{prog_classes.length}
+            .col-sm-12.panel-collapse.collapse(id='collapsewcclass-prog#{user._id}')
+              for wcclass in prog_classes
+                p date: #{wcclass.purchase_date.toDateString()}
+                form(action='/confirmation/#{user._id}/', method='post')
+                  input.form-control(name='wcclass', value='#{wcclass.purchase_date.toJSON()}', type='hidden')
+                  input.form-control(name='valid', value='yep', type='hidden')
+                  button.btn.btn-default Resend confirmation
+            a(href='#collapsewcclass-circ#{user._id}', data-toggle='collapse')
+              h4.red.text-center circuit classes: #{circ_classes.length}
+            .col-sm-12.panel-collapse.collapse(id='collapsewcclass-circ#{user._id}')
+              for wcclass in circ_classes
                 p date: #{wcclass.purchase_date.toDateString()}
                 form(action='/confirmation/#{user._id}/', method='post')
                   input.form-control(name='wcclass', value='#{wcclass.purchase_date.toJSON()}', type='hidden')

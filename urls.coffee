@@ -146,7 +146,15 @@ module.exports = (app) ->
         return res.send err
       users.sort (a,b) ->
         a.purchased_wcclasses[0]?.purchase_date - b.purchased_wcclasses[0]?.purchase_date
-      return res.render "orders.jade", users: users
+      prog_classes = []
+      circ_classes = []
+      for user in users
+        for c in user.purchased_wcclasses
+          if c.name == 'intro-circuits'
+            circ_classes.push c
+          else
+            prog_classes.push c
+      return res.render "orders.jade", users: users, circ_classes: circ_classes, prog_classes: prog_classes
 
   app.get "/purchase", isAdmin, (req, res) ->
     WCClass.find().exec (err, wcclasses) ->
