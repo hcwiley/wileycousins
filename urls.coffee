@@ -40,16 +40,31 @@ module.exports = (app) ->
     class_name = req.body.class_name
     amount = req.body.amount
     kit = req.body.kit
+    kit = parseInt kit
     amount = parseFloat amount
     classes = parseInt classes
 
-    console.log req.body
+    # server side validate that the amount is right
+    amt = 0
+    if classes is 1
+      amt = 10
+    else if classes is 4
+      amt = 40
+    else if classes is 12
+      amt = 100
+    if class_name == 'intro-circuits'
+      amt *= 2
+      amt += parseInt kit
 
-    if amount < 5
-      return res.send "not a good amount"
+    amt = (amt + 0.3)/(1-0.029)
+    amt = Math.round(amt * 100) / 100
+    if amt.toString().split('.')[1].length < 2
+      amt = parseFloat "#{amt}0"
+
+    if amount != amt || amount < 5
+      return res.send "<h3 class='white'>your total is'nt adding up right. Try submitting again?</h3>"
     stripeToken = req.body.stripeToken
 
-    console.log "amount #{amount}"
 
     charge =
       description: "#{name} <#{email}> (#{phone}) @ #{address}, #{city}, #{state}, #{zip}"
@@ -62,9 +77,8 @@ module.exports = (app) ->
     ).exec (err, user) ->
       if err
         console.log err
-        return res.send "error finding user in db, sorry"
+        return res.send "<h3 class='white'>error finding user in db, sorry</h3>"
       if !user
-        console.log "new user"
         user = new Users
           name: name
           email: email
@@ -87,19 +101,16 @@ module.exports = (app) ->
               user.save()
               next err, i
           while i-- > 0
-            console.log 'saving new class'
             wcclass = new WCClass(buyer: user, kit: kit, name: class_name, has_paid: true)
-            console.log "new class: #{wcclass}"
             addClass wcclass, user, i, (err, count) ->
               if err
                 console.log err
-                return res.send "error saving purchase record in db, sorry. email dev@wileycousins.com and complain"
+                return res.send "<h3 class='white'>error saving purchase record in db, sorry. email dev@wileycousins.com and complain</h3>"
               if count <= 0
                 mailer.newPurchase user
                 return res.render 'purchase', user:user
 
   app.get "/my-classes", (req, res) ->
-    console.log !req.query.email
     if !req.query.email
       return res.render "getEmail.jade"
     Users.find( email: req.query.email ).populate('purchased_wcclasses').exec (err, users) ->

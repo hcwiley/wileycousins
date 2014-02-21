@@ -60,11 +60,11 @@ bindEnrollmentForm = ->
     if $("#class").val() == "intro-circuits"
       amt = parseInt $("#circuits-kit").val()
     if val is "1"
-      amt = 7
+      amt = 10
     else if val is "4"
-      amt = 20
+      amt = 40
     else if val is "12"
-      amt = 50
+      amt = 100
     if $("#class").val() == 'intro-circuits'
       amt *= 2
       amt += parseInt $("#circuits-kit").val()
@@ -83,6 +83,7 @@ bindEnrollmentForm = ->
     form.find("button").prop "disabled", true
     Stripe.card.createToken form, stripeResHandler
     false
+  $("#num-classes").trigger 'change'
 
 $(window).ready ->
   bindScroll()
