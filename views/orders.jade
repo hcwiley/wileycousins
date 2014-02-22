@@ -25,17 +25,17 @@ block content
                 hr.white.dotted
             .row
               .col-sm-12
-                a(href='#collapsewcclass-prog#{user._id}', data-toggle='collapse')
-                  if user.prog_classes 
+                a(href='#collapsewcclass-circ#{user._id}', data-toggle='collapse')
+                  if user.circ_classes 
                     .row
                       .col-xs-9
-                        h4.text-left programming classes: #{user.prog_classes.length}
+                        h4.green.text-left circuit classes: #{user.circ_classes.length}
                       .col-xs-3
-                        p.green.text-right kit: #{user.prog_classes[0].kit}
+                        p.green kit: #{user.circ_classes[0].kit}
             .row
               .col-sm-12
                 a(href='#collapsewcclass-circ#{user._id}', data-toggle='collapse')
-                  h4.text-left circuit classes: #{user.circ_classes ? user.circ_classes.length : 0}
+                  h4.text-left programming classes: #{user.prog_classes ? user.prog_classes.length : 0}
     .row
       .col-sm-12
         hr.dotted
