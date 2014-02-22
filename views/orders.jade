@@ -11,48 +11,29 @@ block content
         br
     .row
       .col-sm-12
-        for user in users
+        h2 paid users!
+        for user in paid_users
           .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed.bg-blue
-            a(href='#collapse#{user._id}', data-toggle='collapse')
+            a(href='#paid-collapse#{user._id}', data-toggle='collapse')
               h4.red.text-center=user.name.toLowerCase()
-            .col-sm-12.panel-collapse.collapse(id='collapse#{user._id}')
-              form(action='/update/#{user._id}/', method='post')
-                .form-group
-                  label name
-                  input.form-control(name='name', value='#{user.name}')
-                .form-group
-                  label email
-                  input.form-control(name='email', value='#{user.email}')
-                .form-group
-                  label phone
-                  input.form-control(name='phone', value='#{user.phone}')
-                .form-group
-                  label address
-                  input.form-control(name='address', value='#{user.address}')
-                .form-group
-                  label city
-                  input.form-control(name='city', value='#{user.city}')
-                .form-group
-                  label state
-                  input.form-control(name='state', value='#{user.state}')
-                button.btn.btn-default Update
+            .col-sm-12.panel-collapse.collapse(id='paid-collapse#{user._id}')
+              include user_form.jade
             .col-sm-10.col-sm-offset-1
               hr.white.dotted
             a(href='#collapsewcclass-prog#{user._id}', data-toggle='collapse')
-              h4.red.text-center programming classes: #{prog_classes.length}
-            .col-sm-12.panel-collapse.collapse(id='collapsewcclass-prog#{user._id}')
-              for wcclass in prog_classes
-                p date: #{wcclass.purchase_date.toDateString()}
-                form(action='/confirmation/#{user._id}/', method='post')
-                  input.form-control(name='wcclass', value='#{wcclass.purchase_date.toJSON()}', type='hidden')
-                  input.form-control(name='valid', value='yep', type='hidden')
-                  button.btn.btn-default Resend confirmation
+              h4.red.text-center programming classes: #{user.prog_classes ? user.prog_classes.length : 0 }
             a(href='#collapsewcclass-circ#{user._id}', data-toggle='collapse')
-              h4.red.text-center circuit classes: #{circ_classes.length}
-            .col-sm-12.panel-collapse.collapse(id='collapsewcclass-circ#{user._id}')
-              for wcclass in circ_classes
-                p date: #{wcclass.purchase_date.toDateString()}
-                form(action='/confirmation/#{user._id}/', method='post')
-                  input.form-control(name='wcclass', value='#{wcclass.purchase_date.toJSON()}', type='hidden')
-                  input.form-control(name='valid', value='yep', type='hidden')
-                  button.btn.btn-default Resend confirmation
+              h4.red.text-center circuit classes: #{user.circ_classes ? user.circ_classes.length : 0}
+    .row
+      .col-sm-12
+        hr.dotted
+        br
+    .row
+      .col-sm-12
+        h2 just signed up....
+        for user in signed_up
+          .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed.bg-blue
+            a(href='#signup-collapse#{user._id}', data-toggle='collapse')
+              h4.red.text-center=user.name.toLowerCase()
+            .col-sm-12.panel-collapse.collapse(id='signup-collapse#{user._id}')
+              include user_form

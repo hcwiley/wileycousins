@@ -148,15 +148,24 @@ module.exports = (app) ->
         return res.send err
       users.sort (a,b) ->
         a.purchased_wcclasses[0]?.purchase_date - b.purchased_wcclasses[0]?.purchase_date
-      prog_classes = []
-      circ_classes = []
+      paid_users = []
+      signed_up = []
       for user in users
+        has_paid = false
+        user['prog_classes'] = []
+        user['circ_classes'] = []
         for c in user.purchased_wcclasses
-          if c.name == 'intro-circuits'
-            circ_classes.push c
-          else
-            prog_classes.push c
-      return res.render "orders.jade", users: users, circ_classes: circ_classes, prog_classes: prog_classes
+          if c.has_paid
+            has_paid = true
+            if c.name == 'intro-circuits'
+              user['circ_classes'].push c
+            else
+              user['prog_classes'].push c
+        if has_paid
+          paid_users.push user
+        else
+          signed_up.push user
+      return res.render "orders.jade", paid_users: paid_users, signed_up:signed_up
 
   app.get "/purchase", isAdmin, (req, res) ->
     WCClass.find().exec (err, wcclasses) ->
@@ -210,3 +219,11 @@ module.exports = (app) ->
       console.log user
       user.save()
     res.redirect '/orders'
+
+  app.delete "/update/:user", isAdmin, (req, res) ->
+    Users.findById(req.params.user).exec (err, user) ->
+      for c in user.purchased_wcclasses
+        WCClass.findById(c).exec (err, _class) ->
+          _class.remove()
+      user.remove()
+      return res.redirect '/orders'
