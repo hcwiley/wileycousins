@@ -28,7 +28,7 @@ block content
         h2.text-center.blue pcb <span style='font-size:40px' class='white'>&amp;</span> firmware design
         .col-sm-12
           h3.green clockblock
-          p.white The clockblock uses an ATTiny167 with 16KB of flash and 512B of RAM. At compilation, the application takes about 6KB of program and 30B of RAM. Currently firmware must be flashed onto the board with an ISP, but hardware supports USB bootloading*. An Arduino-compatible bootloader is in the works. The boards are almost entirely surface mount, so solder-paste and a reflow tool of some sort (hot-air gun, toaster, hot-plate) are recommended.
+          p.white The <a href='https://clockblocknola.com' target='_blank'>clockblock</a> is a minimalistic LED clock housed in a block of cypress. We designed and built a custom electronics package including a 100 component (all SMD) hub board, LED boards, and a USB communication board. We also wrote the firmware in C++ to control the ATTiny167 MCU, a real-time clock module, and three TLC5971 LED drivers. Check out the hardware and firmware source files on <a href='https://github.com/wileycousins/clockblock' target='_blank'>Github</a>.
           .col-sm-3
             br
             a
@@ -74,7 +74,7 @@ block content
             br
         .col-sm-12
           h3.green rgb lighting module
-          p.white A daisy-chainable lighting module to brighten up your existence (and/or living space). The modules communicate over RS232 and recieve power over standard CAT5 cables. They have microcontrollers for full color lighting effects. Check it out on <a href='https://github.com/mcous/rgb' target='_blank' class='blue'>Github</a>
+          p.white A daisy-chainable lighting module to brighten up your existence (and/or living space). The modules communicate over RS232 and recieve power over standard CAT5 cables. They have microcontrollers for full color lighting effects. Check it out on <a href='https://github.com/mcous/rgb' target='_blank' class='blue'>Github</a>.
           .col-sm-3
             br
             a
