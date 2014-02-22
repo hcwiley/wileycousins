@@ -14,6 +14,7 @@ reset-html5()
   text-decoration none
   font-family "Roboto", "Helvetica", sans-serif
   text-align center
+  transition color .4s
 
 html, body
   width 100%
@@ -459,3 +460,29 @@ $partner-height = 150px;
   img
     vertical-align middle
     max-height 80%
+
+#twitter, #facebook
+  background-image url('/images/twitter-black.png')
+  background-repeat no-repeat
+  background-size 100% 100%
+  width 32px
+  height 32px
+  float left
+  margin 0px 50px
+  position relative
+  border-radius 5px
+  img
+    transition all .3s
+    position absolute
+    top 0px
+    left 0px
+    width 32px
+    height 32px
+    opacity 0
+#facebook
+  background-image url('/images/facebook-black.png')
+#twitter:hover, #facebook:hover
+  background $mainColor
+  //opacity .7
+  img
+    opacity 1
