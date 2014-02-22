@@ -345,13 +345,16 @@ block content
                          input.mini.inline.form-control(type='text', required='true',size='4', name='cc-exp-year', data-stripe='exp-year', placeholder='yyyy')
               .row
                 .col-sm-8.col-sm-offset-0
+                  br
                   .form-group.white
                     a(href='', data-toggle="modal", data-target="#small-business")
-                      h5.col-sm-9.text-left.strong
-                        span.glyphicon.glyphicon-info-sign
-                        | &nbsp; run a small for-profit business?
-                    .col-sm-2
-                      input.form-control(name='is_small_business', type='checkbox')
+                      h5.col-sm-9.text-right.strong.white
+                        span.glyphicon.glyphicon-info-sign.text-left
+                        | &nbsp; do you own/work for a small business?
+                    .col-sm-3
+                      select.text-center.form-control(name='is_small_business')
+                        option(value='') Nope
+                        option(value='true') Yep!
               .row
                 .col-sm-12.text-right
                   hr.dotted.white
