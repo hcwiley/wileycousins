@@ -14,16 +14,28 @@ block content
         h2 paid users!
         for user in paid_users
           .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed.bg-blue
-            a(href='#paid-collapse#{user._id}', data-toggle='collapse')
-              h4.red.text-center=user.name.toLowerCase()
-            .col-sm-12.panel-collapse.collapse(id='paid-collapse#{user._id}')
-              include user_form.jade
-            .col-sm-10.col-sm-offset-1
-              hr.white.dotted
-            a(href='#collapsewcclass-prog#{user._id}', data-toggle='collapse')
-              h4.red.text-center programming classes: #{user.prog_classes ? user.prog_classes.length : 0 }
-            a(href='#collapsewcclass-circ#{user._id}', data-toggle='collapse')
-              h4.red.text-center circuit classes: #{user.circ_classes ? user.circ_classes.length : 0}
+            .row
+              a(href='#paid-collapse#{user._id}', data-toggle='collapse')
+                h4.red.text-center=user.name.toLowerCase()
+            .row
+              .col-sm-12.panel-collapse.collapse(id='paid-collapse#{user._id}')
+                include user_form.jade
+            .row
+              .col-sm-10.col-sm-offset-1
+                hr.white.dotted
+            .row
+              .col-sm-12
+                a(href='#collapsewcclass-prog#{user._id}', data-toggle='collapse')
+                  if user.prog_classes 
+                    .row
+                      .col-xs-9
+                        h4.text-left programming classes: #{user.prog_classes.length}
+                      .col-xs-3
+                        p.green.text-right kit: #{user.prog_classes[0].kit}
+            .row
+              .col-sm-12
+                a(href='#collapsewcclass-circ#{user._id}', data-toggle='collapse')
+                  h4.text-left circuit classes: #{user.circ_classes ? user.circ_classes.length : 0}
     .row
       .col-sm-12
         hr.dotted
