@@ -13,10 +13,10 @@ block content
       .col-sm-12
         h2 paid users!
         for user in paid_users
-          .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed.bg-blue
+          .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed
             .row
-              a(href='#paid-collapse#{user._id}', data-toggle='collapse')
-                h4.red.text-center=user.name.toLowerCase()
+              a.white(href='#paid-collapse#{user._id}', data-toggle='collapse')
+                h4.white.text-center=user.name.toLowerCase()
             .row
               .col-sm-12.panel-collapse.collapse(id='paid-collapse#{user._id}')
                 include user_form.jade
@@ -26,7 +26,7 @@ block content
             .row
               .col-sm-12
                 a(href='#collapsewcclass-circ#{user._id}', data-toggle='collapse')
-                  if user.circ_classes 
+                  if user.circ_classes && user.circ_classes.length > 0
                     .row
                       .col-xs-9
                         h4.green.text-left circuit classes: #{user.circ_classes.length}
@@ -35,7 +35,7 @@ block content
             .row
               .col-sm-12
                 a(href='#collapsewcclass-circ#{user._id}', data-toggle='collapse')
-                  h4.text-left programming classes: #{user.prog_classes ? user.prog_classes.length : 0}
+                  h4.text-left.blue programming classes: #{user.prog_classes ? user.prog_classes.length : 0}
     .row
       .col-sm-12
         hr.dotted
@@ -44,8 +44,8 @@ block content
       .col-sm-12
         h2 just signed up....
         for user in signed_up
-          .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed.bg-blue
+          .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed
             a(href='#signup-collapse#{user._id}', data-toggle='collapse')
-              h4.red.text-center=user.name.toLowerCase()
+              h4.white.text-center=user.name.toLowerCase()
             .col-sm-12.panel-collapse.collapse(id='signup-collapse#{user._id}')
               include user_form
