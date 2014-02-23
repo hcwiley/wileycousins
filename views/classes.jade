@@ -55,7 +55,8 @@ block content
                   br
                 p Want to learn how to code? Want to make interactive installations? Already slinging for loops around, but need refinement or help with a new project? Take this class! It will be taught in <a href="http://processing.org" target="_blank">Processing</a>.
                 p This is a 3 month class with a rather open format. If you want to come some times and not others, feel free to. However, the objective is after taking 12 classes you will be profecient at writing code. Meaning that you will be able to <strong>debug your problems, search the web for help, and implement the answers you find in your code</strong>. Once you can do that, the door is wide open for what you can accomplish with code.
-                p.blue.strong The class meets every Thursday from 5:30 - 6:30pm at <a href='http://gopropeller.org/'>Propeller</a>, <a href='https://maps.google.com/maps?q=Propeller+4035+Washington+Ave+New+Orleans+70125' target='_blank')>4035 Washington Ave</a>.
+                p.text-center.blue.strong The class meets every Thursday from 5:30 - 6:30pm at <a href='http://gopropeller.org/'>Propeller</a>, <a href='https://maps.google.com/maps?q=Propeller+4035+Washington+Ave+New+Orleans+70125' target='_blank')>4035 Washington Ave</a>.
+                p.text-center.thin.italic (there are a couple of classes that will meet on Friday due to room conflicts)
                 br
                 h4.strong.text-center Class starts March 6th.
                 br
@@ -83,22 +84,22 @@ block content
         .col-sm-5.col-sm-offset-1.col-xs-offset-2
           h3.white requirements
           .row
-            .col-sm-7(data-toggle="tooltip", data-placement="top", data-original-title="Mac, PC, or Linux", title='')
+            .col-sm-9(data-toggle="tooltip", data-placement="top", data-original-title="Mac, PC, or Linux", title='')
               .col-sm-8.white
                 br
                 p.white.pull-left.inline laptop
-              .col-sm-4
+              .col-sm-4.text-center
                 img.inline.hidden-xs.pull-right(height=60, src='/images/laptop.svg')
                 img.inline.visible-xs.m0auto(height=60, src='/images/laptop.svg')
           .row
             br
           .row
-            .col-sm-7.white(data-toggle="tooltip", data-placement="top", data-original-title="Download and install Processing", title='')
+            .col-sm-9.white(data-toggle="tooltip", data-placement="top", data-original-title="Download and install Processing", title='')
               a.white(href='http://www.processing.org/download/', target='_blank') 
                 .col-sm-8.white
                   br
                   p.white.pull-left.inline Processing
-                .col-sm-4.white
+                .col-sm-4.white.text-center
                   img.hidden-xs.inline.pull-right(height=60, src='/images/download.svg')
                   img.visible-xs.inline.m0auto(height=60, src='/images/download.svg')
       .row
@@ -172,7 +173,7 @@ block content
         .col-sm-5.col-sm-offset-1.col-xs-offset-2
           h3.white requirements
           .row
-            .col-sm-7(data-toggle="tooltip", data-placement="top", data-original-title="Mac, PC, or Linux", title='')
+            .col-sm-8(data-toggle="tooltip", data-placement="top", data-original-title="Mac, PC, or Linux", title='')
               .col-sm-8.white
                 br
                 p.white.pull-left.inline laptop
@@ -182,30 +183,29 @@ block content
           .row
             br
           .row
-            .col-sm-8.white
+            .col-sm-10.white
+              br
+              .row
                 .col-sm-12.white
-                  br
-                  .row
-                    .col-sm-12.white
-                      p.white.pull-left.inline
-                        | Circuits Kit &nbsp;&nbsp;
-                        span.white.italic.tiny (choose one)
-                  a(data-toggle="popover", data-placement="top",data-trigger='hover', data-content="Comes with an Arduino, a multimeter, a breadboard, and wire strippers. If you don't have any of these things, get this. You won't find a better price... We checked. Also has all the components you'll need for this class.")
-                    .row
-                      .col-sm-4.white
-                        p.white
-                          span.white.glyphicon.glyphicon-info-sign
-                          | &nbsp;$#{everything_kit}
-                      .col-sm-8.white
-                        p.white Everything Kit
-                  a(data-toggle="popover", data-placement="top", data-trigger='hover', data-content="Does NOT come with an Arduino with USB, a multimeter, a breadboard, and wire strippers. You WILL need all these things, so please bring them, buy them yourself, or get the Everything Kit. This only has the components you need for this class.")
-                    .row
-                      .col-sm-4.white
-                        p.white
-                          span.white.glyphicon.glyphicon-info-sign
-                          | &nbsp;$#{components_kit}
-                      .col-sm-8.white
-                        p.white Componets Only Kit
+                  p.white.pull-left.inline
+                    | Circuits Kit &nbsp;&nbsp;
+                    span.white.italic.tiny (choose one)
+              a(data-toggle="popover", data-placement="top",data-trigger='hover', data-content="Comes with an Arduino, a multimeter, a breadboard, and wire strippers. If you don't have any of these things, get this. You won't find a better price... We checked. Also has all the components you'll need for this class.")
+                .row
+                  .col-sm-4.white.text-center
+                    p.white
+                      span.white.glyphicon.glyphicon-info-sign
+                      | &nbsp;$#{everything_kit}
+                  .col-sm-8.white
+                    p.white Everything Kit
+              a(data-toggle="popover", data-placement="top", data-trigger='hover', data-content="Does NOT come with an Arduino with USB, a multimeter, a breadboard, and wire strippers. You WILL need all these things, so please bring them, buy them yourself, or get the Everything Kit. This only has the components you need for this class.")
+                .row
+                  .col-sm-4.white.text-center
+                    p.white
+                      span.white.glyphicon.glyphicon-info-sign
+                      | &nbsp;$#{components_kit}
+                  .col-sm-8.white
+                    p.white Componets Only Kit
       .row
         .col-sm-12
           br
