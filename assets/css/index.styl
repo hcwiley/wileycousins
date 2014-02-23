@@ -72,6 +72,13 @@ p
   @media (-webkit-max-device-pixel-ratio: 1.9)
     font-weight 400
 
+.text-center
+  *
+    text-align center
+.text-left
+  *
+    text-align left
+
 .gray
   color $mainColor
   border-color $mainColor
@@ -468,24 +475,31 @@ $partner-height = 150px;
   width 32px
   height 32px
   float left
-  margin 0px 50px
+  margin 0px
   position relative
-  border-radius 5px
+  border-radius 2px
   img
-    transition all .3s
+    transition all .5s
     position absolute
     top 0px
     left 0px
     width 32px
     height 32px
     opacity 0
+#social-media
+  width 120px
+  position relative
+  margin 0 auto
+
 #facebook
   background-image url('/images/facebook-black.png')
+  float right
 #twitter:hover, #facebook:hover
   background $mainColor
-  //opacity .7
   img
     opacity 1
+#facebook:hover
+  background none
 
 .user-order
   background $mainColor
