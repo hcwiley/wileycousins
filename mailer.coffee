@@ -59,7 +59,6 @@ exports.newPurchase = (user) ->
 # send us an email if we got an error emailing them
 exports.sendEmailError = (error, req) ->
   mailOptions.to = "HALP <cole@wileycousins.com>"
-  console.log req
   mailOptions.html = errorTemplate
       url: config.url
       error: error
