@@ -63,7 +63,7 @@ module.exports = (app) ->
       amt = parseFloat "#{amt}0"
 
     if amount != amt || amount < 5
-      return res.send "<h3 class='white'>your total is'nt adding up right. Try submitting again?</h3>"
+      return res.render "error.jade", is_html: true, error:  "<h3 class='white'>your total is'nt adding up right. Try submitting again?</h3>"
     stripeToken = req.body.stripeToken
 
 
@@ -78,7 +78,8 @@ module.exports = (app) ->
     ).exec (err, user) ->
       if err
         console.log err
-        return res.send "<h3 class='white'>error finding user in db, sorry</h3>"
+        mailer.sendEmailError err, req
+        return res.render "error.jade", is_html: true, error:  "<h3 class='white'>error finding user in db, sorry</h3>"
       if !user
         user = new Users
           name: name
@@ -93,24 +94,27 @@ module.exports = (app) ->
       stripe.charges.create charge, (err, charge) ->
         if err
           console.log err
-          return res.send "<h3>error creating your purchase record, sorry. try again.</h3><p>if you have problems email <a href='mailto:dev@wileycousins.com'>dev@wileycousins.com</a> and complain</p>"
+          mailer.sendEmailError err, req
+          return res.render "error.jade", is_html: true, error:  "<h3>error creating your purchase record, sorry. try again.</h3><p>if you have problems email <a href='mailto:dev@wileycousins.com'>dev@wileycousins.com</a> and complain</p>"
         else
           kit = kit || 0
           i = parseInt classes
           addClass = (wcclass, user, i, next) ->
             wcclass.save (err, wcclass) ->
               user.purchased_wcclasses.addToSet wcclass
-              user.save()
+              user.save (err, user) ->
+                if i <= 0
+                  mailer.newPurchase user
               next err, i
           while i-- > 0
             wcclass = new WCClass(buyer: user, kit: kit, name: class_name, has_paid: true)
             addClass wcclass, user, i, (err, count) ->
               if err
                 console.log err
-                return res.send "<h3 class='white'>error saving purchase record in db, sorry. email dev@wileycousins.com and complain</h3>"
+                mailer.sendEmailError err, req
+                return res.render "error.jade", is_html: true, error:  "<h3 class='white'>error saving purchase record in db, sorry. email dev@wileycousins.com and complain</h3>"
               if count <= 0
-                mailer.newPurchase user
-                return res.render 'purchase', user:user
+                return res.redirect '/purchase'
 
   app.get "/my-classes", (req, res) ->
     if !req.query.email
@@ -141,6 +145,9 @@ module.exports = (app) ->
   app.all "/login", isAdmin, (req, res) ->
     return res.redirect('/orders')
 
+  app.all "/email-error", isAdmin, (req, res) ->
+    return res.render 'emailTemplates/error.jade', error: null, req: req
+
   app.get "/orders", isAdmin, (req, res) ->
     Users.find().populate('purchased_wcclasses').exec (err, users) ->
       if err
@@ -167,11 +174,8 @@ module.exports = (app) ->
           signed_up.push user
       return res.render "orders.jade", paid_users: paid_users, signed_up:signed_up
 
-  app.get "/purchase", isAdmin, (req, res) ->
-    WCClass.find().exec (err, wcclasses) ->
-      if err
-        console.log err
-      return res.render 'purchase', num: wcclasses.length
+  app.get "/purchase", (req, res) ->
+    return res.render 'purchase'
 
   app.get "/confirmation", isAdmin, (req, res) ->
     Users.findOne().exec (err, user) ->

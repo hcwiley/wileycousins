@@ -1,18 +1,26 @@
 extends layout
 
 block content
+  if is_html
+    .row
+      .col-sm-12
+        br
+      .col-sm-8.col-sm-offset-2.bg-white.text-center
+        != error
+  else
+    .row
+      .col-sm-12
+        br
+      .col-sm-12
+        h4.text-center so, we messed up....
+      .col-sm-12
+        br
+        hr.dotted
+        br
+      if error
+        p=error
   .row
-    br
-    br
-    br
-    br
-    br
-    br
-    .col-sm-12
-      h1.text-center so, we messed up....
-    .col-sm-12
+    .col-sm-10.col-sm-offset-2
       br
-      hr.dotted
       br
-    if error
-      p=error
+      br
