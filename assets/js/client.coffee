@@ -29,6 +29,10 @@ stripeResHandler = (status, res) ->
     form.find("button").prop "disabled", false
   else
     form.append("<input type='hidden' name='stripeToken' value='#{res.id}'/>")
+    $("input[name='cc-number']").attr 'type', 'password'
+    $("input[name='cc-cvc']").attr 'type', 'password'
+    $("input[name='cc-exp-month']").attr 'type', 'password'
+    $("input[name='cc-exp-year']").attr 'type', 'password'
     $("input[name='cc-number']").val $("input[name='cc-number']").val().replace /\d/g, '#'
     $("input[name='cc-cvc']").val $("input[name='cc-cvc']").val().replace /\d/g, '#'
     $("input[name='cc-exp-month']").val $("input[name='cc-exp-month']").val().replace /\d/g, '#'

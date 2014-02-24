@@ -17,6 +17,8 @@ block content
             .row
               a.white(href='#paid-collapse#{user._id}', data-toggle='collapse')
                 h4.white.text-center=user.name.toLowerCase()
+                if user.is_small_business
+                  p.white.italic (they're a small business owner!)
             .row
               .col-sm-12.panel-collapse.collapse(id='paid-collapse#{user._id}')
                 include user_form.jade
