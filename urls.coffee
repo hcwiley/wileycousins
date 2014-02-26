@@ -98,22 +98,26 @@ module.exports = (app) ->
           return res.render "error.jade", is_html: true, error:  "<h3>error creating your purchase record, sorry. try again.</h3><p>if you have problems email <a href='mailto:dev@wileycousins.com'>dev@wileycousins.com</a> and complain</p>"
         else
           kit = kit || 0
-          i = parseInt classes
-          addClass = (wcclass, user, i, next) ->
-            wcclass.save (err, wcclass) ->
-              user.purchased_wcclasses.addToSet wcclass
-              user.save (err, user) ->
-                if i <= 0
-                  mailer.newPurchase user
-              next err, i
-          while i-- > 0
+          addClass = (next) ->
             wcclass = new WCClass(buyer: user, kit: kit, name: class_name, has_paid: true)
-            addClass wcclass, user, i, (err, count) ->
+            wcclass.save (err, wcclass) ->
+              next err, wcclass
+          wcclasses = []
+          count = i = parseInt classes
+          while i-- > 0
+            addClass (err, wcclass) ->
               if err
                 console.log err
                 mailer.sendEmailError err, req
-                return res.render "error.jade", is_html: true, error:  "<h3 class='white'>error saving purchase record in db, sorry. email dev@wileycousins.com and complain</h3>"
-              if count <= 0
+                return res.render "error.jade", is_html: true, error:  "<h3 class='white'>your card has been charged, but we had an error saving purchase record in db, sorry. email dev@wileycousins.com and complain</h3>"
+              wcclasses.push wcclass
+              console.log count
+              if --count <= 0
+                console.log "done"
+                for c in wcclasses
+                  user.purchased_wcclasses.addToSet c
+                user.save (err, user) ->
+                  mailer.newPurchase user
                 return res.redirect '/purchase'
 
   app.get "/my-classes", (req, res) ->

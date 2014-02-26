@@ -8,7 +8,7 @@ WCClass = new Schema
     default: "Processing"
   image:
     type: String
-    default: "#{config.url}/images/p5.png"
+    default: "#{config.url}/images/classes-ad-image.png"
   purchase_date:
     type: Date
     default: (new Date()).toJSON()
