@@ -99,4 +99,6 @@ $(window).ready ->
   bindEnrollmentForm()
   $("[data-toggle='tooltip']").tooltip()
   $("[data-toggle='popover']").popover()
+  if window.location.hash == '#enroll-circuits'
+    $('[data-class="intro-circuits"]').trigger 'click'
 
