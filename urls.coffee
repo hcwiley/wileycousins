@@ -111,13 +111,11 @@ module.exports = (app) ->
                 mailer.sendEmailError err, req
                 return res.render "error.jade", is_html: true, error:  "<h3 class='white'>your card has been charged, but we had an error saving purchase record in db, sorry. email dev@wileycousins.com and complain</h3>"
               wcclasses.push wcclass
-              console.log count
               if --count <= 0
-                console.log "done"
                 for c in wcclasses
                   user.purchased_wcclasses.addToSet c
                 user.save (err, user) ->
-                  mailer.newPurchase user
+                  mailer.newPurchase user, wcclass
                 return res.redirect '/purchase'
 
   app.get "/my-classes", (req, res) ->
@@ -182,17 +180,15 @@ module.exports = (app) ->
     return res.render 'purchase'
 
   app.get "/confirmation", isAdmin, (req, res) ->
-    Users.findOne().exec (err, user) ->
-      if err
-        console.log err
-      WCClass.find().exec (err, wcclasses) ->
+    Users.findOne( email: 'hcwiley@gmail.com' )
+      .populate('purchased_wcclasses')
+      .exec (err, user) ->
         if err
           console.log err
         return res.render 'emailTemplates/confirmation',
           user: user
-          num: wcclasses.length
-          wcclass: wcclasses[wcclasses.length - 1]
-          url: 'http://127.0.0.1:3000'
+          wcclass: user.purchased_wcclasses[0]
+          url: config.url
 
   app.get "/confirmation/:user", isAdmin, (req, res) ->
     res.redirect '/orders'
