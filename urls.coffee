@@ -166,6 +166,8 @@ module.exports = (app) ->
         for c in user.purchased_wcclasses
           if c.has_paid
             has_paid = true
+            if c.been_used
+              continue
             if c.name == 'intro-circuits'
               user['circ_classes'].push c
             else
@@ -206,6 +208,33 @@ module.exports = (app) ->
           num = "0#{num.toString()}"
         mailer.confirmation user, num
         return res.render 'emailTemplates/confirmation', user: user, num:num, url: config.url
+
+  app.post "/classes/:id", isAdmin, (req, res) ->
+    WCClass.findById(req.params.id).exec (err, wcclass) ->
+      if err
+        console.log err
+        return res.send err, 500
+      if !wcclass
+        console.log "no class"
+        return res.send "no class", 500
+      if req.body.action == 'delete'
+        Users.findById(wcclass.buyer).exec (err, user) ->
+          if err
+            console.log err
+            return res.send err, 500
+          if !user
+            console.log 'no user'
+            return res.send 'no user', 500
+          user.purchased_wcclasses.remove wcclass
+          wcclass.remove()
+          user.save (err, user) ->
+            return res.send 'gone'
+      else if req.body.action == 'used'
+        wcclass.been_used = true
+        wcclass.used_date = (new Date())
+        wcclass.save (err, wcclass) ->
+          return res.json wcclass
+
 
   app.post "/update/:user", isAdmin, (req, res) ->
     console.log "updating"

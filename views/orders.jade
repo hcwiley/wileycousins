@@ -1,55 +1,63 @@
 extends basic
 
 block content
-    .row
+  .row
+    br
+    h1 orders
+    br
+  .row
+    .col-sm-12
+      hr.dotted
       br
-      h1 orders
-      br
-    .row
-      .col-sm-12
-        hr.dotted
-        br
-    .row
-      .col-sm-12
-        h2 paid users!
-        for user in paid_users
-          .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed
-            .row
-              a.white(href='#paid-collapse#{user._id}', data-toggle='collapse')
-                h4.white.text-center=user.name.toLowerCase()
-                if user.is_small_business
-                  p.white.italic (they're a small business owner!)
-            .row
-              .col-sm-12.panel-collapse.collapse(id='paid-collapse#{user._id}')
-                include user_form.jade
-            .row
-              .col-sm-10.col-sm-offset-1
-                hr.white.dotted
-            .row
-              .col-sm-12
-                a(href='#collapsewcclass-circ#{user._id}', data-toggle='collapse')
-                  if user.circ_classes && user.circ_classes.length > 0
-                    .row
-                      .col-xs-9
-                        h4.green.text-left circuit classes: #{user.circ_classes.length}
-                      .col-xs-3
-                        p.green kit: #{user.circ_classes[0].kit}
-            .row
-              .col-sm-12
-                a(href='#collapsewcclass-circ#{user._id}', data-toggle='collapse')
-                  h4.text-left.blue programming classes: #{user.prog_classes ? user.prog_classes.length : 0}
-            .col-sm-12
-              br
-    .row
-      .col-sm-12
-        hr.dotted
-        br
-    .row
-      .col-sm-12
-        h2 just signed up....
-        for user in signed_up
-          .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed
-            a(href='#signup-collapse#{user._id}', data-toggle='collapse')
+  .row
+    .col-sm-12
+      h2 paid users!
+      for user in paid_users
+        .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed
+          .row
+            a.white(href='#paid-collapse#{user._id}', data-toggle='collapse')
               h4.white.text-center=user.name.toLowerCase()
-            .col-sm-12.panel-collapse.collapse(id='signup-collapse#{user._id}')
-              include user_form
+              if user.is_small_business
+                p.white.italic (they're a small business owner!)
+          .row
+            .col-sm-12.panel-collapse.collapse(id='paid-collapse#{user._id}')
+              include user_form.jade
+          .row
+            .col-sm-10.col-sm-offset-1
+              hr.white.dotted
+          .row
+            .col-sm-12.circ-classes.classes(data-classes='#{JSON.stringify(user.circ_classes)}')
+              if user.circ_classes && user.circ_classes.length > 0
+                .row
+                  .col-xs-9
+                    h4.green.text-left circuit classes: <span class='num'>#{user.circ_classes.length}</span>
+                  .col-xs-3
+                    p.green kit: #{user.circ_classes[0].kit}
+                .col-sm-4
+                  a.mark-used mark 1 used
+                .col-sm-4.pull-right
+                  a.delete-class delete 1
+          .row
+            .col-sm-12.prog-classes.classes(data-classes='#{JSON.stringify(user.prog_classes)}')
+              if user.prog_classes && user.prog_classes.length > 0
+                h4.text-left.blue programming classes: <span class='num'>#{user.prog_classes ? user.prog_classes.length : 0}</span>
+                .col-sm-4
+                  a.blue.mark-used mark 1 used
+                .col-sm-4.pull-right
+                  a.blue.delete-class delete 1
+          .col-sm-12
+            br
+  .row
+    .col-sm-12
+      hr.dotted
+      br
+  .row
+    .col-sm-12
+      h2 just signed up....
+      for user in signed_up
+        .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed
+          a(href='#signup-collapse#{user._id}', data-toggle='collapse')
+            h4.white.text-center=user.name.toLowerCase()
+          .col-sm-12.panel-collapse.collapse(id='signup-collapse#{user._id}')
+            include user_form
+  !=js('orders')
