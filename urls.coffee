@@ -104,7 +104,7 @@ module.exports = (app) ->
               next err, wcclass
           wcclasses = []
           count = i = parseInt classes
-          while i-- > 0
+          while --i >= 0
             addClass (err, wcclass) ->
               if err
                 console.log err
@@ -127,12 +127,9 @@ module.exports = (app) ->
       if users.length == 0
         return res.render "getEmail.jade", error:"Didn't find an account for <span class='blue'>#{req.query.email}</span><br>you sure you signed up?<br>If you are having problems email <a href='mailto:dev@wileycousins.com'> wiley cousins</a>"
       user = users[0]
-      WCClass.find( buyer: user, has_paid: true ).exec (err, wcclasses) ->
-        if err
-          return res.render "error.jade", error: err
-        return res.render "my_classes.jade",
-          user:user
-          wcclasses: wcclasses
+      return res.render "my_classes.jade",
+        user:user
+        wcclasses: user.purchased_wcclasses
 
   app.post "/my-classes", (req, res) ->
     return res.redirect("/my-classes?email=#{req.body.email}")
