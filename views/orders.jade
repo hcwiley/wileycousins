@@ -1,49 +1,63 @@
 extends basic
 
 block content
-    .row
+  .row
+    br
+    h1 orders
+    br
+  .row
+    .col-sm-12
+      hr.dotted
       br
-      h1 orders
-      br
-    .row
-      .col-sm-12
-        hr.dotted
-        br
-    .row
-      .col-sm-12
-        for user in users
-          .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed.bg-blue
-            a(href='#collapse#{user._id}', data-toggle='collapse')
-              h4.red.text-center=user.name.toLowerCase()
-            .col-sm-12.panel-collapse.collapse(id='collapse#{user._id}')
-              form(action='/update/#{user._id}/', method='post')
-                .form-group
-                  label name
-                  input.form-control(name='name', value='#{user.name}')
-                .form-group
-                  label email
-                  input.form-control(name='email', value='#{user.email}')
-                .form-group
-                  label phone
-                  input.form-control(name='phone', value='#{user.phone}')
-                .form-group
-                  label address
-                  input.form-control(name='address', value='#{user.address}')
-                .form-group
-                  label city
-                  input.form-control(name='city', value='#{user.city}')
-                .form-group
-                  label state
-                  input.form-control(name='state', value='#{user.state}')
-                button.btn.btn-default Update
+  .row
+    .col-sm-12
+      h2 paid users!
+      for user in paid_users
+        .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed
+          .row
+            a.white(href='#paid-collapse#{user._id}', data-toggle='collapse')
+              h4.white.text-center=user.name.toLowerCase()
+              if user.is_small_business
+                p.white.italic (they're a small business owner!)
+          .row
+            .col-sm-12.panel-collapse.collapse(id='paid-collapse#{user._id}')
+              include user_form.jade
+          .row
             .col-sm-10.col-sm-offset-1
               hr.white.dotted
-            a(href='#collapsewcclass#{user._id}', data-toggle='collapse')
-              h4.red.text-center 12 classes: #{user.purchased_wcclasses.length}
-            .col-sm-12.panel-collapse.collapse(id='collapsewcclass#{user._id}')
-              for wcclass in user.purchased_wcclasses
-                p date: #{wcclass.purchase_date.toDateString()}
-                form(action='/confirmation/#{user._id}/', method='post')
-                  input.form-control(name='wcclass', value='#{wcclass.purchase_date.toJSON()}', type='hidden')
-                  input.form-control(name='valid', value='yep', type='hidden')
-                  button.btn.btn-default Resend confirmation
+          .row
+            .col-sm-12.circ-classes.classes(data-classes='#{JSON.stringify(user.circ_classes)}')
+              if user.circ_classes && user.circ_classes.length > 0
+                .row
+                  .col-xs-9
+                    h4.green.text-left circuit classes: <span class='num'>#{user.circ_classes.length}</span>
+                  .col-xs-3
+                    p.green kit: #{user.circ_classes[0].kit}
+                .col-sm-4
+                  a.mark-used mark 1 used
+                .col-sm-4.pull-right
+                  a.delete-class delete 1
+          .row
+            .col-sm-12.prog-classes.classes(data-classes='#{JSON.stringify(user.prog_classes)}')
+              if user.prog_classes && user.prog_classes.length > 0
+                h4.text-left.blue programming classes: <span class='num'>#{user.prog_classes ? user.prog_classes.length : 0}</span>
+                .col-sm-4
+                  a.blue.mark-used mark 1 used
+                .col-sm-4.pull-right
+                  a.blue.delete-class delete 1
+          .col-sm-12
+            br
+  .row
+    .col-sm-12
+      hr.dotted
+      br
+  .row
+    .col-sm-12
+      h2 just signed up....
+      for user in signed_up
+        .col-sm-4.col-sm-offset-1.user-order.radius10.collapsed
+          a(href='#signup-collapse#{user._id}', data-toggle='collapse')
+            h4.white.text-center=user.name.toLowerCase()
+          .col-sm-12.panel-collapse.collapse(id='signup-collapse#{user._id}')
+            include user_form
+  !=js('orders')

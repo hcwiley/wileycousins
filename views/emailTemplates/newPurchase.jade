@@ -1,7 +1,8 @@
 div
   h1 good news everyone!
-  p #{user.name} <#{user.email}> just enrolled in a #{wcclasses[0].name} class.
-  if wcclasses.length > 1
-    h4 actually they enrolled in #{wcclasses.length}
+  p #{user.name} <#{user.email}> just enrolled in a #{wcclass.name} class.
+  if user.is_small_business
+    h5 they own a small business
+  h4 actually they enrolled in #{wcclasses.length}
   a(href='#{url}/orders')
     view receipt

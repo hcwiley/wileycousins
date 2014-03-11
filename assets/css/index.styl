@@ -1,5 +1,5 @@
-@import url("//fonts.googleapis.com/css?family=Roboto:400,500, 900")
-@import url("//fonts.googleapis.com/css?family=Ubuntu:400,500")
+@import url("//fonts.googleapis.com/css?family=Roboto:200,400,600,900")
+@import url("//fonts.googleapis.com/css?family=Ubuntu:400,900")
 @import url("./bootstrap.css")
 
 $mainColor = #2A3F42
@@ -14,6 +14,7 @@ reset-html5()
   text-decoration none
   font-family "Roboto", "Helvetica", sans-serif
   text-align center
+  transition color .4s
 
 html, body
   width 100%
@@ -27,10 +28,7 @@ a
 a:hover
   text-decoration none
   cursor pointer
-  h4
-    color $whiteColor
-  p
-    color $whiteColor
+  color $whiteColor
   *:not(h1):not(h2)
     color $whiteColor
 
@@ -44,13 +42,11 @@ h2
   font-variant small-caps
   font-size 60px
   font-weight 400
+  @media (-webkit-max-device-pixel-ratio: 1.9)
+    font-weight 600
 
 .strong, strong
   font-weight 900
-@media (-webkit-max-device-pixel-ratio: 1.9)
-  .strong, strong
-    color $lightBlueColor
-
 
 hr
   color $mainColor
@@ -68,9 +64,20 @@ a, p
   font-family 'Roboto', sans-serif
   text-align left
   font-weight 400
+  @media (-webkit-max-device-pixel-ratio: 1.9)
+    font-weight 600
 p
   color $mainColor
-  font-weight 100
+  font-weight 200
+  @media (-webkit-max-device-pixel-ratio: 1.9)
+    font-weight 400
+
+.text-center
+  *
+    text-align center
+.text-left
+  *
+    text-align left
 
 .gray
   color $mainColor
@@ -78,13 +85,15 @@ p
 .blue
   color $lightBlueColor
   border-color $lightBlueColor
+.blue-hover:hover
+  color $lightBlueColor!important
 .green
   color $greenColor
   border-color $greenColor
 .white
   color $whiteColor
   border-color $whiteColor
-  > *
+  > span
     color $whiteColor
 .popover-content
   color $mainColor
@@ -103,7 +112,7 @@ p
   padding 40px 0px
 
 .thin
-  font-weight 100
+  font-weight 200
 
 .heavy
   font-weight 900
@@ -348,7 +357,7 @@ p
     li
       text-align left
       list-style url('/images/li.svg')
-      font-weight 100
+      font-weight 200
 
     
 @media only screen and (max-width: 768px)
@@ -370,7 +379,9 @@ p
   margin 0px auto
   padding 50px 0px 100px 0px
   h3
-    font-weight 500
+    font-weight 400
+    @media (-webkit-max-device-pixel-ratio: 1.9)
+      font-weight 600
   .body
     line-height 25px
   .gents-img
@@ -456,3 +467,41 @@ $partner-height = 150px;
   img
     vertical-align middle
     max-height 80%
+
+#twitter, #facebook
+  background-image url('/images/twitter-black.png')
+  background-repeat no-repeat
+  background-size 100% 100%
+  width 32px
+  height 32px
+  float left
+  margin 0px
+  position relative
+  border-radius 2px
+  img
+    transition all .5s
+    position absolute
+    top 0px
+    left 0px
+    width 32px
+    height 32px
+    opacity 0
+#social-media
+  width 120px
+  position relative
+  margin 0 auto
+
+#facebook
+  background-image url('/images/facebook-black.png')
+  float right
+#twitter:hover, #facebook:hover
+  background $mainColor
+  img
+    opacity 1
+#facebook:hover
+  background none
+
+.user-order
+  background $mainColor
+  color $whiteColor
+  margin-bottom 20px

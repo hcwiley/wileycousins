@@ -1,10 +1,19 @@
 div
   h1 shit!
-  p we got an error sending an email to: #{user.name} <#{user.email}> 
   p error message:
   p=error
-  p response message:
-  p=res
+  p request:
+  for msg,i in req
+    if msg && msg.toString().indexOf("function") != 0
+      h4=i
+      if typeof(msg) == 'object'
+        if val && val.toString().indexOf("function") != 0
+          for val, key in msg
+            ul
+              h6=key
+              li=val
+      else
+        p=msg
   br
   br
   a(href='#{url}/orders')

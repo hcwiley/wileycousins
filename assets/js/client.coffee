@@ -29,9 +29,17 @@ stripeResHandler = (status, res) ->
     form.find("button").prop "disabled", false
   else
     form.append("<input type='hidden' name='stripeToken' value='#{res.id}'/>")
-    #form.get(0).submit()
-    $.post form.attr('action'), form.serialize(), (res) ->
-      form.html(res)
+    $("input[name='cc-number']").attr 'type', 'password'
+    $("input[name='cc-cvc']").attr 'type', 'password'
+    $("input[name='cc-exp-month']").attr 'type', 'password'
+    $("input[name='cc-exp-year']").attr 'type', 'password'
+    $("input[name='cc-number']").val $("input[name='cc-number']").val().replace /\d/g, '#'
+    $("input[name='cc-cvc']").val $("input[name='cc-cvc']").val().replace /\d/g, '#'
+    $("input[name='cc-exp-month']").val $("input[name='cc-exp-month']").val().replace /\d/g, '#'
+    $("input[name='cc-exp-year']").val $("input[name='cc-exp-year']").val().replace /\d/g, '#'
+    form.get(0).submit()
+    #$.post form.attr('action'), form.serialize(), (res) ->
+      #form.html(res)
 
 bindEnrollmentForm = ->
   $("a[href='#enroll']").click ->
@@ -52,6 +60,7 @@ bindEnrollmentForm = ->
     else if val is "intro-programming"
       $("#enroll").removeClass('bg-gray').addClass 'bg-blue'
       $("#circuits-kit").parents(".form-group").addClass 'hidden'
+    $("#class-title").text $("option[value='#{val}']").text()
     $("#num-classes").trigger 'change'
 
   $("#num-classes").change ->
@@ -60,11 +69,11 @@ bindEnrollmentForm = ->
     if $("#class").val() == "intro-circuits"
       amt = parseInt $("#circuits-kit").val()
     if val is "1"
-      amt = 7
+      amt = 10
     else if val is "4"
-      amt = 20
+      amt = 40
     else if val is "12"
-      amt = 50
+      amt = 100
     if $("#class").val() == 'intro-circuits'
       amt *= 2
       amt += parseInt $("#circuits-kit").val()
@@ -83,10 +92,13 @@ bindEnrollmentForm = ->
     form.find("button").prop "disabled", true
     Stripe.card.createToken form, stripeResHandler
     false
+  $("#num-classes").trigger 'change'
 
 $(window).ready ->
   bindScroll()
   bindEnrollmentForm()
   $("[data-toggle='tooltip']").tooltip()
   $("[data-toggle='popover']").popover()
+  if window.location.hash == '#enroll-circuits'
+    $('[data-class="intro-circuits"]').trigger 'click'
 
