@@ -174,7 +174,10 @@ module.exports = (app) ->
                 else
                   user['circ_classes'].push c
             else
-              user['prog_classes'].push c
+              if c.been_used
+                user['used_prog_classes'].push c
+              else
+                user['prog_classes'].push c
         if has_paid
           paid_users.push user
         else
@@ -233,9 +236,11 @@ module.exports = (app) ->
           user.save (err, user) ->
             return res.send 'gone'
       else if req.body.action == 'used'
+        console.log wcclass
         wcclass.been_used = true
         wcclass.used_date = (new Date())
         wcclass.save (err, wcclass) ->
+          console.log wcclass
           return res.json wcclass
 
 
