@@ -160,13 +160,19 @@ module.exports = (app) ->
         has_paid = false
         user['prog_classes'] = []
         user['circ_classes'] = []
+        user['used_prog_classes'] = []
+        user['used_circ_classes'] = []
         for c in user.purchased_wcclasses
           if c.has_paid
             has_paid = true
-            if c.been_used
-              continue
             if c.name == 'intro-circuits'
-              user['circ_classes'].push c
+              if c.been_used
+                user['used_circ_classes'].push c
+              else
+                if c.been_used
+                  user['used_circ_classes'].push c
+                else
+                  user['circ_classes'].push c
             else
               user['prog_classes'].push c
         if has_paid
