@@ -20,7 +20,7 @@
     "nodemailer"            :" *",
     "stylus"                : "*",
     "stripe"                : "*",
-    "forever"               : "*",
+    "pm2"                   : "*",
     "supervisor"            : "*"
   }
 }

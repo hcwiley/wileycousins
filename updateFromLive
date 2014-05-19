@@ -1,11 +1,9 @@
 #!/bin/bash
-github pull
+git pull
 cp -rf ~/github/wileycousins/* ~/webapps/wileycousins/
 cp -rf ~/github/wileycousins/public/images/* ~/webapps/wileycousins_static/
 cd ~/webapps/wileycousins/
 npm install
-rm ~/.forever/wileycousins.log
 source .env
-forever stop $PWD/app.coffee
-forever -l ./wileycousins.log start -c coffee $PWD/app.coffee
+pm2 reload wileycousins
 #./bin/start
