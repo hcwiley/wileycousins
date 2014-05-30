@@ -236,11 +236,9 @@ module.exports = (app) ->
           user.save (err, user) ->
             return res.send 'gone'
       else if req.body.action == 'used'
-        console.log wcclass
         wcclass.been_used = true
         wcclass.used_date = (new Date())
         wcclass.save (err, wcclass) ->
-          console.log wcclass
           return res.json wcclass
 
 
