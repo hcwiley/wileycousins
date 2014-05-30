@@ -1,6 +1,6 @@
 #!/bin/bash
 git push
-ssh hcwiley.com << EOF
-  cd /home/hcwiley/git/wileycousins
+ssh wileycousins.webfactional.com << EOF
+  cd ~/github/wileycousins
   ./updateFromLive
 EOF
