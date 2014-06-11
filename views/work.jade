@@ -45,11 +45,13 @@ block content
             a
               br
               img.img-thumbnail(src='/images/clockblock-4.jpg', title='clockblock pcb layout')
-        .row
+      .row
+        .col-sm-12
           .col-sm-6.col-sm-offset-3
             br
             hr.white.dotted
             br
+      .row
         .col-sm-12
           h3.green flamejets
           p.white A mechatronics project that <a href='/#michael' target='_blank' class='blue'>Michael Cousins</a> built with Chris Yarka. This box shoots four propane powered flames into the air. A PIC32 microcontroller varies the heights.
@@ -66,13 +68,17 @@ block content
             a
               img.img-thumbnail(src='/images/flame-pcb3.jpg', title='flame jet pcb')
           .col-sm-3
+            .visible-xs
+              br
             a
               img.img-thumbnail(src='/images/flame-layout.png', title='flame jet pcb layout')
-        .row
+      .row
+        .col-sm-12
           .col-sm-6.col-sm-offset-3
             br
             hr.white.dotted
             br
+      .row
         .col-sm-12
           h3.green rgb lighting module
           p.white A daisy-chainable lighting module to brighten up your existence (and/or living space). The modules communicate over RS232 and recieve power over standard CAT5 cables. They have microcontrollers for full color lighting effects. Check it out on <a href='https://github.com/mcous/rgb' target='_blank' class='blue'>Github</a>.
@@ -92,12 +98,12 @@ block content
             br
             a
               img.img-thumbnail(src='/images/rgb-4.jpg', title='rgb module pcb front')
-    .row
-      .col-sm-12
-        br
-        br
-        br
-  #cad.row
+      .row
+        .col-sm-12
+          br
+          br
+          br
+  #cad
     br
     .container
       h2.blue.text-center <span class='blue' style='font-size:40px'>3</span>d modeling
@@ -139,11 +145,10 @@ block content
           .col-sm-12
             a
               img.img-thumbnail(src='/images/buildings.jpg', title='building bridges out of buildings')
-  .row
-    .col-sm-12
-      br
-      br
-      br
+  .col-sm-12
+    br
+    br
+    br
   #software
     .container
       .row
@@ -166,11 +171,13 @@ block content
               a(href="http://vimeo.com/user11694631") Kinobi
               | &nbsp; on &nbsp;
               a(href="https://vimeo.com") Vimeo
-        .row
+      .row
+        .col-sm-12
           .col-sm-6.col-sm-offset-3
             br
             hr.white.dotted
             br
+      .row
         .col-sm-12
           h3.green riverless walk
           p.white "riverless walk" is an installation that bridges the gap of presenting three dimensional objects on a two dimensional surface. <a href='/#cole' target='_blank'>Cole Wiley</a> wrote custom software (writen in a mixture of Java and Arduino using OpenNI for working with the Kinect) that tracks bodies, and communicates with an Arduino to control a motor. The motor rotates a custom designed platform so that the projector and kinect follow the user around the room. The screen encompasses a half circle with a 16ft radius, making it a 50ft long screen.
@@ -187,11 +194,13 @@ block content
             a
               img.img-thumbnail(src='/images/projector_rig.jpg', title='riverless walk: projector rig')
             br
-        .row
+      .row
+        .col-sm-12
           .col-sm-6.col-sm-offset-3
             br
             hr.white.dotted
             br
+      .row
         .col-sm-12
           h3.green a community gallery
           p.white A Community Gallery is both a website and a site specific installation. The website is running on Django (Python), and the installation is running a combination of Java, Node.js, and OpenNI. The installation has been majorly refactored, as it was initially written in C++ in VisualStudios.
